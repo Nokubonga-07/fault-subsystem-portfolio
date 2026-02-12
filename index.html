@@ -187,7 +187,7 @@
       margin-top: 3rem;
     }
 
-    /* ----- FEATURE CARD WITH FADING IMAGE ----- */
+    /* ----- FEATURE CARD WITH LOCAL IMAGES ----- */
     .card {
       background: white;
       border-radius: 16px;
@@ -205,7 +205,7 @@
       box-shadow: 0 16px 35px rgba(37,99,235,0.12);
     }
 
-    /* Background image that fades in on hover */
+    /* Background image that fades in on hover - LOCAL FOLDER */
     .card-image {
       position: absolute;
       top: 0;
@@ -220,7 +220,7 @@
     }
 
     .card:hover .card-image {
-      opacity: 0.2;          /* subtle fade – professional & playful */
+      opacity: 0.25;          /* subtle fade – shows your actual images */
     }
 
     /* ensure text + icon appear above image */
@@ -231,7 +231,7 @@
 
     /* optional slight background for readability */
     .card h3, .card p {
-      background: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.8);
       backdrop-filter: blur(2px);
       display: inline;
       padding: 0.1rem 0.3rem;
@@ -239,7 +239,7 @@
       border-radius: 6px;
     }
     .card p {
-      background: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.7);
     }
 
     .card-icon {
@@ -285,13 +285,27 @@
       }
     }
 
-    /* small tweaks */
+    /* badges and helpers */
     .badge-pill {
       background: #e0f2fe;
       padding: 0.4rem 1rem;
       border-radius: 20px;
       font-size: 0.85rem;
       font-weight: 600;
+    }
+
+    /* instruction note for user */
+    .image-note {
+      background: #fef9c3;
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    .image-note i {
+      color: var(--primary);
+      margin-right: 0.5rem;
     }
   </style>
 </head>
@@ -319,6 +333,7 @@
         <!-- Left side - Profile & Contact -->
         <div class="profile-card">
          
+          <!-- YOUR PROFILE PHOTO - from images folder -->
           <img src="images/Profile photo.jpg" alt="Nokubonga Mpanza" class="profile-photo" 
                onerror="this.src='https://via.placeholder.com/180?text=Your+Photo';" />
 
@@ -391,22 +406,22 @@
             </div>
           </div>
 
-          <!-- Placeholders for screenshots / demo -->
+          <!-- Placeholders for screenshots / demo - USE YOUR IMAGES HERE TOO -->
           <div style="margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-            <!-- Screenshot placeholder -->
+            <!-- Technician Dashboard - replace with your actual image -->
             <div class="card" style="text-align: center; padding: 1.5rem;">
-              <div style="height: 140px; background: #f1f5f9; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-                <!-- Replace this div with your image -->
-                <p style="color: var(--gray);">Add screenshot here<br><small>dashboard.png</small></p>
+              <div style="height: 140px; background: #f1f5f9; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; overflow: hidden;">
+                <!-- 👇 REPLACE WITH YOUR ACTUAL DASHBOARD SCREENSHOT -->
+                <img src="images/dashboard.png" alt="Technician Dashboard" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<p style=color:var(--gray);>Add screenshot here<br><small>dashboard.png</small></p>';">
               </div>
               <strong>Technician Dashboard</strong>
             </div>
 
-            <!-- Video / GIF placeholder -->
+            <!-- Workflow Demo - replace with your actual GIF/video -->
             <div class="card" style="text-align: center; padding: 1.5rem;">
-              <div style="height: 140px; background: #f1f5f9; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-                <!-- Replace with <video> or <img> for GIF -->
-                <p style="color: var(--gray);">Add demo GIF / video here</p>
+              <div style="height: 140px; background: #f1f5f9; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; overflow: hidden;">
+                <!-- 👇 REPLACE WITH YOUR ACTUAL DEMO GIF -->
+                <img src="images/workflow-demo.gif" alt="Workflow Demo" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<p style=color:var(--gray);>Add demo GIF / video here</p>';">
               </div>
               <strong>Workflow Demo</strong>
             </div>
@@ -448,85 +463,113 @@
     </div>
   </section>
 
-  <!-- FEATURES — 10 KEY FEATURES + FADING IMAGES -->
+  <!-- FEATURES — 10 KEY FEATURES + YOUR LOCAL IMAGES -->
   <section id="features" class="section">
     <div class="container">
       <div class="section-header">
         <span class="section-subtitle">Core Features</span>
         <h2>10 Key Features I Built</h2>
-        <p style="margin-top: 0.5rem; color: var(--gray);">✨ Hover over any card to see a preview image fade in</p>
+        <!-- Helpful note showing where to place images -->
+        <div class="image-note">
+          <i class="fas fa-images"></i> <strong>Your images are ready:</strong> Each card below is linked to your <code>images/</code> folder. 
+          Replace the example filenames (e.g., <code>fault-reporting.jpg</code>) with your actual image filenames.
+        </div>
       </div>
 
       <div class="card-grid">
         <!-- 1. Fault Reporting -->
         <div class="card">
-          <img class="card-image" src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=400&q=80&auto=format&fit=crop" alt="Fault reporting">
+          <!-- 👇 REPLACE 'fault-reporting.jpg' WITH YOUR ACTUAL IMAGE FILENAME -->
+          <img class="card-image" src="images/fault-reporting.jpg" alt="Fault reporting" onerror="this.src='https://via.placeholder.com/400?text=Fault+Reporting'">
           <div class="card-icon"><i class="fas fa-flag"></i></div>
           <h3>Fault Reporting</h3>
           <p>Customer-friendly form with dynamic fridge selection.</p>
         </div>
         <!-- 2. Multi-Image Upload -->
         <div class="card">
-          <img class="card-image" src="https://images.unsplash.com/photo-1576086135518-b62f2e2e1e8b?w=400&q=80&auto=format&fit=crop" alt="Image upload">
+          <!-- 👇 REPLACE WITH YOUR IMAGE -->
+          <img class="card-image" src="images/multi-image-upload.jpg" alt="Multi image upload" onerror="this.src='https://via.placeholder.com/400?text=Image+Upload'">
           <div class="card-icon"><i class="fas fa-images"></i></div>
           <h3>Multi-Image Upload</h3>
           <p>Secure upload with validation and renaming.</p>
         </div>
         <!-- 3. Technician Dashboard -->
         <div class="card">
-          <img class="card-image" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80&auto=format&fit=crop" alt="Dashboard">
+          <!-- 👇 REPLACE WITH YOUR IMAGE -->
+          <img class="card-image" src="images/technician-dashboard.jpg" alt="Technician dashboard" onerror="this.src='https://via.placeholder.com/400?text=Tech+Dashboard'">
           <div class="card-icon"><i class="fas fa-chart-line"></i></div>
           <h3>Technician Dashboard</h3>
           <p>Unified view of all faults and KPIs.</p>
         </div>
         <!-- 4. Scheduling Calendar -->
         <div class="card">
-          <img class="card-image" src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&q=80&auto=format&fit=crop" alt="Calendar">
+          <!-- 👇 REPLACE WITH YOUR IMAGE -->
+          <img class="card-image" src="images/scheduling-calendar.jpg" alt="Scheduling calendar" onerror="this.src='https://via.placeholder.com/400?text=Scheduling'">
           <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
           <h3>Scheduling Calendar</h3>
           <p>Interactive calendar with time slots.</p>
         </div>
         <!-- 5. State Machine -->
         <div class="card">
-          <img class="card-image" src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=400&q=80&auto=format&fit=crop" alt="State machine">
+          <!-- 👇 REPLACE WITH YOUR IMAGE -->
+          <img class="card-image" src="images/state-machine.jpg" alt="State machine" onerror="this.src='https://via.placeholder.com/400?text=State+Machine'">
           <div class="card-icon"><i class="fas fa-random"></i></div>
           <h3>State Machine</h3>
           <p>Strict validation of fault status transitions.</p>
         </div>
         <!-- 6. Role-Based Comments -->
         <div class="card">
-          <img class="card-image" src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=400&q=80&auto=format&fit=crop" alt="Comments">
+          <!-- 👇 REPLACE WITH YOUR IMAGE -->
+          <img class="card-image" src="images/role-comments.jpg" alt="Role based comments" onerror="this.src='https://via.placeholder.com/400?text=Comments'">
           <div class="card-icon"><i class="fas fa-comments"></i></div>
           <h3>Role-Based Comments</h3>
           <p>Internal notes vs customer-visible messages.</p>
         </div>
         <!-- 7. Timeline -->
         <div class="card">
-          <img class="card-image" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80&auto=format&fit=crop" alt="Timeline">
+          <!-- 👇 REPLACE WITH YOUR IMAGE -->
+          <img class="card-image" src="images/timeline.jpg" alt="Timeline" onerror="this.src='https://via.placeholder.com/400?text=Timeline'">
           <div class="card-icon"><i class="fas fa-history"></i></div>
           <h3>Timeline</h3>
           <p>Visual history of all changes.</p>
         </div>
         <!-- 8. Auto Replacement -->
         <div class="card">
-          <img class="card-image" src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&q=80&auto=format&fit=crop" alt="Auto replacement">
+          <!-- 👇 REPLACE WITH YOUR IMAGE -->
+          <img class="card-image" src="images/auto-replacement.jpg" alt="Auto replacement" onerror="this.src='https://via.placeholder.com/400?text=Auto+Replacement'">
           <div class="card-icon"><i class="fas fa-recycle"></i></div>
           <h3>Auto Replacement</h3>
           <p>Transactional creation of replacement requests.</p>
         </div>
         <!-- 9. Customer Feedback -->
         <div class="card">
-          <img class="card-image" src="https://images.unsplash.com/photo-1512291315308-6d496fa0aabb?w=400&q=80&auto=format&fit=crop" alt="Customer feedback">
+          <!-- 👇 REPLACE WITH YOUR IMAGE -->
+          <img class="card-image" src="images/customer-feedback.jpg" alt="Customer feedback" onerror="this.src='https://via.placeholder.com/400?text=Customer+Feedback'">
           <div class="card-icon"><i class="fas fa-star"></i></div>
           <h3>Customer Feedback</h3>
           <p>5-star rating system.</p>
         </div>
         <!-- 10. Auto-Closing -->
         <div class="card">
-          <img class="card-image" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&q=80&auto=format&fit=crop" alt="Auto closing">
+          <!-- 👇 REPLACE WITH YOUR IMAGE -->
+          <img class="card-image" src="images/auto-closing.jpg" alt="Auto closing" onerror="this.src='https://via.placeholder.com/400?text=Auto+Closing'">
           <div class="card-icon"><i class="fas fa-clock"></i></div>
           <h3>Auto-Closing</h3>
           <p>Smart rules for closing resolved faults.</p>
+        </div>
+      </div>
+      
+      <!-- Additional instruction block -->
+      <div style="margin-top: 2.5rem; background: #f0f9ff; padding: 1.5rem; border-radius: 16px; border: 1px solid #bdd3ff;">
+        <div style="display: flex; gap: 1rem; align-items: flex-start;">
+          <i class="fas fa-folder-open" style="font-size: 2rem; color: var(--primary);"></i>
+          <div>
+            <h4 style="margin-bottom: 0.5rem;">📁 How to add your real images</h4>
+            <p style="margin-bottom: 0.5rem;">For each feature card above, change the <code style="background: #e2e8f0; padding: 0.2rem 0.4rem; border-radius: 4px;">src="images/filename.jpg"</code> to match your actual image file names.</p>
+            <p style="margin-bottom: 0.25rem;"><strong>Example:</strong> If your screenshot is called <code>fault-ui.png</code>, change:</p>
+            <pre style="background: #1e293b; color: #fff; padding: 0.5rem 1rem; border-radius: 8px; margin-top: 0.5rem;">&lt;img class="card-image" src="images/fault-ui.png" ... &gt;</pre>
+            <p style="margin-top: 0.8rem; color: var(--gray);">✅ The <code>onerror</code> fallback shows a placeholder if the image isn't found — so your layout stays clean.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -574,7 +617,7 @@
         menu.classList.toggle('active');
       });
 
-      // smooth active nav highlight (optional)
+      // smooth active nav highlight
       const sections = document.querySelectorAll('section');
       const navLinks = document.querySelectorAll('.nav-menu a');
 
@@ -601,15 +644,19 @@
       window.addEventListener('load', setActive);
     });
   </script>
-  <!-- tiny style: ensure profile photo placeholder fallback -->
+
   <style>
-    .profile-photo[onerror] {
+    /* ensure profile photo fallback looks ok */
+    .profile-photo[src*="via.placeholder"] {
       background: linear-gradient(145deg, #dbeafe, #eff6ff);
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--primary);
-      font-size: 0.8rem;
+      font-size: 0.9rem;
+    }
+    pre {
+      overflow-x: auto;
     }
   </style>
 </body>
