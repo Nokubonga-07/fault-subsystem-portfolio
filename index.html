@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -184,21 +182,64 @@
     /* Cards & grids */
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
       margin-top: 3rem;
     }
 
+    /* ----- FEATURE CARD WITH FADING IMAGE ----- */
     .card {
       background: white;
       border-radius: 16px;
       padding: 2rem;
       box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;      /* Ensures image stays within rounded borders */
+      display: flex;
+      flex-direction: column;
     }
 
     .card:hover {
       transform: translateY(-6px);
+      box-shadow: 0 16px 35px rgba(37,99,235,0.12);
+    }
+
+    /* Background image that fades in on hover */
+    .card-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.7s ease-in-out;
+      pointer-events: none;  /* so it doesn't block clicks */
+      z-index: 1;
+    }
+
+    .card:hover .card-image {
+      opacity: 0.2;          /* subtle fade – professional & playful */
+    }
+
+    /* ensure text + icon appear above image */
+    .card-icon, .card h3, .card p, .card > div {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* optional slight background for readability */
+    .card h3, .card p {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(2px);
+      display: inline;
+      padding: 0.1rem 0.3rem;
+      box-decoration-break: clone;
+      border-radius: 6px;
+    }
+    .card p {
+      background: rgba(255,255,255,0.6);
     }
 
     .card-icon {
@@ -212,6 +253,12 @@
       font-size: 1.8rem;
       color: var(--primary);
       margin-bottom: 1.2rem;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .card:hover .card-icon {
+      background: var(--primary);
+      color: white;
     }
 
     /* Responsive */
@@ -236,6 +283,15 @@
         padding: 1.5rem;
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
       }
+    }
+
+    /* small tweaks */
+    .badge-pill {
+      background: #e0f2fe;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -329,9 +385,9 @@
               End-to-end fault reporting, technician scheduling, automated replacement workflow — built for SmartChills Fridge Rental Platform.
             </p>
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0;">
-              <span style="background: #e0f2fe; padding: 0.4rem 1rem; border-radius: 20px;">ASP.NET Core MVC</span>
-              <span style="background: #e0f2fe; padding: 0.4rem 1rem; border-radius: 20px;">C#</span>
-              <span style="background: #e0f2fe; padding: 0.4rem 1rem; border-radius: 20px;">SQL Server</span>
+              <span class="badge-pill">ASP.NET Core MVC</span>
+              <span class="badge-pill">C#</span>
+              <span class="badge-pill">SQL Server</span>
             </div>
           </div>
 
@@ -392,25 +448,86 @@
     </div>
   </section>
 
-  <!-- FEATURES -->
+  <!-- FEATURES — 10 KEY FEATURES + FADING IMAGES -->
   <section id="features" class="section">
     <div class="container">
       <div class="section-header">
         <span class="section-subtitle">Core Features</span>
         <h2>10 Key Features I Built</h2>
+        <p style="margin-top: 0.5rem; color: var(--gray);">✨ Hover over any card to see a preview image fade in</p>
       </div>
 
       <div class="card-grid">
-        <div class="card"><div class="card-icon"><i class="fas fa-flag"></i></div><h3>Fault Reporting</h3><p>Customer-friendly form with dynamic fridge selection.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-images"></i></div><h3>Multi-Image Upload</h3><p>Secure upload with validation and renaming.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-chart-line"></i></div><h3>Technician Dashboard</h3><p>Unified view of all faults and KPIs.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-calendar-alt"></i></div><h3>Scheduling Calendar</h3><p>Interactive calendar with time slots.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-random"></i></div><h3>State Machine</h3><p>Strict validation of fault status transitions.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-comments"></i></div><h3>Role-Based Comments</h3><p>Internal notes vs customer-visible messages.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-history"></i></div><h3>Timeline</h3><p>Visual history of all changes.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-recycle"></i></div><h3>Auto Replacement</h3><p>Transactional creation of replacement requests.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-star"></i></div><h3>Customer Feedback</h3><p>5-star rating system.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-clock"></i></div><h3>Auto-Closing</h3><p>Smart rules for closing resolved faults.</p></div>
+        <!-- 1. Fault Reporting -->
+        <div class="card">
+          <img class="card-image" src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=400&q=80&auto=format&fit=crop" alt="Fault reporting">
+          <div class="card-icon"><i class="fas fa-flag"></i></div>
+          <h3>Fault Reporting</h3>
+          <p>Customer-friendly form with dynamic fridge selection.</p>
+        </div>
+        <!-- 2. Multi-Image Upload -->
+        <div class="card">
+          <img class="card-image" src="https://images.unsplash.com/photo-1576086135518-b62f2e2e1e8b?w=400&q=80&auto=format&fit=crop" alt="Image upload">
+          <div class="card-icon"><i class="fas fa-images"></i></div>
+          <h3>Multi-Image Upload</h3>
+          <p>Secure upload with validation and renaming.</p>
+        </div>
+        <!-- 3. Technician Dashboard -->
+        <div class="card">
+          <img class="card-image" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80&auto=format&fit=crop" alt="Dashboard">
+          <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Technician Dashboard</h3>
+          <p>Unified view of all faults and KPIs.</p>
+        </div>
+        <!-- 4. Scheduling Calendar -->
+        <div class="card">
+          <img class="card-image" src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&q=80&auto=format&fit=crop" alt="Calendar">
+          <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
+          <h3>Scheduling Calendar</h3>
+          <p>Interactive calendar with time slots.</p>
+        </div>
+        <!-- 5. State Machine -->
+        <div class="card">
+          <img class="card-image" src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=400&q=80&auto=format&fit=crop" alt="State machine">
+          <div class="card-icon"><i class="fas fa-random"></i></div>
+          <h3>State Machine</h3>
+          <p>Strict validation of fault status transitions.</p>
+        </div>
+        <!-- 6. Role-Based Comments -->
+        <div class="card">
+          <img class="card-image" src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=400&q=80&auto=format&fit=crop" alt="Comments">
+          <div class="card-icon"><i class="fas fa-comments"></i></div>
+          <h3>Role-Based Comments</h3>
+          <p>Internal notes vs customer-visible messages.</p>
+        </div>
+        <!-- 7. Timeline -->
+        <div class="card">
+          <img class="card-image" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80&auto=format&fit=crop" alt="Timeline">
+          <div class="card-icon"><i class="fas fa-history"></i></div>
+          <h3>Timeline</h3>
+          <p>Visual history of all changes.</p>
+        </div>
+        <!-- 8. Auto Replacement -->
+        <div class="card">
+          <img class="card-image" src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&q=80&auto=format&fit=crop" alt="Auto replacement">
+          <div class="card-icon"><i class="fas fa-recycle"></i></div>
+          <h3>Auto Replacement</h3>
+          <p>Transactional creation of replacement requests.</p>
+        </div>
+        <!-- 9. Customer Feedback -->
+        <div class="card">
+          <img class="card-image" src="https://images.unsplash.com/photo-1512291315308-6d496fa0aabb?w=400&q=80&auto=format&fit=crop" alt="Customer feedback">
+          <div class="card-icon"><i class="fas fa-star"></i></div>
+          <h3>Customer Feedback</h3>
+          <p>5-star rating system.</p>
+        </div>
+        <!-- 10. Auto-Closing -->
+        <div class="card">
+          <img class="card-image" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&q=80&auto=format&fit=crop" alt="Auto closing">
+          <div class="card-icon"><i class="fas fa-clock"></i></div>
+          <h3>Auto-Closing</h3>
+          <p>Smart rules for closing resolved faults.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -456,8 +573,43 @@
       toggle.addEventListener('click', () => {
         menu.classList.toggle('active');
       });
+
+      // smooth active nav highlight (optional)
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-menu a');
+
+      function setActive() {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 80;
+          const sectionHeight = section.clientHeight;
+          if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          const href = link.getAttribute('href').substring(1);
+          if (href === current) {
+            link.classList.add('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', setActive);
+      window.addEventListener('load', setActive);
     });
   </script>
+  <style>
+    .profile-photo[onerror] {
+      background: linear-gradient(145deg, #dbeafe, #eff6ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 0.8rem;
+    }
+  </style>
 </body>
 </html>
-
