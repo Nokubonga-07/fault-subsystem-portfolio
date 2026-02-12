@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nokubonga Mpanza · Fault Subsystem Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
   <style>
-    /* ----- RESET & GLOBAL ----- */
     :root {
       --primary: #2563eb;
       --primary-dark: #1e40af;
       --primary-light: #60a5fa;
-      --secondary: #7c3aed;
-      --success: #10b981;
-      --warning: #f59e0b;
-      --danger: #ef4444;
-      --info: #3b82f6;
       --dark: #1e293b;
       --gray: #64748b;
       --light: #f8fafc;
@@ -26,306 +24,186 @@
       --progress: #f59e0b;
       --resolved: #10b981;
       --scrapped: #ef4444;
-      --closed: #64748b;
     }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px;
-    }
+
     body {
       font-family: 'Inter', sans-serif;
       color: var(--dark);
       line-height: 1.6;
       background: var(--white);
-      overflow-x: hidden;
     }
+
     .container {
-      max-width: 1280px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1.5rem;
     }
-    /* ===== animations ===== */
-    @keyframes fadeUp {
-      0% { opacity: 0; transform: translateY(24px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
-      100% { transform: translateY(0px); }
-    }
-    .page-section {
-      animation: fadeUp 0.8s cubic-bezier(0.2, 0.9, 0.4, 1) both;
-      padding: 100px 0;
-    }
-    /* ===== NAVIGATION ===== */
+
+    /* Navigation */
     .navbar {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(255,255,255,0.85);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       z-index: 1000;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-      border-bottom: 1px solid rgba(37,99,235,0.1);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.06);
     }
-    .navbar .container {
+
+    .nav-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 70px;
     }
+
     .nav-brand {
       font-size: 1.6rem;
-      font-weight: 700;
-      background: linear-gradient(145deg, #0f2b4b, #1e3a5f);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .brand-highlight {
-      background: linear-gradient(145deg, #2563eb, #38bdf8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       font-weight: 800;
+      color: var(--primary-dark);
     }
+
     .nav-menu {
       display: flex;
       list-style: none;
       gap: 2rem;
-      align-items: center;
     }
+
     .nav-menu a {
       text-decoration: none;
       color: var(--dark);
       font-weight: 500;
-      font-size: 0.98rem;
-      transition: 0.2s;
-      position: relative;
-    }
-    .nav-menu a:after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 0%;
-      height: 3px;
-      background: var(--primary);
-      border-radius: 3px;
-      transition: 0.25s;
-    }
-    .nav-menu a:hover:after, .nav-menu a.active:after {
-      width: 100%;
-    }
-    .nav-toggle { display: none; }
-    
-    /* ===== PAGE SECTIONS (separate pages visual) ===== */
-    .page-section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid #eef2f6;
-    }
-    .section-header {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 3rem;
-    }
-    .section-subtitle {
-      display: inline-block;
-      background: rgba(37,99,235,0.1);
-      color: var(--primary);
-      padding: 0.35rem 1rem;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
-    .section-header h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-    }
-    .section-header p {
-      font-size: 1.1rem;
-      color: var(--gray);
+      transition: color 0.2s;
     }
 
-    /* ===== HOME PAGE – ABOUT ME ===== */
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--primary);
+    }
+
+    .nav-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Sections */
+    .section {
+      padding: 120px 0 80px;
+      min-height: 80vh;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+    }
+
+    .section-subtitle {
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .section h2 {
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Home - About me layout */
     .home-grid {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 3rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
       align-items: start;
     }
-    .profile-large {
+
+    /* Profile card */
+    .profile-card {
       background: white;
-      border-radius: 32px;
-      padding: 2rem;
-      box-shadow: 0 25px 40px -10px rgba(0,0,0,0.08);
-      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
-    .profile-image-container {
-      text-align: center;
-      margin-bottom: 1.8rem;
-    }
-    /* ----- IMAGE PLACEMENT INSTRUCTIONS ----- */
-    .profile-img-placeholder {
+
+    .profile-photo {
       width: 180px;
       height: 180px;
-      margin: 0 auto;
-      background: linear-gradient(145deg, #eef2ff, #ffffff);
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 4px solid white;
-      box-shadow: 0 15px 30px rgba(37,99,235,0.15);
-      position: relative;
-    }
-    .profile-img-placeholder i {
-      font-size: 5rem;
-      color: var(--primary);
-      opacity: 0.7;
-    }
-    .profile-img-placeholder img {
-      width: 100%;
-      height: 100%;
       object-fit: cover;
-      border-radius: 50%;
-      position: absolute;
-      top: 0;
-      left: 0;
+      border: 5px solid var(--primary-light);
+      margin: 0 auto 1.5rem;
+      display: block;
     }
-    .image-hint {
-      background: #f1f5f9;
-      padding: 0.5rem 1rem;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      color: var(--gray);
-      margin-top: 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .image-hint i {
-      color: var(--primary);
-    }
+
     .profile-name {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 0.25rem;
+      font-size: 2.4rem;
       text-align: center;
+      margin-bottom: 0.5rem;
     }
+
     .profile-title {
       color: var(--primary);
-      font-weight: 600;
       text-align: center;
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
     }
-    .contact-details {
-      background: #f8fafc;
-      border-radius: 24px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-    }
+
     .contact-item {
       display: flex;
       align-items: center;
       gap: 1rem;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid #e2e8f0;
+      margin: 1rem 0;
     }
-    .contact-item:last-child {
-      border-bottom: none;
-    }
+
     .contact-icon {
-      width: 40px;
-      height: 40px;
-      background: white;
+      width: 48px;
+      height: 48px;
+      background: rgba(37,99,235,0.1);
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--primary);
-      font-size: 1.2rem;
-    }
-    .contact-text {
-      flex: 1;
-    }
-    .contact-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      color: var(--gray);
-      letter-spacing: 0.5px;
-    }
-    .contact-value {
-      font-weight: 600;
-      color: var(--dark);
-      word-break: break-all;
-    }
-    .contact-value a {
-      text-decoration: none;
-      color: var(--dark);
-    }
-    .contact-value a:hover {
+      font-size: 1.3rem;
       color: var(--primary);
     }
-    .professional-summary {
-      margin-top: 1.5rem;
+
+    /* Cards & grids */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
     }
-    .professional-summary h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .professional-summary p {
-      color: var(--gray);
-      line-height: 1.7;
-    }
-    .github-code-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--dark);
-      color: white;
-      padding: 0.7rem 1.8rem;
-      border-radius: 40px;
-      text-decoration: none;
-      font-weight: 500;
-      margin-top: 1rem;
-      transition: 0.25s;
-    }
-    .github-code-link:hover {
-      background: var(--primary);
-      transform: translateY(-3px);
-    }
-    .home-project-preview {
-      display: flex;
-      flex-direction: column;
-      gap: 1.8rem;
-    }
-    .preview-card {
+
+    .card {
       background: white;
-      border-radius: 28px;
+      border-radius: 16px;
       padding: 2rem;
-      box-shadow: 0 20px 35px rgba(0,0,0,0.04);
-      border: 1px solid #f1f5f9;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      transition: transform 0.2s;
     }
-    .preview-icon {
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card-icon {
       width: 60px;
       height: 60px;
       background: rgba(37,99,235,0.1);
-      border-radius: 18px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -333,143 +211,38 @@
       color: var(--primary);
       margin-bottom: 1.2rem;
     }
-    .badge-sm {
-      background: var(--primary);
-      color: white;
-      padding: 0.2rem 0.8rem;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      margin-left: 0.8rem;
-    }
-    .tech-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1rem 0;
-    }
-    .tech-tag {
-      background: #f1f5f9;
-      padding: 0.3rem 1rem;
-      border-radius: 40px;
-      font-size: 0.8rem;
-    }
 
-    /* ===== OVERVIEW, FEATURES, CHALLENGES – reuse existing styles ===== */
-    .ownership-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 2rem;
-    }
-    .ownership-card {
-      background: white;
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      border: 1px solid #f1f5f9;
-    }
-    .ownership-icon {
-      width: 60px; height: 60px;
-      background: rgba(37,99,235,0.1);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-    }
-    .role-badges {
-      display: flex; gap: 0.8rem; flex-wrap: wrap; margin: 1rem 0;
-    }
-    .role-badge {
-      padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 600;
-      display: inline-flex; align-items: center; gap: 0.3rem;
-    }
-    .customer { background: rgba(37,99,235,0.1); color: var(--primary); }
-    .technician { background: rgba(245,158,11,0.1); color: var(--warning); }
-    .admin { background: rgba(16,185,129,0.1); color: var(--success); }
-    .file-list {
-      display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;
-    }
-    .file-tag {
-      background: #f1f5f9; padding: 0.2rem 0.8rem; border-radius: 40px;
-      font-size: 0.75rem; font-family: monospace;
-    }
-    .integration-flow {
-      display: flex; align-items: center; gap: 0.8rem; margin-top: 1rem;
-    }
-    .flow-item {
-      background: #f8fafc; padding: 0.8rem; border-radius: 12px;
-      font-size: 0.8rem; display: flex; flex-direction: column; align-items: center;
-    }
-    .flow-arrow { color: var(--gray); }
-    .features-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;
-    }
-    .feature-card {
-      background: white; border-radius: 24px; padding: 2rem;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.05); border: 1px solid #f1f5f9;
-    }
-    .feature-icon {
-      width: 56px; height: 56px; background: rgba(37,99,235,0.1); border-radius: 16px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.6rem; color: var(--primary); margin-bottom: 1.2rem;
-    }
-    .feature-tech {
-      display: flex; flex-wrap: wrap; gap: 0.5rem;
-    }
-    .feature-tech span {
-      background: #f1f5f9; padding: 0.2rem 0.8rem; border-radius: 40px;
-      font-size: 0.7rem; font-weight: 600;
-    }
-    .challenges-accordion {
-      max-width: 800px; margin: 0 auto;
-    }
-    .challenge-item {
-      background: white; border-radius: 20px; margin-bottom: 1rem;
-      padding: 1.5rem; border: 1px solid #f1f5f9;
-    }
-    .challenge-question {
-      display: flex; align-items: center; gap: 1rem; cursor: pointer;
-    }
-    .challenge-icon {
-      width: 48px; height: 48px; background: rgba(37,99,235,0.1);
-      border-radius: 12px; display: flex; align-items: center; justify-content: center;
-      color: var(--primary); font-size: 1.3rem;
-    }
-    .challenge-question h3 { flex: 1; font-size: 1.1rem; }
-    .challenge-answer {
-      margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; color: var(--gray);
-    }
-    .metrics-card {
-      background: linear-gradient(145deg, #0f2b4b, #1e3a5f);
-      border-radius: 32px; padding: 3rem; color: white; text-align: center;
-    }
-    .metrics-grid {
-      display: flex; justify-content: space-around; gap: 2rem; flex-wrap: wrap;
-    }
-    .metric-big-value { font-size: 3.2rem; font-weight: 800; color: white; line-height: 1; }
-    .footer {
-      background: white; padding: 2.5rem 0; border-top: 1px solid #e2e8f0;
-    }
-    .footer-content {
-      display: flex; flex-direction: column; align-items: center; gap: 1rem;
-    }
+    /* Responsive */
     @media (max-width: 900px) {
-      .home-grid { grid-template-columns: 1fr; }
-      .ownership-grid { grid-template-columns: 1fr; }
-      .nav-menu { display: none; }
-      .nav-toggle { display: block; }
-      .nav-menu.active { display: flex; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: white; padding: 2rem; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+      .home-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 1.5rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      }
     }
   </style>
 </head>
 <body>
-  <!-- NAVIGATION – separate pages: Home, Overview, Features, Challenges -->
+
+  <!-- Navigation -->
   <nav class="navbar">
-    <div class="container">
-      <div class="nav-brand"><span class="brand-highlight">Nokubonga</span> Mpanza</div>
+    <div class="container nav-container">
+      <div class="nav-brand">Nokubonga Mpanza</div>
       <div class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></div>
       <ul class="nav-menu" id="navMenu">
         <li><a href="#home" class="active">Home</a></li>
@@ -480,299 +253,213 @@
     </div>
   </nav>
 
-  <!-- ===== HOME PAGE – ABOUT ME ===== -->
-  <section id="home" class="page-section">
+  <!-- HOME - About Me -->
+  <section id="home" class="section">
     <div class="container">
       <div class="home-grid">
-        <!-- LEFT COLUMN: Profile, contact, summary, image instructions -->
-        <div class="profile-large">
-          <div class="profile-image-container">
-            <div class="profile-img-placeholder">
-              <i class="fas fa-user-circle"></i>
-              <!-- ===================================================== -->
-              <!-- HOW TO ADD YOUR IMAGE:                               -->
-              <!-- 1. Place your photo file (e.g., profile.jpg) in the -->
-              │    same folder as this HTML file.                     │
-              │ 2. Replace the entire <div class="profile-img-placeholder"> 
-              │    with the code below (uncommented):                 │
-              │                                                        │
-              │  <img src="profile.jpg" alt="Nokubonga Mpanza"        │
-              │       style="width:100%; height:100%; object-fit:cover; 
-              │              border-radius:50%;">                     │
-              │                                                        │
-              │ OR add your GitHub image URL:                         │
-              │  <img src="https://raw.githubusercontent.com/your-    │
-              │       username/your-repo/main/profile.jpg">           │
-              <!-- ===================================================== -->
-            </div>
-            <div class="image-hint">
-              <i class="fas fa-info-circle"></i> Place your photo in the placeholder above – instructions in code
-            </div>
-          </div>
+
+        <!-- Left side - Profile & Contact -->
+        <div class="profile-card">
+          <!-- 
+            === HOW TO ADD YOUR PHOTO ===
+            1. Save your photo as e.g. "profile.jpg" or "me.png"
+            2. Put it in the SAME folder as this HTML file
+            3. Replace the placeholder line below with your image
+          -->
+          <img src="profile.jpg" alt="Nokubonga Mpanza" class="profile-photo" 
+               onerror="this.src='https://via.placeholder.com/180?text=Your+Photo';" />
+
           <h1 class="profile-name">Nokubonga Mpanza</h1>
-          <div class="profile-title">Fault Subsystem Lead · IT Graduate</div>
-          
-          <!-- CONTACT DETAILS: email, phone, LinkedIn (exact as requested) -->
-          <div class="contact-details">
+          <div class="profile-title">Software Developer · Fault Subsystem Lead</div>
+
+          <!-- Contact Information -->
+          <div>
             <div class="contact-item">
               <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-              <div class="contact-text">
-                <div class="contact-label">Email</div>
-                <div class="contact-value"><a href="mailto:nokubongampanza12@gmail.com">nokubongampanza12@gmail.com</a></div>
+              <div>
+                <strong>Email</strong><br>
+                <a href="mailto:nokubongampanza12@gmail.com">nokubongampanza12@gmail.com</a>
               </div>
             </div>
+
             <div class="contact-item">
-              <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-              <div class="contact-text">
-                <div class="contact-label">Phone</div>
-                <div class="contact-value"><a href="tel:+270763426136">076 342 6136</a></div>
+              <div class="contact-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <strong>Phone</strong><br>
+                <a href="tel:+27763426136">076 342 6136</a>
               </div>
             </div>
+
             <div class="contact-item">
               <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
-              <div class="contact-text">
-                <div class="contact-label">LinkedIn</div>
-                <div class="contact-value"><a href="https://www.linkedin.com/in/nokubonga-mpanza-9371831b3" target="_blank">linkedin.com/in/nokubonga-mpanza-9371831b3</a></div>
+              <div>
+                <strong>LinkedIn</strong><br>
+                <a href="https://www.linkedin.com/in/nokubonga-mpanza-9371831b3" target="_blank">
+                  linkedin.com/in/nokubonga-mpanza
+                </a>
               </div>
             </div>
+
             <div class="contact-item">
               <div class="contact-icon"><i class="fab fa-github"></i></div>
-              <div class="contact-text">
-                <div class="contact-label">GitHub (Code)</div>
-                <div class="contact-value"><a href="https://github.com/Nokubonga-07/Fridge-Management-System" target="_blank">github.com/Nokubonga-07</a></div>
+              <div>
+                <strong>GitHub</strong><br>
+                <a href="https://github.com/Nokubonga-07/Fridge-Management-System" target="_blank">
+                  github.com/Nokubonga-07
+                </a>
               </div>
             </div>
           </div>
-          
-          <!-- PROFESSIONAL SUMMARY -->
-          <div class="professional-summary">
-            <h3><i class="fas fa-briefcase" style="color: var(--primary);"></i> Professional Summary</h3>
-            <p>Detail-oriented and proactive Information Technology graduate with experience in customer service, administrative support, and software development. Skilled in C#, HTML, MVC, Microsoft Office, and project management. Strong analytical and problem-solving abilities with a focus on delivering high-quality work within deadlines.</p>
+
+          <!-- Professional Summary -->
+          <div style="margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem;">Professional Summary</h3>
+            <p style="color: var(--gray);">
+              Detail-oriented and proactive Information Technology graduate with experience in customer service, 
+              administrative support, and software development. Skilled in C#, HTML, MVC, Microsoft Office, 
+              and project management. Strong analytical and problem-solving abilities with a focus on 
+              delivering high-quality work within deadlines.
+            </p>
           </div>
-          
-          <a href="https://github.com/Nokubonga-07/Fridge-Management-System" target="_blank" class="github-code-link">
-            <i class="fab fa-github"></i> View Code on GitHub
-          </a>
         </div>
-        
-        <!-- RIGHT COLUMN: Project preview / fault subsystem visual -->
-        <div class="home-project-preview">
-          <div class="preview-card">
-            <div class="preview-icon"><i class="fas fa-microchip"></i></div>
-            <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Fault Subsystem</h2>
-            <p style="color: var(--gray); margin-bottom: 1rem;">End-to-end fault management for SmartChills fridge rental platform.</p>
-            <div class="tech-tags">
-              <span class="tech-tag">ASP.NET Core MVC</span>
-              <span class="tech-tag">C#</span>
-              <span class="tech-tag">SQL Server</span>
-              <span class="tech-tag">FullCalendar.js</span>
-            </div>
-            <!-- project stats mini -->
-            <div style="display: flex; gap: 1.5rem; margin-top: 1.5rem;">
-              <div><span style="font-weight: 800; font-size: 1.6rem;">7</span> <span style="color: var(--gray;">tables</span></div>
-              <div><span style="font-weight: 800; font-size: 1.6rem;">6</span> <span style="color: var(--gray;">states</span></div>
-              <div><span style="font-weight: 800; font-size: 1.6rem;">100%</span> <span style="color: var(--gray;">ownership</span></div>
+
+        <!-- Right side - Project preview -->
+        <div>
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-microchip"></i></div>
+            <h2>Fault Management Subsystem</h2>
+            <p style="color: var(--gray); margin: 1rem 0;">
+              End-to-end fault reporting, technician scheduling, automated replacement workflow — built for SmartChills Fridge Rental Platform.
+            </p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0;">
+              <span style="background: #e0f2fe; padding: 0.4rem 1rem; border-radius: 20px;">ASP.NET Core MVC</span>
+              <span style="background: #e0f2fe; padding: 0.4rem 1rem; border-radius: 20px;">C#</span>
+              <span style="background: #e0f2fe; padding: 0.4rem 1rem; border-radius: 20px;">SQL Server</span>
             </div>
           </div>
-          
-          <!-- SCREENSHOT & VIDEO PLACEHOLDERS – with image insertion instructions -->
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;">
-            <div style="background: white; border-radius: 20px; padding: 1.2rem; border: 1px solid #f1f5f9;">
-              <div style="background: #eef2ff; border-radius: 14px; height: 140px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--primary); font-size: 2rem; margin-bottom: 0.8rem; position: relative;">
-                <i class="fas fa-camera-retro"></i>
-                <span style="font-size: 0.8rem; margin-top: 0.3rem;">📸 Dashboard UI</span>
-                <!-- ========== HOW TO ADD SCREENSHOT ========== -->
-                <!-- Replace the content inside this div with:   -->
-                <!-- <img src="dashboard-screenshot.png"        -->
-                <!--      style="width:100%; height:100%; object-fit:cover; border-radius:14px;"> -->
+
+          <!-- Placeholders for screenshots / demo -->
+          <div style="margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <!-- Screenshot placeholder -->
+            <div class="card" style="text-align: center; padding: 1.5rem;">
+              <div style="height: 140px; background: #f1f5f9; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                <!-- Replace this div with your image -->
+                <p style="color: var(--gray);">Add screenshot here<br><small>dashboard.png</small></p>
               </div>
-              <div style="font-weight: 600; font-size: 0.9rem;"><i class="fas fa-image" style="color:var(--primary);"></i> Technician unified view</div>
-              <small style="color:var(--gray);">Fault list + calendar</small>
+              <strong>Technician Dashboard</strong>
             </div>
-            <div style="background: white; border-radius: 20px; padding: 1.2rem; border: 1px solid #f1f5f9;">
-              <div style="background: #e0e7ff; border-radius: 14px; height: 140px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--primary); font-size: 2rem; margin-bottom: 0.8rem; position: relative;">
-                <i class="fas fa-video"></i>
-                <span style="font-size: 0.75rem;">▶️ 1.00 clip</span>
-                <!-- ========== HOW TO ADD VIDEO ========== -->
-                <!-- Replace with video thumbnail or iframe:  -->
-                <!-- <video src="demo.mp4" width="100%" height="100%" style="object-fit:cover; border-radius:14px;"></video> -->
+
+            <!-- Video / GIF placeholder -->
+            <div class="card" style="text-align: center; padding: 1.5rem;">
+              <div style="height: 140px; background: #f1f5f9; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                <!-- Replace with <video> or <img> for GIF -->
+                <p style="color: var(--gray);">Add demo GIF / video here</p>
               </div>
-              <div style="font-weight: 600; font-size: 0.9rem;"><i class="fas fa-play-circle" style="color:var(--primary);"></i> Flow demo</div>
-              <small style="color:var(--gray);">Scrap → auto request</small>
+              <strong>Workflow Demo</strong>
             </div>
           </div>
-          <p style="color: var(--gray); font-size: 0.9rem; margin-top: 0.5rem;"><i class="fas fa-code-branch"></i> Full code available on GitHub (link above).</p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ===== OVERVIEW PAGE ===== -->
-  <section id="overview" class="page-section" style="background: #f8fafc;">
+  <!-- OVERVIEW -->
+  <section id="overview" class="section" style="background: var(--light);">
     <div class="container">
       <div class="section-header">
         <span class="section-subtitle">My Contribution</span>
-        <h2>Complete Ownership of Fault Subsystem</h2>
-        <p>I designed and implemented the entire fault management lifecycle from scratch. 100% of fault-related operations across 3 roles, integrated with 2 subsystems.</p>
+        <h2>Complete Ownership – Fault Subsystem</h2>
+        <p>Designed and built the full fault management lifecycle from scratch — 100% ownership.</p>
       </div>
-      <div class="ownership-grid">
-        <div class="ownership-card">
-          <div class="ownership-icon"><i class="fas fa-code-branch"></i></div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-code-branch"></i></div>
           <h3>100% Code Ownership</h3>
-          <p>FaultTechnician dashboard, all fault models, 7+ tables. Full control from design to deployment.</p>
-          <div class="file-list">
-            <span class="file-tag">FaultTechnician views</span>
-            <span class="file-tag">Fault models</span>
-            <span class="file-tag">State transitions</span>
-          </div>
+          <p>All fault logic, models, views, and database tables (7+ tables).</p>
         </div>
-        <div class="ownership-card">
-          <div class="ownership-icon"><i class="fas fa-users"></i></div>
-          <h3>3 User Roles Served</h3>
-          <div class="role-badges">
-            <div class="role-badge customer"><i class="fas fa-user"></i> Customer</div>
-            <div class="role-badge technician"><i class="fas fa-tools"></i> Fault Technician</div>
-            <div class="role-badge admin"><i class="fas fa-shield-alt"></i> Admin</div>
-          </div>
-          <p class="role-description">Tailored views, permissions per role.</p>
+
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-users"></i></div>
+          <h3>3 User Roles</h3>
+          <p>Customer • Technician • Admin — each with tailored views and permissions.</p>
         </div>
-        <div class="ownership-card">
-          <div class="ownership-icon"><i class="fas fa-link"></i></div>
-          <h3>2 System Integrations</h3>
-          <div class="integration-flow">
-            <div class="flow-item"><i class="fas fa-recycle"></i><span>Replacement</span><small>Auto-creates requests</small></div>
-            <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-            <div class="flow-item"><i class="fas fa-boxes"></i><span>Stock</span><small>Scrapping workflow</small></div>
-          </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-link"></i></div>
+          <h3>System Integrations</h3>
+          <p>Automatic replacement requests + stock scrapping workflow.</p>
         </div>
-      </div>
-      <!-- State machine visual -->
-      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 4rem; background: white; padding: 2rem; border-radius: 40px;">
-        <span style="background: var(--reported); color: white; padding: 0.5rem 1.2rem; border-radius: 40px;">Reported</span>
-        <i class="fas fa-arrow-right" style="color: var(--gray);"></i>
-        <span style="background: var(--scheduled); color: white; padding: 0.5rem 1.2rem; border-radius: 40px;">Scheduled</span>
-        <i class="fas fa-arrow-right" style="color: var(--gray);"></i>
-        <span style="background: var(--progress); color: white; padding: 0.5rem 1.2rem; border-radius: 40px;">In Progress</span>
-        <i class="fas fa-arrow-right" style="color: var(--gray);"></i>
-        <span style="background: var(--resolved); color: white; padding: 0.5rem 1.2rem; border-radius: 40px;">Resolved</span>
-        <span style="background: var(--scrapped); color: white; padding: 0.5rem 1.2rem; border-radius: 40px;">Scrapped</span>
       </div>
     </div>
   </section>
 
-  <!-- ===== FEATURES PAGE ===== -->
-  <section id="features" class="page-section">
+  <!-- FEATURES -->
+  <section id="features" class="section">
     <div class="container">
       <div class="section-header">
-        <span class="section-subtitle">10 Core Features</span>
-        <h2>Complete Fault Management Ecosystem</h2>
-        <p>Every feature designed, coded, tested by me.</p>
+        <span class="section-subtitle">Core Features</span>
+        <h2>10 Key Features I Built</h2>
       </div>
-      <div class="features-grid">
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-flag"></i></div><h3>Customer Fault Reporting</h3><p>Fridges allocated to them, dynamic dropdown.</p><div class="feature-tech"><span>Role auth</span><span>Dropdown</span></div></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-images"></i></div><h3>Multi-Image Upload</h3><p>Extension whitelist, 5MB, GUID rename.</p><div class="feature-tech"><span>IFormFile</span><span>Validation</span></div></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><h3>Unified Technician Dashboard</h3><p>Combines customer faults + maintenance failures.</p><div class="feature-tech"><span>2 sources</span><span>Real-time KPI</span></div></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-calendar-alt"></i></div><h3>Interactive Scheduling Calendar</h3><p>FullCalendar.js with time slots.</p><div class="feature-tech"><span>FullCalendar</span><span>Slots</span></div></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-random"></i></div><h3>State Machine Validation</h3><p>6 states, 12 valid paths.</p><div class="feature-tech"><span>Matrix</span><span>Business rules</span></div></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-comments"></i></div><h3>Customer-Technician Comments</h3><p>IsInternalNote flag, AJAX.</p><div class="feature-tech"><span>AJAX</span><span>Role visibility</span></div></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-history"></i></div><h3>Automatic Timeline Generation</h3><p>Status changes + comments visual.</p><div class="feature-tech"><span>Event aggregation</span><span>FontAwesome</span></div></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-recycle"></i></div><h3>Automated Replacement Requests</h3><p>6-table transaction when scrapped.</p><div class="feature-tech"><span>Transaction</span><span>Cross-controller</span></div></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-star"></i></div><h3>Customer Feedback & Ratings</h3><p>5-star, prevents duplicate.</p><div class="feature-tech"><span>1-5 rating</span><span>AJAX</span></div></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-clock"></i></div><h3>Automatic Fault Closing</h3><p>Resolved after 7d, scrapped immediate.</p><div class="feature-tech"><span>Background</span><span>Business rule</span></div></div>
+
+      <div class="card-grid">
+        <div class="card"><div class="card-icon"><i class="fas fa-flag"></i></div><h3>Fault Reporting</h3><p>Customer-friendly form with dynamic fridge selection.</p></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-images"></i></div><h3>Multi-Image Upload</h3><p>Secure upload with validation and renaming.</p></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-chart-line"></i></div><h3>Technician Dashboard</h3><p>Unified view of all faults and KPIs.</p></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-calendar-alt"></i></div><h3>Scheduling Calendar</h3><p>Interactive calendar with time slots.</p></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-random"></i></div><h3>State Machine</h3><p>Strict validation of fault status transitions.</p></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-comments"></i></div><h3>Role-Based Comments</h3><p>Internal notes vs customer-visible messages.</p></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-history"></i></div><h3>Timeline</h3><p>Visual history of all changes.</p></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-recycle"></i></div><h3>Auto Replacement</h3><p>Transactional creation of replacement requests.</p></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-star"></i></div><h3>Customer Feedback</h3><p>5-star rating system.</p></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-clock"></i></div><h3>Auto-Closing</h3><p>Smart rules for closing resolved faults.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== CHALLENGES PAGE ===== -->
-  <section id="challenges" class="page-section" style="background: #f8fafc;">
+  <!-- CHALLENGES -->
+  <section id="challenges" class="section" style="background: var(--light);">
     <div class="container">
       <div class="section-header">
         <span class="section-subtitle">Problem Solving</span>
-        <h2>Challenges I Overcame</h2>
-        <p>Real technical problems, clean solutions.</p>
+        <h2>Key Challenges I Solved</h2>
       </div>
-      <div class="challenges-accordion">
-        <div class="challenge-item active">
-          <div class="challenge-question">
-            <div class="challenge-icon"><i class="fas fa-code-branch"></i></div>
-            <h3>Two different fault sources with different schemas</h3>
-            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-          </div>
-          <div class="challenge-answer">
-            <p><strong>Solution:</strong> CombinedFaultViewModel merges FaultReports + FridgeVisits. Unified dashboard presents both fault types seamlessly.</p>
-          </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>Different fault sources</h3>
+          <p>Merged two schemas into one unified view model for the technician dashboard.</p>
         </div>
-        <div class="challenge-item">
-          <div class="challenge-question">
-            <div class="challenge-icon"><i class="fas fa-shield-alt"></i></div>
-            <h3>Invalid status transitions causing data corruption</h3>
-            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-          </div>
-          <div class="challenge-answer">
-            <p>State transition matrix with 12 valid paths. Every status update is validated against business rules before commit.</p>
-          </div>
+        <div class="card">
+          <h3>Invalid status changes</h3>
+          <p>Built strict state transition rules — only 12 valid paths allowed.</p>
         </div>
-        <div class="challenge-item">
-          <div class="challenge-question">
-            <div class="challenge-icon"><i class="fas fa-database"></i></div>
-            <h3>Orphaned records when replacement creation failed</h3>
-            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
-          </div>
-          <div class="challenge-answer">
-            <p>Wrapped 6 INSERTs in an atomic transaction. If any operation fails, everything is rolled back – integrity preserved.</p>
-          </div>
-        </div>
-      </div>
-      <!-- METRICS embedded in Challenges page -->
-      <div style="margin-top: 4rem;">
-        <div class="metrics-card">
-          <h2 style="color: white;">Fault Subsystem by the Numbers</h2>
-          <div class="metrics-grid">
-            <div class="metric-big"><span class="metric-big-value">47</span><span class="metric-big-label">Database Ops</span><small>In scrapping workflow</small></div>
-            <div class="metric-big"><span class="metric-big-value">6</span><span class="metric-big-label">Workflow States</span><small>12 valid transitions</small></div>
-            <div class="metric-big"><span class="metric-big-value">3</span><span class="metric-big-label">User Roles</span><small>Customer, tech, admin</small></div>
-          </div>
+        <div class="card">
+          <h3>Data integrity in replacements</h3>
+          <p>Used database transactions — full rollback if any step fails.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
+  <!-- Footer -->
+  <footer style="background: var(--dark); color: white; padding: 3rem 0; text-align: center;">
     <div class="container">
-      <div class="footer-content">
-        <div class="footer-brand"><span>Nokubonga</span> Mpanza · Fault Subsystem</div>
-        <div class="footer-links">
-          <a href="#home">Home</a>
-          <a href="#overview">Overview</a>
-          <a href="#features">Features</a>
-          <a href="#challenges">Challenges</a>
-        </div>
-        <div class="footer-copyright">© 2025 · 100% code ownership · SmartChills</div>
-      </div>
+      <p>© 2025 Nokubonga Mpanza</p>
+      <p style="margin-top: 1rem; opacity: 0.8;">Fault Management Subsystem · SmartChills Project</p>
     </div>
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // mobile nav toggle
-      const navToggle = document.getElementById('navToggle');
-      const navMenu = document.getElementById('navMenu');
-      if (navToggle) {
-        navToggle.addEventListener('click', function() {
-          navMenu.classList.toggle('active');
-        });
-      }
-      // challenge accordion
-      const questions = document.querySelectorAll('.challenge-question');
-      questions.forEach(q => {
-        q.addEventListener('click', function(e) {
-          const item = this.closest('.challenge-item');
-          item.classList.toggle('active');
-        });
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('navToggle');
+      const menu = document.getElementById('navMenu');
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
       });
     });
   </script>
-  <!-- Image insertion instructions are embedded as HTML comments throughout the code -->
 </body>
 </html>
