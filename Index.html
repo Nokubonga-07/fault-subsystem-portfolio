@@ -1,0 +1,743 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nokubonga Mpaza · Fault Subsystem Portfolio</title>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Syntax Highlighting for Code -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+
+    <!-- Chart.js for Analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="brand-highlight">Nokubonga</span> Mpaza
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#code">Code</a></li>
+                <li><a href="#database">Database</a></li>
+                <li><a href="#challenges">Challenges</a></li>
+                <li><a href="#github" class="btn-github"><i class="fab fa-github"></i> GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION - YOUR INTRODUCTION -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="badge">ASP.NET Core MVC · C# · SQL Server</div>
+                    <h1>Fault Management <span class="highlight">Subsystem</span></h1>
+                    <p class="hero-subtitle">Complete end-to-end fault reporting, technician scheduling, and automated replacement workflow. Built for SmartChills Fridge Rental Platform.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">7</span>
+                            <span class="stat-label">Database Tables</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">6</span>
+                            <span class="stat-label">Workflow States</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Code Ownership</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2.5k+</span>
+                            <span class="stat-label">Lines of C#</span>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#features" class="btn-primary">
+                            <i class="fas fa-arrow-down"></i> Explore My Work
+                        </a>
+                        <a href="https://github.com/Nokubonga-07/Fridge-Management-System" target="_blank" class="btn-secondary">
+                            <i class="fab fa-github"></i> View Repository
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="code-preview-card">
+                        <div class="code-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="filename">FaultTechnicianController.cs</span>
+                        </div>
+                        <pre><code class="language-csharp">[Authorize(Roles = SD.FaultTechnician)]
+public async Task&lt;IActionResult&gt; Dashboard()
+{
+    // Unified fault view
+    var viewModel = new CombinedFaultViewModel();
+    
+    // Customer faults + Maintenance failures
+    viewModel.CustomerReportedFaults = await _db.tblFaultReports
+        .Include(f => f.Customer.ApplicationUser)
+        .ToListAsync();
+    
+    viewModel.MaintenanceFaults = await _db.tblFridgeVisits
+        .Where(v => v.CheckupStatus == "Failed")
+        .ToListAsync();
+    
+    return View(viewModel);
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,170.7C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- OVERVIEW SECTION - YOUR CONTRIBUTION -->
+    <section id="overview" class="overview">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">My Contribution</span>
+                <h2>Complete Ownership of Fault Subsystem</h2>
+                <p>I designed and implemented the entire fault management lifecycle from scratch. This subsystem handles 100% of fault-related operations across 3 user roles and integrates with 2 other subsystems.</p>
+            </div>
+
+            <div class="ownership-grid">
+                <div class="ownership-card">
+                    <div class="ownership-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>100% Code Ownership</h3>
+                    <p>Entire FaultTechnicianController.cs, all fault-related models, viewmodels, and database tables.</p>
+                    <div class="file-list">
+                        <span class="file-tag">FaultTechnicianController.cs</span>
+                        <span class="file-tag">FaultReport.cs</span>
+                        <span class="file-tag">FaultAssignment.cs</span>
+                        <span class="file-tag">FaultComment.cs</span>
+                        <span class="file-tag">CustomerFeedback.cs</span>
+                        <span class="file-tag">FaultReportVM.cs</span>
+                        <span class="file-tag">BookRepairVisitViewModel.cs</span>
+                    </div>
+                </div>
+
+                <div class="ownership-card">
+                    <div class="ownership-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>3 User Roles Served</h3>
+                    <div class="role-badges">
+                        <div class="role-badge customer">
+                            <i class="fas fa-user"></i> Customer
+                        </div>
+                        <div class="role-badge technician">
+                            <i class="fas fa-tools"></i> Fault Technician
+                        </div>
+                        <div class="role-badge admin">
+                            <i class="fas fa-shield-alt"></i> Admin
+                        </div>
+                    </div>
+                    <p class="role-description">Each role has tailored views, permissions, and workflows specific to their responsibilities.</p>
+                </div>
+
+                <div class="ownership-card">
+                    <div class="ownership-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>2 System Integrations</h3>
+                    <div class="integration-flow">
+                        <div class="flow-item">
+                            <i class="fas fa-recycle"></i>
+                            <span>Replacement Controller</span>
+                            <small>Auto-creates replacement requests</small>
+                        </div>
+                        <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                        <div class="flow-item">
+                            <i class="fas fa-boxes"></i>
+                            <span>Stock Controller</span>
+                            <small>Scrapping approval workflow</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORKFLOW VISUALIZATION - STATE MACHINE -->
+    <section class="workflow">
+        <div class="container">
+            <div class="section-header light">
+                <span class="section-subtitle">State Machine Design</span>
+                <h2>Fault Lifecycle with Validated Transitions</h2>
+                <p>I implemented a strict state transition matrix that prevents invalid status changes and enforces business rules.</p>
+            </div>
+
+            <div class="state-machine">
+                <div class="states-container">
+                    <!-- Reported -->
+                    <div class="state-node reported">
+                        <div class="state-icon"><i class="fas fa-flag"></i></div>
+                        <div class="state-name">REPORTED</div>
+                        <div class="state-desc">Customer submits fault</div>
+                    </div>
+
+                    <div class="state-arrow"><i class="fas fa-arrow-right"></i></div>
+
+                    <!-- Scheduled -->
+                    <div class="state-node scheduled">
+                        <div class="state-icon"><i class="fas fa-calendar-check"></i></div>
+                        <div class="state-name">SCHEDULED</div>
+                        <div class="state-desc">Technician books visit</div>
+                    </div>
+
+                    <div class="state-arrow"><i class="fas fa-arrow-right"></i></div>
+
+                    <!-- In Progress -->
+                    <div class="state-node progress">
+                        <div class="state-icon"><i class="fas fa-tools"></i></div>
+                        <div class="state-name">IN PROGRESS</div>
+                        <div class="state-desc">Repair underway</div>
+                    </div>
+
+                    <div class="state-arrow"><i class="fas fa-arrow-right"></i></div>
+
+                    <!-- Resolved/Scrapped Split -->
+                    <div class="state-split">
+                        <div class="split-line"></div>
+                        <div class="split-label">Decision Point</div>
+                        <div class="split-branches">
+                            <div class="branch">
+                                <div class="state-node resolved">
+                                    <div class="state-icon"><i class="fas fa-check-circle"></i></div>
+                                    <div class="state-name">RESOLVED</div>
+                                    <div class="state-desc">Successfully repaired</div>
+                                </div>
+                                <div class="branch-arrow"><i class="fas fa-arrow-right"></i></div>
+                                <div class="state-node closed">
+                                    <div class="state-icon"><i class="fas fa-archive"></i></div>
+                                    <div class="state-name">CLOSED</div>
+                                    <div class="state-desc">Auto after 7 days</div>
+                                </div>
+                            </div>
+                            <div class="branch">
+                                <div class="state-node scrapped">
+                                    <div class="state-icon"><i class="fas fa-recycle"></i></div>
+                                    <div class="state-name">SCRAPPED</div>
+                                    <div class="state-desc">Beyond repair</div>
+                                </div>
+                                <div class="branch-arrow"><i class="fas fa-arrow-right"></i></div>
+                                <div class="state-node replacement">
+                                    <div class="state-icon"><i class="fas fa-exchange-alt"></i></div>
+                                    <div class="state-name">REPLACEMENT</div>
+                                    <div class="state-desc">Auto-request created</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Validation Code Card -->
+            <div class="code-card">
+                <div class="code-card-header">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>State Transition Validation</h3>
+                    <span class="badge-csharp">C#</span>
+                </div>
+                <pre><code class="language-csharp">private bool IsValidStatusTransition(string currentStatus, string newStatus)
+{
+    var validTransitions = new Dictionary&lt;string, List&lt;string&gt;&gt;
+    {
+        [SD.Reported] = new List&lt;string&gt; { SD.Scheduled, SD.InProgress, 
+                                           SD.FaultResolved, SD.FaultScrapped },
+        [SD.Scheduled] = new List&lt;string&gt; { SD.InProgress, SD.FaultResolved, 
+                                           SD.FaultScrapped },
+        [SD.InProgress] = new List&lt;string&gt; { SD.FaultResolved, SD.FaultScrapped },
+        [SD.FaultResolved] = new List&lt;string&gt; { SD.FaultClosed },
+        [SD.FaultScrapped] = new List&lt;string&gt; { SD.FaultClosed, SD.FaultResolved }
+    };
+    
+    return validTransitions.ContainsKey(currentStatus) &amp;&amp; 
+           validTransitions[currentStatus].Contains(newStatus);
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION - YOUR 10 CORE FEATURES -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">10 Core Features</span>
+                <h2>Complete Fault Management Ecosystem</h2>
+                <p>Every feature below was designed, coded, and tested by me as the sole owner of the fault subsystem.</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Customer Fault Reporting</h3>
+                    <p>Customers can only report faults for fridges allocated to them. Includes fridge selection dropdown and description.</p>
+                    <div class="feature-tech">
+                        <span>Role-based auth</span>
+                        <span>Dynamic dropdown</span>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <h3>Multi-Image Upload</h3>
+                    <p>Secure image upload with extension whitelist, 5MB limit, GUID renaming, and path storage.</p>
+                    <div class="feature-tech">
+                        <span>IFormFile</span>
+                        <span>GUID naming</span>
+                        <span>Validation</span>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Unified Technician Dashboard</h3>
+                    <p>Combines customer-reported faults AND maintenance failures into one view with real-time metrics.</p>
+                    <div class="feature-tech">
+                        <span>Two data sources</span>
+                        <span>Real-time KPIs</span>
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Interactive Scheduling Calendar</h3>
+                    <p>FullCalendar integration with time slots. Shows both fault repairs and maintenance visits.</p>
+                    <div class="feature-tech">
+                        <span>FullCalendar.js</span>
+                        <span>Time slots</span>
+                    </div>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-random"></i>
+                    </div>
+                    <h3>State Machine Validation</h3>
+                    <p>Prevents invalid status transitions. 6 states, 12 valid paths, zero invalid transitions.</p>
+                    <div class="feature-tech">
+                        <span>Dictionary matrix</span>
+                        <span>Business rules</span>
+                    </div>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Customer-Technician Comments</h3>
+                    <p>Full comment thread with IsInternalNote flag for staff-only discussions. AJAX submissions.</p>
+                    <div class="feature-tech">
+                        <span>AJAX</span>
+                        <span>Role-based visibility</span>
+                    </div>
+                </div>
+
+                <!-- Feature 7 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Automatic Timeline Generation</h3>
+                    <p>Converts status changes and comments into visual timeline with icons and color coding.</p>
+                    <div class="feature-tech">
+                        <span>Event aggregation</span>
+                        <span>Font Awesome</span>
+                    </div>
+                </div>
+
+                <!-- Feature 8 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Automated Replacement Requests</h3>
+                    <p>6-table transaction creates RequestHeader → FridgeVisit → FridgeReplacement when scrapped.</p>
+                    <div class="feature-tech">
+                        <span>Transaction</span>
+                        <span>Cross-controller</span>
+                    </div>
+                </div>
+
+                <!-- Feature 9 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Customer Feedback & Ratings</h3>
+                    <p>Post-resolution 5-star rating system. Prevents duplicate feedback.</p>
+                    <div class="feature-tech">
+                        <span>1-5 rating</span>
+                        <span>AJAX submission</span>
+                    </div>
+                </div>
+
+                <!-- Feature 10 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Automatic Fault Closing</h3>
+                    <p>Resolved faults close after 7 days. Scrapped faults close immediately.</p>
+                    <div class="feature-tech">
+                        <span>Background logic</span>
+                        <span>Business rule</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CODE SHOWCASE - YOUR BEST IMPLEMENTATION -->
+    <section id="code" class="code-showcase">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Signature Implementation</span>
+                <h2>Automatic Replacement Request Generator</h2>
+                <p>My most complex contribution - a transaction-safe method that creates 6 linked records when a fridge is scrapped.</p>
+            </div>
+
+            <div class="code-showcase-grid">
+                <div class="code-explanation">
+                    <div class="explanation-card">
+                        <h4><i class="fas fa-database"></i> 6 Tables Updated Atomically</h4>
+                        <ul>
+                            <li><span class="table-name">tblRequestHeaders</span> - New rental request</li>
+                            <li><span class="table-name">tblFridgeVisits</span> - Assessment visit</li>
+                            <li><span class="table-name">tblFridgeReplacements</span> - Replacement request</li>
+                            <li><span class="table-name">tblFaultReports</span> - Links to replacement ID</li>
+                            <li><span class="table-name">tblFridgeInStocks</span> - Status update</li>
+                            <li><span class="table-name">tblFaultTechnicians</span> - Scrapping record</li>
+                        </ul>
+                    </div>
+
+                    <div class="transaction-visual">
+                        <div class="transaction-badge success">
+                            <i class="fas fa-check-circle"></i> All succeed together
+                        </div>
+                        <div class="transaction-badge danger">
+                            <i class="fas fa-times-circle"></i> All fail together
+                        </div>
+                    </div>
+
+                    <div class="stats-mini">
+                        <div class="stat-mini-item">
+                            <span class="stat-mini-value">47</span>
+                            <span class="stat-mini-label">Lines of code</span>
+                        </div>
+                        <div class="stat-mini-item">
+                            <span class="stat-mini-value">6</span>
+                            <span class="stat-mini-label">Tables</span>
+                        </div>
+                        <div class="stat-mini-item">
+                            <span class="stat-mini-value">1</span>
+                            <span class="stat-mini-label">Transaction</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-full">
+                    <div class="code-card-header">
+                        <span class="filename">FaultTechnicianController.cs</span>
+                        <span class="lang">C#</span>
+                    </div>
+                    <pre><code class="language-csharp">private async Task CreateReplacementRequestForCustomerSupport(
+    FaultReport fault, string technicianName, string? technicianNotes)
+{
+    // BEGIN TRANSACTION - All or nothing
+    await using var transaction = await _db.Database.BeginTransactionAsync();
+    
+    try
+    {
+        // 1. Create RequestHeader (rental request)
+        var requestHeader = new RequestHeader { /* 15+ fields */ };
+        _db.tblRequestHeaders.Add(requestHeader);
+        
+        // 2. Create FridgeVisit (assessment)
+        var visit = new FridgeVisit { 
+            RequestHeaderId = requestHeader.RequestHeaderId,
+            TechnicianName = technicianName,
+            CheckupStatus = "Failed"
+        };
+        _db.tblFridgeVisits.Add(visit);
+        
+        // 3. Create FridgeReplacement
+        var replacementRequest = new FridgeReplacement {
+            FaultReportId = fault.FaultReportId,
+            VisitId = visit.VisitId,
+            OldFridgeNo = fridge.FridgeNo,
+            ReplacementStatus = "Pending"
+        };
+        _db.tblFridgeReplacements.Add(replacementRequest);
+        
+        // 4. Update fault report
+        fault.ReplacementRequestId = replacementRequest.FridgeReplacementId;
+        
+        // 5. Update fridge status
+        fridge.Status = "Pending Scrapping - Replacement Requested";
+        fridge.IsAvailable = false;
+        
+        // SAVE ALL - ONE COMMIT
+        await _db.SaveChangesAsync();
+        await transaction.CommitAsync();
+    }
+    catch
+    {
+        await transaction.RollbackAsync();
+        throw;  // Everything rolled back
+    }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DATABASE SCHEMA - YOUR TABLES -->
+    <section id="database" class="database">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Database Design</span>
+                <h2>7 Tables · Complete Ownership</h2>
+                <p>I designed and implemented every fault-related table from scratch.</p>
+            </div>
+
+            <div class="schema-grid">
+                <div class="schema-card">
+                    <div class="schema-header">
+                        <i class="fas fa-table"></i>
+                        <h3>tblFaultReports</h3>
+                        <span class="badge-core">CORE</span>
+                    </div>
+                    <div class="schema-fields">
+                        <div class="field"><span class="pk">PK</span> FaultReportId <span class="type">int</span></div>
+                        <div class="field"><span class="fk">FK</span> CustomerId <span class="type">int</span></div>
+                        <div class="field"><span class="fk">FK</span> FridgeInStockId <span class="type">int?</span></div>
+                        <div class="field">FaultType <span class="type">nvarchar(100)</span></div>
+                        <div class="field">Description <span class="type">nvarchar(max)</span></div>
+                        <div class="field">Status <span class="type">nvarchar(50)</span></div>
+                        <div class="field highlight">ImageUrl <span class="type">nvarchar(max)</span></div>
+                        <div class="field">ReportedDate <span class="type">datetime2</span></div>
+                        <div class="field">ResolvedDate <span class="type">datetime2?</span></div>
+                        <div class="field">ScrappedDate <span class="type">datetime2?</span></div>
+                        <div class="field highlight">ReplacementRequestId <span class="type">int?</span></div>
+                    </div>
+                </div>
+
+                <div class="schema-card">
+                    <div class="schema-header">
+                        <i class="fas fa-table"></i>
+                        <h3>tblFaultAssignments</h3>
+                        <span class="badge-schedule">SCHEDULING</span>
+                    </div>
+                    <div class="schema-fields">
+                        <div class="field"><span class="pk">PK</span> FaultAssignmentId <span class="type">int</span></div>
+                        <div class="field"><span class="fk">FK</span> FaultReportId <span class="type">int</span></div>
+                        <div class="field"><span class="fk">FK</span> EmployeeId <span class="type">string</span></div>
+                        <div class="field highlight">ScheduledDate <span class="type">datetime2?</span></div>
+                        <div class="field highlight">TimeSlot <span class="type">nvarchar</span></div>
+                        <div class="field">Status <span class="type">nvarchar</span></div>
+                    </div>
+                </div>
+
+                <div class="schema-card">
+                    <div class="schema-header">
+                        <i class="fas fa-table"></i>
+                        <h3>tblFaultComments</h3>
+                        <span class="badge-comm">COMMUNICATION</span>
+                    </div>
+                    <div class="schema-fields">
+                        <div class="field"><span class="pk">PK</span> FaultCommentId <span class="type">int</span></div>
+                        <div class="field"><span class="fk">FK</span> FaultReportId <span class="type">int</span></div>
+                        <div class="field">Comment <span class="type">nvarchar(max)</span></div>
+                        <div class="field">CommentBy <span class="type">nvarchar</span></div>
+                        <div class="field highlight">IsInternalNote <span class="type">bit</span></div>
+                        <div class="field">UserName <span class="type">nvarchar</span></div>
+                    </div>
+                </div>
+
+                <div class="schema-card">
+                    <div class="schema-header">
+                        <i class="fas fa-table"></i>
+                        <h3>CustomerFeedbacks</h3>
+                        <span class="badge-feedback">FEEDBACK</span>
+                    </div>
+                    <div class="schema-fields">
+                        <div class="field"><span class="pk">PK</span> Id <span class="type">int</span></div>
+                        <div class="field"><span class="fk">FK</span> FaultReportId <span class="type">int</span></div>
+                        <div class="field highlight">Rating <span class="type">int</span> (1-5)</div>
+                        <div class="field">Comment <span class="type">nvarchar</span></div>
+                        <div class="field">IsVisible <span class="type">bit</span></div>
+                    </div>
+                </div>
+
+                <div class="schema-card">
+                    <div class="schema-header">
+                        <i class="fas fa-table"></i>
+                        <h3>tblFaultTechnicians</h3>
+                        <span class="badge-maint">MAINTENANCE</span>
+                    </div>
+                    <div class="schema-fields">
+                        <div class="field"><span class="pk">PK</span> FaultId <span class="type">int</span></div>
+                        <div class="field"><span class="fk">FK</span> VisitId <span class="type">int?</span></div>
+                        <div class="field">RepairStatus <span class="type">nvarchar</span></div>
+                        <div class="field">Bookingate <span class="type">datetime2?</span></div>
+                        <div class="field highlight">IsScrapped <span class="type">bit</span></div>
+                    </div>
+                </div>
+
+                <div class="schema-card">
+                    <div class="schema-header">
+                        <i class="fas fa-table"></i>
+                        <h3>Related Tables</h3>
+                        <span class="badge-rel">INTEGRATION</span>
+                    </div>
+                    <div class="schema-fields">
+                        <div class="field">tblFridgeVisits</div>
+                        <div class="field">tblFridgeReplacements</div>
+                        <div class="field">tblRequestHeaders</div>
+                        <div class="field-note">← Connected via foreign keys</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHALLENGES SECTION - YOUR PROBLEM SOLVING -->
+    <section id="challenges" class="challenges">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Problem Solving</span>
+                <h2>Challenges I Overcame</h2>
+                <p>Real technical problems I encountered and solved during development.</p>
+            </div>
+
+            <div class="challenges-accordion">
+                <!-- Challenge 1 -->
+                <div class="challenge-item">
+                    <div class="challenge-question">
+                        <div class="challenge-icon"><i class="fas fa-code-branch"></i></div>
+                        <h3>Two different fault sources with different schemas</h3>
+                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="challenge-answer">
+                        <p><strong>Problem:</strong> Faults came from customer reports (FaultReports table) AND failed maintenance visits (FridgeVisits table). Technicians needed one unified view.</p>
+                        <p><strong>My Solution:</strong> Created a CombinedFaultViewModel that holds both types, then merged them in the dashboard and calendar views. Same UI, different data sources.</p>
+                        <pre><code class="language-csharp">public class CombinedFaultViewModel
+{
+    public List&lt;FaultReport&gt; CustomerReportedFaults { get; set; }
+    public List&lt;FridgeVisit&gt; MaintenanceFaults { get; set; }
+}</code></pre>
+                    </div>
+                </div>
+
+                <!-- Challenge 2 -->
+                <div class="challenge-item">
+                    <div class="challenge-question">
+                        <div class="challenge-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Invalid status transitions causing data corruption</h3>
+                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="challenge-answer">
+                        <p><strong>Problem:</strong> Technicians could accidentally change status from "Reported" directly to "Closed", skipping the repair process.</p>
+                        <p><strong>My Solution:</strong> Built a state transition matrix as a Dictionary that defines exactly 12 valid paths. Every status update is validated against this matrix.</p>
+                    </div>
+                </div>
+
+                <!-- Challenge 3 -->
+                <div class="challenge-item">
+                    <div class="challenge-question">
+                        <div class="challenge-icon"><i class="fas fa-database"></i></div>
+                        <h3>Orphaned records when replacement creation failed</h3>
+                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="challenge-answer">
+                        <p><strong>Problem:</strong> When scrapping a fridge, we created 6 records across multiple tables. If one INSERT failed, we'd have orphaned foreign keys.</p>
+                        <p><strong>My Solution:</strong> Wrapped all 6 operations in a single database transaction. Either ALL records save, or NONE save. This ensures referential integrity.</p>
+                    </div>
+                </div>
+
+                <!-- Challenge 4 -->
+                <div class="challenge-item">
+                    <div class="challenge-question">
+                        <div class="challenge-icon"><i class="fas fa-file-image"></i></div>
+                        <h3>Malicious file uploads</h3>
+                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="challenge-answer">
+                        <p><strong>Problem:</strong> Users could upload .exe, .php, or oversized files that could harm the server.</p>
+                        <p><strong>My Solution:</strong> Implemented strict validation: whitelisted extensions only (.jpg, .png, .pdf), 5MB size limit, GUID-based renaming, and store only the path in database.</p>
+                    </div>
+                </div>
+
+                <!-- Challenge 5 -->
+                <div class="challenge-item">
+                    <div class="challenge-question">
+                        <div class="challenge-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <h3>Slow dashboard with nested includes</h3>
+                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="challenge-answer">
+                        <p><strong>Problem:</strong> Dashboard was making 5+ separate database calls per request.</p>
+                        <p><strong>My Solution:</strong> Refactored to use eager loading with .Include() and .ThenInclude(), reducing to 2 optimized queries. Added .AsEnumerable() for complex grouping that couldn't translate to SQL.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- METRICS DASHBOARD - YOUR IMPACT -->
+    <section class="metrics">
+        <div class="container">
+            <div class="metrics-card">
+                <h2>Fault Subsystem by the Numbers</h2>
+                <div class="metrics-grid">
+                    <div class="metric-big">
+                        <span class="metric-big-value">47</span>
+                        <span class="metric-big-label">Database Operations</span>
+                        <small>In full scrapping workflow</small>
+                    </div>
+                    <div class="metric-big">
+                        <span class="metric-big-value">6</span>
+                        <span class="metric-big-label">Workflow States</span>
+                        <small>12 valid transitions</small>
+                    </div>
+                    <div class="metric-big">
+                        <span class="metric-big-value">3</span>
+                        <span class="metric-big-label">User Roles</span>
