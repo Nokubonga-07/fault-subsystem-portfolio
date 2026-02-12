@@ -166,7 +166,7 @@
       -webkit-text-fill-color: transparent;
     }
 
-    /* 🎮 playful card hover & glitch effect */
+    /* 🎮 FEATURE CARD — with fading image */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -184,6 +184,8 @@
       backdrop-filter: blur(4px);
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .card::before {
@@ -223,6 +225,8 @@
       color: var(--primary);
       margin-bottom: 1.4rem;
       transition: 0.2s;
+      position: relative;
+      z-index: 3;
     }
 
     .card:hover .card-icon {
@@ -230,7 +234,45 @@
       color: white;
     }
 
-    /* home grid dynamic */
+    /* ---- FADING IMAGE inside each feature card ---- */
+    .feature-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 28px;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+      pointer-events: none;   /* so it doesn't block clicks */
+      z-index: 1;
+    }
+
+    .card:hover .feature-image {
+      opacity: 0.2;  /* fades in on hover — subtle & professional */
+    }
+
+    /* we need content to sit above image */
+    .card > *:not(.feature-image) {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* additional subtle background on text for readability */
+    .card h3, .card p {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(2px);
+      display: inline;
+      padding: 0.1rem 0.3rem;
+      box-decoration-break: clone;
+      border-radius: 6px;
+    }
+    .card p {
+      background: rgba(255,255,255,0.6);
+    }
+
+    /* home grid etc */
     .home-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -238,7 +280,6 @@
       align-items: start;
     }
 
-    /* profile card with bouncing subtle */
     .profile-card {
       background: white;
       border-radius: 32px;
@@ -311,7 +352,6 @@
       transition: 0.2s;
     }
 
-    /* tech badges more fun */
     .badge-pill {
       background: linear-gradient(145deg, #eef2ff, #ffffff);
       padding: 0.45rem 1.3rem;
@@ -333,7 +373,6 @@
       border-color: var(--primary);
     }
 
-    /* screenshot / demo cards with glint */
     .demo-placeholder {
       background: linear-gradient(145deg, #f1f5f9, #ffffff);
       border-radius: 24px;
@@ -368,7 +407,6 @@
       font-weight: 300;
     }
 
-    /* ----- responsive ----- */
     @media (max-width: 900px) {
       .home-grid {
         grid-template-columns: 1fr;
@@ -395,16 +433,6 @@
       .section h2 {
         font-size: 2.2rem;
       }
-    }
-
-    /* add tiny dynamic touches */
-    .glow-text {
-      animation: pulse 3s infinite;
-    }
-    @keyframes pulse {
-      0% { text-shadow: 0 0 0px rgba(37,99,235,0.2); }
-      50% { text-shadow: 0 0 6px rgba(37,99,235,0.5); }
-      100% { text-shadow: 0 0 0px rgba(37,99,235,0.2); }
     }
   </style>
 </head>
@@ -440,7 +468,6 @@
             <i class="fas fa-microchip"></i> Fault Subsystem Lead
           </div>
 
-          <!-- contact — dynamic micro-interactions -->
           <div>
             <div class="contact-item">
               <div class="contact-icon"><i class="fas fa-envelope"></i></div>
@@ -472,7 +499,6 @@
             </div>
           </div>
 
-          <!-- Professional summary — punchy & confident -->
           <div style="margin-top: 2.5rem;">
             <h3 style="margin-bottom: 0.8rem; display: flex; gap: 8px;"><i class="fas fa-bolt" style="color: var(--primary);"></i> core strength</h3>
             <p style="color: var(--gray); font-weight: 400;">
@@ -500,7 +526,6 @@
             </div>
           </div>
 
-          <!-- dynamic demo cards — screenshot + gif placeholders with flair -->
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem;">
             <div class="demo-placeholder">
               <div class="demo-inner">
@@ -556,25 +581,88 @@
     </div>
   </section>
 
-  <!-- === FEATURES — 10 KEY, playful cards, each unique === -->
+  <!-- === FEATURES — 10 KEY, with FADE-IN/OUT IMAGES on each === -->
   <section id="features" class="section">
     <div class="container">
       <div class="section-header">
         <span class="section-subtitle"><i class="fas fa-gamepad"></i> feature set — playthrough</span>
         <h2>10 fault‑busting features</h2>
+        <p style="margin-top: 0.6rem;">⬇️ hover each card → image fades in/out ⬇️</p>
       </div>
 
       <div class="card-grid">
-        <div class="card"><div class="card-icon"><i class="fas fa-flag"></i></div><h3>📋 Fault Reporting</h3><p>Intelligent form with fridge selection, dynamic validation.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-images"></i></div><h3>🖼️ Multi‑image upload</h3><p>Rename, compress, validation — secure evidence.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-tachometer-alt"></i></div><h3>📈 Tech dashboard</h3><p>Unified view: pending, scheduled, resolved, scrapped.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-calendar-check"></i></div><h3>📅 Scheduling calendar</h3><p>Interactive week view, time slots, conflict prevention.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-diagram-project"></i></div><h3>🎛️ State machine</h3><p>12 allowed transitions, locked status flow.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-comment-dots"></i></div><h3>💬 Role‑based comments</h3><p>Internal notes (private) vs public messages.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-timeline"></i></div><h3>⏳ Event timeline</h3><p>Visual audit trail for each fault — full history.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-robot"></i></div><h3>🤖 Auto replacement</h3><p>One click → replacement request + stock scrapping proposal.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-star"></i></div><h3>⭐ Customer feedback</h3><p>5‑star rating after resolution, comment optional.</p></div>
-        <div class="card"><div class="card-icon"><i class="fas fa-clock"></i></div><h3>🕒 Auto‑closing</h3><p>Smart rule: resolved + 3 days idle = auto closed.</p></div>
+
+        <!-- feature 1 -->
+        <div class="card">
+          <img class="feature-image" src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=400&q=80&auto=format&fit=crop" alt="fault report concept">
+          <div class="card-icon"><i class="fas fa-flag"></i></div>
+          <h3>📋 Fault Reporting</h3>
+          <p>Intelligent form with fridge selection, dynamic validation.</p>
+        </div>
+        <!-- feature 2 -->
+        <div class="card">
+          <img class="feature-image" src="https://images.unsplash.com/photo-1576086135518-b62f2e2e1e8b?w=400&q=80&auto=format&fit=crop" alt="multi image upload">
+          <div class="card-icon"><i class="fas fa-images"></i></div>
+          <h3>🖼️ Multi‑image upload</h3>
+          <p>Rename, compress, validation — secure evidence.</p>
+        </div>
+        <!-- feature 3 -->
+        <div class="card">
+          <img class="feature-image" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80&auto=format&fit=crop" alt="tech dashboard">
+          <div class="card-icon"><i class="fas fa-tachometer-alt"></i></div>
+          <h3>📈 Tech dashboard</h3>
+          <p>Unified view: pending, scheduled, resolved, scrapped.</p>
+        </div>
+        <!-- feature 4 -->
+        <div class="card">
+          <img class="feature-image" src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&q=80&auto=format&fit=crop" alt="scheduling calendar">
+          <div class="card-icon"><i class="fas fa-calendar-check"></i></div>
+          <h3>📅 Scheduling calendar</h3>
+          <p>Interactive week view, time slots, conflict prevention.</p>
+        </div>
+        <!-- feature 5 -->
+        <div class="card">
+          <img class="feature-image" src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=400&q=80&auto=format&fit=crop" alt="state machine">
+          <div class="card-icon"><i class="fas fa-diagram-project"></i></div>
+          <h3>🎛️ State machine</h3>
+          <p>12 allowed transitions, locked status flow.</p>
+        </div>
+        <!-- feature 6 -->
+        <div class="card">
+          <img class="feature-image" src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=400&q=80&auto=format&fit=crop" alt="role based comments">
+          <div class="card-icon"><i class="fas fa-comment-dots"></i></div>
+          <h3>💬 Role‑based comments</h3>
+          <p>Internal notes (private) vs public messages.</p>
+        </div>
+        <!-- feature 7 -->
+        <div class="card">
+          <img class="feature-image" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80&auto=format&fit=crop" alt="timeline">
+          <div class="card-icon"><i class="fas fa-timeline"></i></div>
+          <h3>⏳ Event timeline</h3>
+          <p>Visual audit trail for each fault — full history.</p>
+        </div>
+        <!-- feature 8 -->
+        <div class="card">
+          <img class="feature-image" src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&q=80&auto=format&fit=crop" alt="auto replacement">
+          <div class="card-icon"><i class="fas fa-robot"></i></div>
+          <h3>🤖 Auto replacement</h3>
+          <p>One click → replacement request + stock scrapping proposal.</p>
+        </div>
+        <!-- feature 9 -->
+        <div class="card">
+          <img class="feature-image" src="https://images.unsplash.com/photo-1512291315308-6d496fa0aabb?w=400&q=80&auto=format&fit=crop" alt="customer feedback">
+          <div class="card-icon"><i class="fas fa-star"></i></div>
+          <h3>⭐ Customer feedback</h3>
+          <p>5‑star rating after resolution, comment optional.</p>
+        </div>
+        <!-- feature 10 -->
+        <div class="card">
+          <img class="feature-image" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&q=80&auto=format&fit=crop" alt="auto closing">
+          <div class="card-icon"><i class="fas fa-clock"></i></div>
+          <h3>🕒 Auto‑closing</h3>
+          <p>Smart rule: resolved + 3 days idle = auto closed.</p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -611,7 +699,6 @@
           <p>Wrapped in database transaction: fault update + replacement insertion + stock flag — all or nothing.</p>
         </div>
       </div>
-      <!-- extra playful challenge note -->
       <div style="text-align: center; margin-top: 3rem; font-size: 1.1rem;">
         <i class="fas fa-trophy" style="color: var(--primary);"></i> 
         <span style="background: white; padding: 0.4rem 1.6rem; border-radius: 60px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
@@ -634,7 +721,6 @@
     </div>
   </footer>
 
-  <!-- tiny dynamic script: toggle + add active class smooth -->
   <script>
     (function() {
       // mobile toggle
@@ -647,7 +733,7 @@
         });
       }
 
-      // highlight active nav item on scroll/click (simple)
+      // highlight active nav item
       const sections = document.querySelectorAll('section');
       const navLinks = document.querySelectorAll('.nav-menu a');
 
@@ -673,7 +759,6 @@
       window.addEventListener('scroll', setActiveLink);
       window.addEventListener('load', setActiveLink);
       
-      // smooth nav clicks
       navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
           e.preventDefault();
@@ -685,21 +770,23 @@
               behavior: 'smooth'
             });
           }
-          // close mobile menu
           if (menu.classList.contains('active')) menu.classList.remove('active');
         });
       });
     })();
   </script>
-  <!-- minor style for placeholder image -->
+  <!-- tiny style for placeholder image fallback -->
   <style>
     .profile-photo[src*="via.placeholder"] {
       background: linear-gradient(145deg, #dbeafe, #eff6ff);
-      font-size: 0; /* hide text if any */
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--primary);
+    }
+    /* ensure images subtle */
+    .feature-image {
+      filter: brightness(0.9) contrast(1.1);
     }
   </style>
 </body>
