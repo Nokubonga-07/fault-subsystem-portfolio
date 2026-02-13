@@ -29,7 +29,7 @@
       --gradient-title: linear-gradient(135deg, #1b3b5c, #325e82);
     }
 
-        /* dark mode (optional but fresh) */
+    /* dark mode (optional but fresh) */
     .dark-mode {
       --bg: #121b25;
       --surface: #1f2b38;
@@ -257,49 +257,101 @@
       margin: 0.2rem 0.2rem 0 0;
     }
 
-    /* media grid – two equal columns */
-    .media-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 1rem;
+    /* ===== VERTICAL STACK for demos ===== */
+    .demo-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 2rem;
     }
 
-    .media-card {
+    .demo-card {
       background: var(--surface);
       border-radius: 32px;
-      padding: 1.2rem;
+      padding: 1.5rem;
       box-shadow: var(--shadow);
       border: 1px solid var(--border);
       transition: 0.2s;
-      display: flex;
-      flex-direction: column;
+      width: 100%;
     }
 
-    .media-card:hover {
-      transform: translateY(-6px);
+    .demo-card:hover {
+      transform: translateY(-4px);
     }
 
-    .media-frame {
-      height: 200px;            /* fixed equal height */
+    .demo-frame {
+      width: 100%;
+      height: 280px;           /* taller for clarity */
       background: var(--border);
       border-radius: 24px;
       overflow: hidden;
-      width: 100%;
+      cursor: pointer;          /* indicates clickable */
     }
 
-    .media-frame img, .media-frame video {
+    .demo-frame video, .demo-frame img {
       width: 100%;
       height: 100%;
-      object-fit: cover;        /* fills container neatly */
+      object-fit: cover;
       display: block;
+      pointer-events: none;     /* clicks go to parent frame */
     }
 
-    .media-card strong {
-      margin-top: 1rem;
+    .demo-card strong {
+      margin-top: 1.2rem;
       display: block;
-      font-size: 1rem;
+      font-size: 1.2rem;
       text-align: center;
+    }
+
+    /* ===== LIGHTBOX / MODAL (half‑page view) ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      width: 90%;
+      max-width: 1000px;        /* fits half a page roughly */
+      background: transparent;
+      text-align: center;
+      animation: zoom 0.3s;
+    }
+
+    .modal video, .modal img {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 50px;
+      color: white;
+      font-size: 3rem;
+      font-weight: 300;
+      cursor: pointer;
+      transition: 0.2s;
+      z-index: 2001;
+    }
+
+    .close:hover {
+      color: var(--accent);
+    }
+
+    @keyframes zoom {
+      from {transform: scale(0.8); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
     }
 
     /* feature cards – minimal & bold */
@@ -404,13 +456,21 @@
         padding: 2rem;
         box-shadow: 0 30px 30px -10px rgba(0,0,0,0.2);
       }
-      .media-grid {
-        grid-template-columns: 1fr; /* stack on mobile */
+      .demo-frame {
+        height: 220px;
       }
     }
   </style>
 </head>
 <body>
+
+<!-- LIGHTBOX MODAL (hidden by default) -->
+<div id="videoModal" class="modal" onclick="closeModal(event)">
+  <span class="close" onclick="closeModal(event)">&times;</span>
+  <div class="modal-content" id="modalContent">
+    <!-- video or img will be injected here -->
+  </div>
+</div>
 
 <nav class="navbar">
   <div class="container nav-container">
@@ -473,27 +533,27 @@
         </div>
       </div>
 
-      <!-- TWO VIDEOS SAME SIZE – using media-grid for perfect symmetry -->
-      <div class="media-grid">
+      <!-- DEMO STACK – Demo1 above, Demo2 below (vertical) -->
+      <div class="demo-stack">
         <!-- Demo 1: Scrapped -->
-        <div class="media-card">
-          <div class="media-frame">
+        <div class="demo-card">
+          <div class="demo-frame" onclick="openVideoModal('images/Scrapped.mp4', true)">
             <video autoplay muted loop playsinline>
               <source src="images/Scrapped.mp4" type="video/mp4">
               <img src="https://placehold.co/600x400/cc5a2a/white?text=Scrapped.mp4" alt="video placeholder">
             </video>
           </div>
-          <strong>🎬 Demo 1 · Auto replacement (scrapped)</strong>
+          <strong>🎬 Demo 1 · Auto replacement (scrapped) — click to enlarge</strong>
         </div>
-        <!-- Demo 2: CustomerFeedback – now identical size -->
-        <div class="media-card">
-          <div class="media-frame">
+        <!-- Demo 2: CustomerFeedback – below -->
+        <div class="demo-card">
+          <div class="demo-frame" onclick="openVideoModal('images/CustomerFeedback.mp4', true)">
             <video autoplay muted loop playsinline>
               <source src="images/CustomerFeedback.mp4" type="video/mp4">
               <img src="https://placehold.co/600x400/cc5a2a/white?text=CustomerFeedback.mp4" alt="video placeholder">
             </video>
           </div>
-          <strong>📊 Demo 2 · Customer feedback</strong>
+          <strong>📊 Demo 2 · Customer feedback — click to enlarge</strong>
         </div>
       </div>
 
@@ -659,6 +719,27 @@
 </footer>
 
 <script>
+  // modal functions for half‑page video view
+  const modal = document.getElementById('videoModal');
+  const modalContent = document.getElementById('modalContent');
+
+  function openVideoModal(src, isVideo) {
+    modal.style.display = 'flex';
+    if (isVideo) {
+      modalContent.innerHTML = `<video controls autoplay><source src="${src}" type="video/mp4">Your browser does not support the video tag.</video>`;
+    } else {
+      modalContent.innerHTML = `<img src="${src}" alt="enlarged view">`;
+    }
+  }
+
+  function closeModal(e) {
+    // if click on modal background or close button
+    if (e.target === modal || e.target.classList.contains('close')) {
+      modal.style.display = 'none';
+      modalContent.innerHTML = ''; // clear content
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.getElementById('navToggle');
     const menu = document.getElementById('navMenu');
