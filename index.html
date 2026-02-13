@@ -4,22 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nokubonga Mpanza · full‑stack portfolio</title>
-  <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
   <style>
-    * {
+     {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
     :root {
-      --bg: #f7f5f0;            /* warm off-white */
+      --bg: #f7f5f0;            
       --surface: #ffffff;
-      --primary: #1b3b5c;        /* deep denim */
-      --accent: #cc5a2a;          /* terracotta */
+      --primary: #1b3b5c;        
+      --accent: #cc5a2a;         
       --accent-soft: #f0dbd0;
       --text: #1e2a3a;
       --text-light: #4f5b6b;
@@ -29,7 +28,6 @@
       --gradient-title: linear-gradient(135deg, #1b3b5c, #325e82);
     }
 
-    /* dark mode (optional but fresh) */
     .dark-mode {
       --bg: #121b25;
       --surface: #1f2b38;
@@ -57,7 +55,6 @@
       padding: 0 2rem;
     }
 
-    /* navbar – sleeker */
     .navbar {
       position: fixed;
       width: 100%;
@@ -126,7 +123,6 @@
 
     .nav-toggle { display: none; font-size: 1.8rem; cursor: pointer; }
 
-    /* sections */
     .section {
       padding: 140px 0 80px;
     }
@@ -157,7 +153,6 @@
       -webkit-text-fill-color: transparent;
     }
 
-    /* home grid – editorial feel */
     .home-grid {
       display: grid;
       grid-template-columns: 1fr 1.1fr;
@@ -257,7 +252,6 @@
       margin: 0.2rem 0.2rem 0 0;
     }
 
-    /* ===== VERTICAL STACK for demos ===== */
     .demo-stack {
       display: flex;
       flex-direction: column;
@@ -281,11 +275,11 @@
 
     .demo-frame {
       width: 100%;
-      height: 280px;           /* taller for clarity */
+      height: 280px;           
       background: var(--border);
       border-radius: 24px;
       overflow: hidden;
-      cursor: pointer;          /* indicates clickable */
+      cursor: pointer;          
     }
 
     .demo-frame video, .demo-frame img {
@@ -293,7 +287,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      pointer-events: none;     /* clicks go to parent frame */
+      pointer-events: none;     
     }
 
     .demo-card strong {
@@ -303,7 +297,6 @@
       text-align: center;
     }
 
-    /* ===== LIGHTBOX / MODAL (half‑page view) ===== */
     .modal {
       display: none;
       position: fixed;
@@ -319,7 +312,7 @@
 
     .modal-content {
       width: 90%;
-      max-width: 1000px;        /* fits half a page roughly */
+      max-width: 1000px;        
       background: transparent;
       text-align: center;
       animation: zoom 0.3s;
@@ -354,7 +347,6 @@
       to {transform: scale(1); opacity: 1;}
     }
 
-    /* feature cards – minimal & bold */
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -440,7 +432,6 @@
       background: #0f1a24;
     }
 
-    /* responsive */
     @media (max-width: 950px) {
       .home-grid { grid-template-columns: 1fr; }
       .nav-menu { display: none; }
@@ -464,11 +455,9 @@
 </head>
 <body>
 
-<!-- LIGHTBOX MODAL (hidden by default) -->
 <div id="videoModal" class="modal" onclick="closeModal(event)">
   <span class="close" onclick="closeModal(event)">&times;</span>
   <div class="modal-content" id="modalContent">
-    <!-- video or img will be injected here -->
   </div>
 </div>
 
@@ -514,15 +503,31 @@
       </div>
 
       <div style="margin-top: 2rem;">
-        <h3 style="font-weight:700; margin-bottom:0.8rem;">⚡ professional summary</h3>
-        <p style="color:var(--text-light);">IT graduate with full‑stack grit. Owned the entire fault subsystem from zero – C#, MVC, SQL, 7+ tables, three roles, and state‑machine integrity. Built for real‑world fridge rental.</p>
+        <h3 style="font-weight:700; margin-bottom:0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-briefcase" style="color: var(--accent);"></i> Professional Summary
+        </h3>
+        <div style="color:var(--text-light); background: var(--accent-soft); padding: 1.5rem; border-radius: 24px;">
+          <p style="margin-bottom: 1rem; font-size: 1rem; line-height: 1.6;">
+            <strong>Information Technology graduate</strong> with comprehensive full‑stack development experience, specializing in <strong>C#/.NET MVC, SQL Server, and Entity Framework</strong>. Recently delivered a complete fault management subsystem for a commercial fridge rental platform (SmartChills), taking <strong>100% ownership</strong> of the module from database design to deployment.
+          </p>
+          <p style="margin-bottom: 1rem; font-size: 1rem; line-height: 1.6;">
+            • Architected a <strong>relational database with 7+ tables</strong> (faults, images, schedules, comments, replacements) implementing complex state‑machine logic with only <strong>12 valid status transitions</strong>.<br>
+            • Built <strong>three‑role security</strong> (customer, technician, admin) with custom dashboards and role‑based views.<br>
+            • Integrated <strong>automated replacement workflows</strong> using database transactions to ensure data integrity.<br>
+            • Created <strong>interactive scheduling calendar, multi‑image upload with validation, and audit timeline</strong> for full traceability.
+          </p>
+          <p style="font-size: 1rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <span style="background: var(--accent); color: white; padding: 0.3rem 1rem; border-radius: 60px;">🔍 #OpenToWork</span>
+            <span style="background: var(--primary); color: white; padding: 0.3rem 1rem; border-radius: 60px;">📍 Willing to relocate</span>
+            <span style="background: var(--surface); color: var(--text); padding: 0.3rem 1rem; border-radius: 60px; border: 1px solid var(--border);">🌍 Remote / Hybrid</span>
+          </p>
+        </div>
       </div>
     </div>
 
-    <!-- right side -->
     <div>
       <div class="preview-card">
-        <span class="badge">🔥 SMARTCHILLS CORE</span>
+        <span class="badge">🔥 PROJECT</span>
         <h2 style="font-size:2.8rem; margin:1rem 0 0.5rem;">Fault Management Subsystem</h2>
         <p style="color:var(--text-light);">End‑to‑end ownership · reporting → scheduling → auto‑replacement · used in production‑like environment.</p>
         <div style="margin:1.8rem 0;">
@@ -533,7 +538,6 @@
         </div>
       </div>
 
-      <!-- DEMO STACK – Demo1 above, Demo2 below (vertical) -->
       <div class="demo-stack">
         <!-- Demo 1: Scrapped -->
         <div class="demo-card">
@@ -543,9 +547,9 @@
               <img src="https://placehold.co/600x400/cc5a2a/white?text=Scrapped.mp4" alt="video placeholder">
             </video>
           </div>
-          <strong>🎬 Demo 1 · Auto replacement (scrapped) — click to enlarge</strong>
+          <strong>🎬 Demo 1 · Auto request replacement if Technician marked the fault report as scrapped— click to enlarge</strong>
         </div>
-        <!-- Demo 2: CustomerFeedback – below -->
+        <!-- Demo 2: CustomerFeedback  -->
         <div class="demo-card">
           <div class="demo-frame" onclick="openVideoModal('images/CustomerFeedback.mp4', true)">
             <video autoplay muted loop playsinline>
@@ -553,7 +557,7 @@
               <img src="https://placehold.co/600x400/cc5a2a/white?text=CustomerFeedback.mp4" alt="video placeholder">
             </video>
           </div>
-          <strong>📊 Demo 2 · Customer feedback — click to enlarge</strong>
+          <strong>📊 Demo 2 · Customer feedback  — click to enlarge</strong>
         </div>
       </div>
 
@@ -770,3 +774,4 @@
 </script>
 </body>
 </html>
+
