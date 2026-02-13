@@ -510,12 +510,6 @@
           <p style="margin-bottom: 1rem; font-size: 1rem; line-height: 1.6;">
             <strong>Information Technology graduate</strong> with comprehensive full‑stack development experience, specializing in <strong>C#/.NET MVC, SQL Server, and Entity Framework</strong>. Recently delivered a complete fault management subsystem for a commercial fridge rental platform (SmartChills), taking <strong>100% ownership</strong> of the module from database design to deployment.
           </p>
-          <p style="margin-bottom: 1rem; font-size: 1rem; line-height: 1.6;">
-            • Architected a <strong>relational database with 7+ tables</strong> (faults, images, schedules, comments, replacements) implementing complex state‑machine logic with only <strong>12 valid status transitions</strong>.<br>
-            • Built <strong>three‑role security</strong> (customer, technician, admin) with custom dashboards and role‑based views.<br>
-            • Integrated <strong>automated replacement workflows</strong> using database transactions to ensure data integrity.<br>
-            • Created <strong>interactive scheduling calendar, multi‑image upload with validation, and audit timeline</strong> for full traceability.
-          </p>
           <p style="font-size: 1rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
             <span style="background: var(--accent); color: white; padding: 0.3rem 1rem; border-radius: 60px;">🔍 #OpenToWork</span>
             <span style="background: var(--primary); color: white; padding: 0.3rem 1rem; border-radius: 60px;">📍 Willing to relocate</span>
@@ -586,7 +580,7 @@
         <div class="feature-content">
           <div class="feature-icon"><i class="fas fa-user-lock"></i></div>
           <h3>three‑role security</h3>
-          <p>customer · technician · admin · separate views + permissions</p>
+          <p>customer · technician · customer support · separate views + permissions</p>
         </div>
       </div>
       <div class="feature-card">
@@ -645,7 +639,7 @@
       <!-- 5 state machine -->
       <div class="feature-card">
         <div class="feature-image">
-          <img src="images/FaultDetails.jpg" alt="State machine" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1b3b5c/white?text=FaultDetails.jpg';">
+          <img src="images/FaultDetails.jpeg" alt="State machine" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1b3b5c/white?text=FaultDetails.jpg';">
         </div>
         <div class="feature-content">
           <div class="feature-icon"><i class="fas fa-random"></i></div>
@@ -684,8 +678,8 @@
 <section id="challenges" style="background: var(--accent-soft);">
   <div class="container section">
     <div class="section-header">
-      <span class="section-subtitle">problem solver</span>
-      <h2>key technical challenges</h2>
+      <span class="section-subtitle">PROBLEM SOLVER</span>
+      <h2>Key Technical Challenges</h2>
     </div>
 
     <div class="feature-grid" style="grid-template-columns: repeat(3,1fr);">
@@ -737,7 +731,6 @@
   }
 
   function closeModal(e) {
-    // if click on modal background or close button
     if (e.target === modal || e.target.classList.contains('close')) {
       modal.style.display = 'none';
       modalContent.innerHTML = ''; // clear content
@@ -774,4 +767,5 @@
 </script>
 </body>
 </html>
+
 
