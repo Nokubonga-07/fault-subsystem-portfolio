@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nokubonga Mpanza · Junior Software Developer</title>
-
+  <title>Nokubonga Mpanza · full‑stack portfolio</title>
   <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
@@ -17,39 +16,61 @@
     }
 
     :root {
-      --primary: #0a2c4b;       
-      --accent: #c2491e;         
-      --accent-soft: #e37b4c30;
-      --light-bg: #f4f7fc;
-      --white: #ffffff;
-      --dark: #0f172a;
-      --gray: #334155;
-      --border-light: #e2e8f0;
-      --shadow-lg: 0 20px 35px -8px rgba(0,20,40,0.15);
-      --gradient-header: linear-gradient(145deg, #0a2c4b, #153b60);
+      --bg: #f7f5f0;            /* warm off-white */
+      --surface: #ffffff;
+      --primary: #1b3b5c;        /* deep denim */
+      --accent: #cc5a2a;          /* terracotta */
+      --accent-soft: #f0dbd0;
+      --text: #1e2a3a;
+      --text-light: #4f5b6b;
+      --border: #e0dbd2;
+      --shadow: 0 20px 35px -12px rgba(0,20,20,0.12);
+      --card-radius: 42px;
+      --gradient-title: linear-gradient(135deg, #1b3b5c, #325e82);
+    }
+
+        /* dark mode (optional but fresh) */
+    .dark-mode {
+      --bg: #121b25;
+      --surface: #1f2b38;
+      --primary: #b1d0f0;
+      --accent: #f2855e;
+      --accent-soft: #3d3f4a;
+      --text: #edf2f7;
+      --text-light: #b0c0d0;
+      --border: #33495f;
+      --shadow: 0 20px 30px -10px rgba(0,0,0,0.5);
+      --gradient-title: linear-gradient(135deg, #b1d0f0, #f2855e);
     }
 
     body {
       font-family: "Inter", sans-serif;
-      background: var(--white);
-      color: var(--dark);
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.5;
+      transition: background 0.2s, color 0.2s;
     }
 
     .container {
-      max-width: 1300px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 0 2rem;
     }
 
+    /* navbar – sleeker */
     .navbar {
       position: fixed;
       width: 100%;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
       z-index: 1000;
-      border-bottom: 1px solid rgba(10,44,75,0.1);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .dark-mode .navbar {
+      background: rgba(20,30,40,0.7);
+      border-bottom-color: #2a3a4a;
     }
 
     .nav-container {
@@ -60,9 +81,9 @@
     }
 
     .nav-brand {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       font-weight: 800;
-      background: var(--gradient-header);
+      background: var(--gradient-title);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       letter-spacing: -0.5px;
@@ -70,34 +91,49 @@
 
     .nav-menu {
       display: flex;
-      gap: 2.8rem;
+      gap: 3rem;
       list-style: none;
+      align-items: center;
     }
 
     .nav-menu a {
       text-decoration: none;
       font-weight: 600;
-      color: var(--dark);
+      color: var(--text);
       font-size: 1rem;
-      padding-bottom: 4px;
-      border-bottom: 2px solid transparent;
       transition: 0.2s;
+      padding: 0.3rem 0;
+      border-bottom: 2px solid transparent;
     }
 
     .nav-menu a:hover, .nav-menu a.active {
       border-bottom-color: var(--accent);
-      color: var(--primary);
+      color: var(--accent);
+    }
+
+    .dark-toggle {
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 60px;
+      padding: 0.3rem 1rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
     }
 
     .nav-toggle { display: none; font-size: 1.8rem; cursor: pointer; }
 
+    /* sections */
     .section {
-      padding: 140px 0 100px;
+      padding: 140px 0 80px;
     }
 
     .section-header {
       max-width: 800px;
-      margin: 0 auto 3.5rem;
+      margin: 0 auto 3rem;
       text-align: center;
     }
 
@@ -107,21 +143,21 @@
       font-weight: 700;
       font-size: 0.9rem;
       padding: 0.4rem 1.6rem;
-      border-radius: 40px;
+      border-radius: 60px;
       display: inline-block;
-      letter-spacing: 0.3px;
     }
 
     .section h2 {
-      font-size: 3rem;
+      font-size: 3.2rem;
       font-weight: 700;
-      letter-spacing: -1px;
-      margin: 1rem 0 1.2rem;
-      background: var(--gradient-header);
+      letter-spacing: -1.5px;
+      margin: 1rem 0;
+      background: var(--gradient-title);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
+    /* home grid – editorial feel */
     .home-grid {
       display: grid;
       grid-template-columns: 1fr 1.1fr;
@@ -130,12 +166,11 @@
     }
 
     .profile-card {
-      background: var(--white);
-      border-radius: 36px;
-      padding: 2.5rem;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid rgba(255,255,255,0.6);
-      backdrop-filter: blur(4px);
+      background: var(--surface);
+      border-radius: var(--card-radius);
+      padding: 2.8rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
     }
 
     .profile-photo {
@@ -146,7 +181,7 @@
       border: 4px solid var(--accent);
       margin: 0 auto 1.8rem;
       display: block;
-      box-shadow: 0 15px 25px -8px rgba(194,73,30,0.2);
+      box-shadow: 0 15px 25px -10px rgba(194,90,42,0.3);
     }
 
     .profile-name {
@@ -160,9 +195,8 @@
     .profile-title {
       text-align: center;
       font-size: 1.3rem;
-      font-weight: 400;
       color: var(--accent);
-      background: #fff1e8;
+      background: var(--accent-soft);
       display: inline-block;
       padding: 0.4rem 2rem;
       border-radius: 60px;
@@ -177,15 +211,14 @@
     }
 
     .contact-icon {
-      width: 54px;
-      height: 54px;
-      background: #f0f4fe;
+      width: 54px; height: 54px;
+      background: var(--accent-soft);
       border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.5rem;
-      color: var(--primary);
+      color: var(--accent);
       transition: 0.2s;
     }
 
@@ -195,72 +228,70 @@
     }
 
     .preview-card {
-      background: var(--white);
-      border-radius: 30px;
-      padding: 2rem;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid rgba(10,44,75,0.05);
-      transition: all 0.25s;
+      background: var(--surface);
+      border-radius: var(--card-radius);
+      padding: 2.2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      margin-bottom: 2rem;
     }
 
-    .preview-card:hover {
-      transform: translateY(-6px);
+    .badge {
+      background: var(--accent);
+      color: white;
+      padding: 0.3rem 1.5rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-block;
     }
 
     .tech-badge {
-      background: #eef2ff;
-      color: var(--primary);
+      background: var(--accent-soft);
+      color: var(--accent);
       font-weight: 600;
       padding: 0.3rem 1rem;
       border-radius: 30px;
       font-size: 0.8rem;
       display: inline-block;
-      margin: 0.3rem 0.3rem 0 0;
+      margin: 0.2rem 0.2rem 0 0;
     }
 
-    /* ===== MEDIA GRID (technician dashboard + video) now visible ===== */
+    /* media grid – more visual */
     .media-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
-      margin-top: 2rem;
     }
 
     .media-card {
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 10px 20px -8px rgba(0,0,0,0.1);
-      border: 1px solid var(--border-light);
+      background: var(--surface);
+      border-radius: 32px;
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
       transition: 0.2s;
     }
 
     .media-card:hover {
-      transform: scale(1.02);
-      border-color: var(--accent);
+      transform: translateY(-6px);
     }
 
     .media-frame {
-      height: 180px;           /* taller for better visibility */
-      background: #1e293b;
-      border-radius: 18px;
+      height: 180px;
+      background: var(--border);
+      border-radius: 24px;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid #ffffff;
-      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
     }
 
     .media-frame img, .media-frame video {
       width: 100%;
       height: 100%;
-      object-fit: cover;        /* ensures full coverage without distortion */
+      object-fit: cover;
       display: block;
     }
 
-    /* ===== FEATURE CARDS – images now dominant and neat ===== */
+    /* feature cards – minimal & bold */
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -269,26 +300,22 @@
     }
 
     .feature-card {
-      background: var(--white);
-      border-radius: 30px;
-      box-shadow: 0 10px 30px -12px rgba(10,44,75,0.12);
-      border: 1px solid var(--border-light);
-      transition: 0.25s ease;
+      background: var(--surface);
+      border-radius: 36px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
       overflow: hidden;
+      transition: 0.25s;
       display: flex;
       flex-direction: column;
     }
 
     .feature-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--accent);
-      box-shadow: 0 30px 40px -18px var(--accent);
+      transform: translateY(-10px);
     }
 
-    /* image container – always visible, no hover trick */
     .feature-image {
-      width: 100%;
-      height: 200px;            /* fixed height, all images neat */
+      height: 220px;
       overflow: hidden;
       border-bottom: 3px solid var(--accent-soft);
     }
@@ -296,82 +323,65 @@
     .feature-image img {
       width: 100%;
       height: 100%;
-      object-fit: cover;         /* crops/zooms to fit perfectly */
-      display: block;
-      transition: transform 0.4s;
+      object-fit: cover;
+      transition: transform 0.6s;
     }
 
     .feature-card:hover .feature-image img {
-      transform: scale(1.05);    /* subtle zoom on hover */
+      transform: scale(1.05);
     }
 
     .feature-content {
-      padding: 1.8rem 1.5rem 2rem;
-      background: white;
-      flex: 1;
+      padding: 2rem 1.8rem;
     }
 
     .feature-icon {
-      width: 54px;
-      height: 54px;
-      background: #0a2c4b0c;
-      border-radius: 18px;
+      width: 56px; height: 56px;
+      background: var(--accent-soft);
+      border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.8rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
     }
 
     .feature-card h3 {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
     }
 
     .feature-card p {
-      color: var(--gray);
+      color: var(--text-light);
       font-size: 0.95rem;
     }
 
     .challenge-card {
-      background: white;
-      border-radius: 28px;
+      background: var(--surface);
+      border-radius: 32px;
       padding: 2rem;
       border-left: 6px solid var(--accent);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .image-note {
-      background: #fbf7f2;
-      border-radius: 18px;
-      padding: 1rem 2rem;
-      font-size: 0.95rem;
-      color: var(--gray);
-      display: inline-flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      border: 1px dashed var(--accent);
+      box-shadow: var(--shadow);
     }
 
     footer {
-      background: #0f172a;
-      color: #cbd5e1;
+      background: var(--primary);
+      color: white;
       padding: 4rem 0;
       text-align: center;
       border-top: 6px solid var(--accent);
     }
+    .dark-mode footer {
+      background: #0f1a24;
+    }
 
+    /* responsive */
     @media (max-width: 950px) {
       .home-grid { grid-template-columns: 1fr; }
-      .nav-menu {
-        display: none;
-      }
-      .nav-toggle {
-        display: block;
-      }
+      .nav-menu { display: none; }
+      .nav-toggle { display: block; }
       .nav-menu.active {
         display: flex;
         flex-direction: column;
@@ -379,9 +389,9 @@
         top: 80px;
         left: 0;
         right: 0;
-        background: white;
+        background: var(--surface);
         padding: 2rem;
-        box-shadow: 0 30px 30px -10px rgba(0,0,0,0.1);
+        box-shadow: 0 30px 30px -10px rgba(0,0,0,0.2);
       }
     }
   </style>
@@ -393,10 +403,11 @@
     <div class="nav-brand">NOKUBONGA MPANZA</div>
     <div class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></div>
     <ul class="nav-menu" id="navMenu">
-      <li><a href="#home" class="active">HOME</a></li>
+      <li><a href="#home">HOME</a></li>
       <li><a href="#overview">OVERVIEW</a></li>
       <li><a href="#features">FEATURES</a></li>
       <li><a href="#challenges">CHALLENGES</a></li>
+      <li><button class="dark-toggle" id="themeToggle"><i class="fas fa-moon"></i> <span>dark</span></button></li>
     </ul>
   </div>
 </nav>
@@ -404,7 +415,6 @@
 <!-- HOME -->
 <section id="home" class="section">
   <div class="container home-grid">
-    <!-- left profile -->
     <div class="profile-card">
       <img src="images/Profile photo.jpg" alt="Nokubonga Mpanza" class="profile-photo" onerror="this.src='https://via.placeholder.com/200x200?text=Nokubonga';">
       <h1 class="profile-name">Nokubonga Mpanza</h1>
@@ -413,11 +423,11 @@
       <div>
         <div class="contact-item">
           <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-          <div><strong>Email</strong><br><a href="mailto:nokubongampanza12@gmail.com" style="color:var(--dark);">nokubongampanza12@gmail.com</a></div>
+          <div><strong>Email</strong><br><a href="mailto:nokubongampanza12@gmail.com" style="color:var(--text);">nokubongampanza12@gmail.com</a></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-          <div><strong>Phone</strong><br><a href="tel:+27763426136" style="color:var(--dark);">076 342 6136</a></div>
+          <div><strong>Phone</strong><br><a href="tel:+27763426136" style="color:var(--text);">076 342 6136</a></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
@@ -431,17 +441,17 @@
 
       <div style="margin-top: 2rem;">
         <h3 style="font-weight:700; margin-bottom:0.8rem;">⚡ professional summary</h3>
-        <p style="color:var(--gray);">IT graduate with full‑stack grit. Owned the entire fault subsystem from zero – C#, MVC, SQL, 7+ tables, three roles, and state‑machine integrity. Built for real‑world fridge rental.</p>
+        <p style="color:var(--text-light);">IT graduate with full‑stack grit. Owned the entire fault subsystem from zero – C#, MVC, SQL, 7+ tables, three roles, and state‑machine integrity. Built for real‑world fridge rental.</p>
       </div>
     </div>
 
-    <!-- right preview + visible dashboard + video -->
+    <!-- right side -->
     <div>
       <div class="preview-card">
-        <span style="background:var(--accent); color:white; padding:0.3rem 1.4rem; border-radius:30px; font-weight:600; font-size:0.9rem;">🔥 SMARTCHILLS CORE</span>
-        <h2 style="font-size:2.4rem; margin:1rem 0 0.5rem;">Fault Management Subsystem</h2>
-        <p style="color:var(--gray);">End‑to‑end ownership · reporting → scheduling → auto‑replacement · used in production‑like environment.</p>
-        <div style="margin:1.5rem 0;">
+        <span class="badge">🔥 SMARTCHILLS CORE</span>
+        <h2 style="font-size:2.8rem; margin:1rem 0 0.5rem;">Fault Management Subsystem</h2>
+        <p style="color:var(--text-light);">End‑to‑end ownership · reporting → scheduling → auto‑replacement · used in production‑like environment.</p>
+        <div style="margin:1.8rem 0;">
           <span class="tech-badge">ASP.NET Core MVC</span>
           <span class="tech-badge">C#</span>
           <span class="tech-badge">SQL Server</span>
@@ -449,23 +459,22 @@
         </div>
       </div>
 
-      <!-- technician dashboard & video – now visible and prominent -->
+      <!-- dashboard + video VISIBLE -->
       <div class="media-grid">
         <div class="media-card">
           <div class="media-frame">
-            <img src="images/FaultDashboard.jpeg" alt="technician dashboard" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0a2c4b/white?text=FaultDashboard.jpeg';">
+            <img src="images/FaultDashboard.jpeg" alt="technician dashboard" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1b3b5c/white?text=FaultDashboard.jpeg';">
           </div>
-          <strong style="margin-top:0.8rem; display:block;">📊 technician dashboard</strong>
+          <strong style="margin-top:1rem; display:block;">📊 technician dashboard</strong>
         </div>
         <div class="media-card">
           <div class="media-frame">
             <video autoplay muted loop playsinline>
               <source src="images/Scrapped.mp4" type="video/mp4">
-              <!-- fallback if video not found -->
-              <img src="https://placehold.co/600x400/c2491e/white?text=Scrapped.mp4+video" alt="video placeholder">
+              <img src="https://placehold.co/600x400/cc5a2a/white?text=Scrapped.mp4" alt="video placeholder">
             </video>
           </div>
-          <strong style="margin-top:0.8rem; display:block;">🎬 workflow demo (mp4)</strong>
+          <strong style="margin-top:1rem; display:block;">🎬 workflow demo (mp4)</strong>
         </div>
       </div>
     </div>
@@ -473,30 +482,30 @@
 </section>
 
 <!-- OVERVIEW -->
-<section id="overview" style="background: var(--light-bg);">
+<section id="overview" style="background: var(--accent-soft);">
   <div class="container section">
     <div class="section-header">
       <span class="section-subtitle">100% code ownership</span>
       <h2>complete ownership · fault subsystem</h2>
-      <p style="font-size:1.2rem; color:var(--gray);">designed, built, and integrated every piece – from database to UI</p>
+      <p style="font-size:1.2rem; color:var(--text-light);">designed, built, and integrated every piece – from database to UI</p>
     </div>
 
     <div class="feature-grid">
-      <div class="feature-card" style="box-shadow: var(--shadow-lg);">
+      <div class="feature-card">
         <div class="feature-content">
           <div class="feature-icon"><i class="fas fa-cubes"></i></div>
           <h3>7+ database tables</h3>
           <p>faults, images, schedules, comments, replacements – full relational model</p>
         </div>
       </div>
-      <div class="feature-card" style="box-shadow: var(--shadow-lg);">
+      <div class="feature-card">
         <div class="feature-content">
           <div class="feature-icon"><i class="fas fa-user-lock"></i></div>
           <h3>three‑role security</h3>
           <p>customer · technician · admin · separate views + permissions</p>
         </div>
       </div>
-      <div class="feature-card" style="box-shadow: var(--shadow-lg);">
+      <div class="feature-card">
         <div class="feature-content">
           <div class="feature-icon"><i class="fas fa-code-merge"></i></div>
           <h3>system integration</h3>
@@ -507,20 +516,19 @@
   </div>
 </section>
 
-<!-- FEATURES – 10 cards with large visible images -->
+<!-- FEATURES – with crisp images -->
 <section id="features" class="section">
   <div class="container">
     <div class="section-header">
-      <span class="section-subtitle"> Core features</span>
+      <span class="section-subtitle">core features</span>
       <h2>fault subsystem · deep dive</h2>
     </div>
 
-    <!-- feature grid with images always visible -->
     <div class="feature-grid">
-      <!-- 1 Fault reporting -->
+      <!-- 1 fault reporting -->
       <div class="feature-card">
         <div class="feature-image">
-          <img src="images/FaultReport.jpeg" alt="Fault reporting" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0a2c4b/white?text=FaultReport.jpeg';">
+          <img src="images/FaultReport.jpeg" alt="Fault reporting" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1b3b5c/white?text=FaultReport.jpeg';">
         </div>
         <div class="feature-content">
           <div class="feature-icon"><i class="fas fa-flag"></i></div>
@@ -528,11 +536,21 @@
           <p>dynamic fridge selection, priority flags</p>
         </div>
       </div>
-
-      <!-- 3 Technician dashboard -->
+      <!-- 2 multi‑image (add if you have) but keep numbering: we show 10 but I'll include all you had -->
       <div class="feature-card">
         <div class="feature-image">
-          <img src="images/FaultDashboard.jpeg" alt="Technician dashboard" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0a2c4b/white?text=FaultDashboard.jpeg';">
+          <img src="images/multi-image-upload.jpg" alt="Multi upload" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1b3b5c/white?text=multi-image.jpg';">
+        </div>
+        <div class="feature-content">
+          <div class="feature-icon"><i class="fas fa-images"></i></div>
+          <h3>Multi‑image upload</h3>
+          <p>validation, rename, secure storage</p>
+        </div>
+      </div>
+      <!-- 3 technician dashboard -->
+      <div class="feature-card">
+        <div class="feature-image">
+          <img src="images/FaultDashboard.jpeg" alt="Technician dashboard" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1b3b5c/white?text=FaultDashboard.jpeg';">
         </div>
         <div class="feature-content">
           <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
@@ -540,11 +558,10 @@
           <p>unified KPIs, real‑time fault queue</p>
         </div>
       </div>
-
-      <!-- 4 Scheduling calendar -->
+      <!-- 4 scheduling calendar -->
       <div class="feature-card">
         <div class="feature-image">
-          <img src="images/Calendar.jpeg" alt="Scheduling calendar" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0a2c4b/white?text=Calendar.jpeg';">
+          <img src="images/Calendar.jpeg" alt="Calendar" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1b3b5c/white?text=Calendar.jpeg';">
         </div>
         <div class="feature-content">
           <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
@@ -552,11 +569,10 @@
           <p>interactive time‑slot booking</p>
         </div>
       </div>
-
-      <!-- 5 State machine -->
+      <!-- 5 state machine -->
       <div class="feature-card">
         <div class="feature-image">
-          <img src="images/FaultDetails.jpeg" alt="State machine" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0a2c4b/white?text=FaultDetails.jpg';">
+          <img src="images/FaultDetails.jpg" alt="State machine" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1b3b5c/white?text=FaultDetails.jpg';">
         </div>
         <div class="feature-content">
           <div class="feature-icon"><i class="fas fa-random"></i></div>
@@ -564,11 +580,10 @@
           <p>strict transitions (12 valid paths)</p>
         </div>
       </div>
-
-      <!-- 6 Role‑based comments -->
+      <!-- 6 role comments -->
       <div class="feature-card">
         <div class="feature-image">
-          <img src="images/Communication.jpeg" alt="Role comments" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0a2c4b/white?text=Communication.jpeg';">
+          <img src="images/Communication.jpeg" alt="Role comments" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1b3b5c/white?text=Communication.jpeg';">
         </div>
         <div class="feature-content">
           <div class="feature-icon"><i class="fas fa-comments"></i></div>
@@ -576,11 +591,10 @@
           <p>internal vs customer‑visible</p>
         </div>
       </div>
-
-      <!-- 7 Audit timeline -->
+      <!-- 7 timeline -->
       <div class="feature-card">
         <div class="feature-image">
-          <img src="images/Timeline.jpeg" alt="Timeline" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0a2c4b/white?text=Timeline.jpeg';">
+          <img src="images/Timeline.jpeg" alt="Timeline" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1b3b5c/white?text=Timeline.jpeg';">
         </div>
         <div class="feature-content">
           <div class="feature-icon"><i class="fas fa-history"></i></div>
@@ -588,11 +602,10 @@
           <p>full history of changes</p>
         </div>
       </div>
-
-      <!-- 8 Auto replacement -->
+      <!-- 8 auto replacement -->
       <div class="feature-card">
         <div class="feature-image">
-          <img src="images/auto-replacement.jpg" alt="Auto replacement" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0a2c4b/white?text=auto-replacement.jpg';">
+          <img src="images/auto-replacement.jpg" alt="Auto replacement" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1b3b5c/white?text=auto-replacement.jpg';">
         </div>
         <div class="feature-content">
           <div class="feature-icon"><i class="fas fa-recycle"></i></div>
@@ -600,11 +613,10 @@
           <p>transaction‑safe, rollback on fail</p>
         </div>
       </div>
-
-      <!-- 9 Customer feedback -->
+      <!-- 9 customer feedback -->
       <div class="feature-card">
         <div class="feature-image">
-          <img src="images/CustomerFeedback.jpeg" alt="Customer feedback" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0a2c4b/white?text=CustomerFeedback.jpeg';">
+          <img src="images/CustomerFeedback.jpeg" alt="Customer feedback" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1b3b5c/white?text=CustomerFeedback.jpeg';">
         </div>
         <div class="feature-content">
           <div class="feature-icon"><i class="fas fa-star"></i></div>
@@ -612,11 +624,10 @@
           <p>5‑star rating + comments</p>
         </div>
       </div>
-
-      <!-- 10 Auto‑closing rules -->
+      <!-- 10 auto‑closing -->
       <div class="feature-card">
         <div class="feature-image">
-          <img src="images/auto-closing.jpg" alt="Auto closing" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0a2c4b/white?text=auto-closing.jpg';">
+          <img src="images/auto-closing.jpg" alt="Auto closing" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1b3b5c/white?text=auto-closing.jpg';">
         </div>
         <div class="feature-content">
           <div class="feature-icon"><i class="fas fa-clock"></i></div>
@@ -629,7 +640,7 @@
 </section>
 
 <!-- CHALLENGES -->
-<section id="challenges" style="background: var(--light-bg);">
+<section id="challenges" style="background: var(--accent-soft);">
   <div class="container section">
     <div class="section-header">
       <span class="section-subtitle">problem solver</span>
@@ -658,15 +669,15 @@
 
 <footer>
   <div class="container">
-    <p style="font-size:2rem; font-weight:700; letter-spacing:-0.5px;">Nokubonga Mpanza</p>
-    <p style="margin:1rem 0 2rem; opacity:0.7;">fault subsystem · smartchills · 2025</p>
-    <div style="display:flex; gap:2rem; justify-content:center; font-size:1.4rem;">
+    <p style="font-size:2.5rem; font-weight:700; letter-spacing:-1px;">Nokubonga Mpanza</p>
+    <p style="margin:1rem 0 2rem; opacity:0.8;">fault subsystem · smartchills · 2025</p>
+    <div style="display:flex; gap:2.5rem; justify-content:center; font-size:1.6rem;">
       <a href="#" style="color:white;"><i class="fab fa-linkedin-in"></i></a>
       <a href="#" style="color:white;"><i class="fab fa-github"></i></a>
       <a href="#" style="color:white;"><i class="fas fa-envelope"></i></a>
     </div>
-    <hr style="border-color:#334155; margin:2rem 0; width:100px; margin-left:auto; margin-right:auto;">
-    <p style="font-size:0.9rem;">© 2025 – built with C#, MVC, and persistence</p>
+    <hr style="border-color:#ffffff30; margin:2rem auto; width:120px;">
+    <p style="font-size:0.9rem;">built with C#, MVC, and persistence</p>
   </div>
 </footer>
 
@@ -676,6 +687,14 @@
     const menu = document.getElementById('navMenu');
     toggle.addEventListener('click', () => menu.classList.toggle('active'));
 
+    // dark mode toggle
+    const themeBtn = document.getElementById('themeToggle');
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      themeBtn.innerHTML = document.body.classList.contains('dark-mode') ? '<i class="fas fa-sun"></i> <span>light</span>' : '<i class="fas fa-moon"></i> <span>dark</span>';
+    });
+
+    // active nav
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-menu a');
     window.addEventListener('scroll', () => {
@@ -686,11 +705,10 @@
       });
       navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href').substring(1) === current) link.classList.add('active');
+        if (link.getAttribute('href')?.substring(1) === current) link.classList.add('active');
       });
     });
   });
 </script>
 </body>
 </html>
-
