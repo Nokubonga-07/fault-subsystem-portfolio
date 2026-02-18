@@ -469,7 +469,7 @@
     <ul class="nav-menu" id="navMenu">
       <li><a href="#home">HOME</a></li>
       <li><a href="#project">PROJECT</a></li>
-      <li><a href="#overview">OVERVIEW</a></li>
+      <li><a href="#system">SYSTEM</a></li>
       <li><a href="#features">FEATURES</a></li>
       <li><a href="#challenges">CHALLENGES</a></li>
       <li><button class="dark-toggle" id="themeToggle"><i class="fas fa-moon"></i> <span>dark</span></button></li>
@@ -514,7 +514,7 @@
         </h3>
         <div style="color:var(--text-light); background: var(--accent-soft); padding: 1.5rem; border-radius: 24px;">
           <p style="margin-bottom: 1rem; font-size: 1rem; line-height: 1.6;">
-            <strong>Information Technology graduate</strong> with comprehensive full‑stack development experience, specializing in <strong>C#/.NET MVC, SQL Server, and Entity Framework</strong>. Delivered a complete fault management subsystem for a commercial fridge rental platform for my 3rd year Project at Nelson Mandela Universiity. I am willing to learn and gain more experience in the industry.
+            <strong>Information Technology graduate</strong> with comprehensive full‑stack development experience, specializing in <strong>C#/.NET MVC, SQL Server, and Entity Framework</strong>. Delivered a complete commercial fridge rental management platform for my 3rd year Project at Nelson Mandela University. The system handles the entire rental lifecycle with 30+ database tables and 6 distinct user roles. I am willing to learn and gain more experience in the industry.
           </p>
           <p style="font-size: 1rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
             <span style="background: var(--accent); color: white; padding: 0.3rem 1rem; border-radius: 60px;">🔍 #OpenToWork</span>
@@ -531,7 +531,7 @@
         <span class="badge">🚀 FLAGSHIP PROJECT</span>
         <h2 style="font-size:2.8rem; margin:1rem 0 0.5rem;">SmartChills Fridge Rental System</h2>
         <p style="color:var(--text-light); font-size:1.1rem; line-height:1.6;">
-          A comprehensive enterprise-grade platform that manages the complete lifecycle of fridge rentals – from customer registration with business verification, to rental requests, fault reporting, technician scheduling, and automated replacement workflows. The system orchestrates six distinct user roles (Admin, Customer Support, Stock Controller, Fault Technician, Maintenance Tech, and Customer) with strict role-based access control and audit trails.
+          A comprehensive enterprise-grade platform for commercial fridge rental operations. The system manages the complete lifecycle – from customer registration with business verification, rental requests, inventory tracking, fault reporting, technician scheduling, maintenance management, and automated replacement workflows. Built for real-world logistics with 30+ database tables and 6 distinct user roles.
         </p>
         <div style="margin:1.8rem 0;">
           <span class="tech-badge">ASP.NET Core MVC</span>
@@ -542,7 +542,7 @@
           <span class="tech-badge">30+ Database Tables</span>
         </div>
         <p style="color:var(--text-light); border-top:1px dashed var(--border); padding-top:1.2rem;">
-          <i class="fas fa-award" style="color:var(--accent);"></i> <strong>Third‑year project · Nelson Mandela University · complete fault subsystem ownership</strong>
+          <i class="fas fa-award" style="color:var(--accent);"></i> <strong>Third‑year project · Nelson Mandela University · complete system ownership</strong>
         </p>
       </div>
 
@@ -579,71 +579,199 @@
     <div class="section-header">
       <span class="section-subtitle">THE BIG PICTURE</span>
       <h2>Fridge Rental Ecosystem</h2>
-      <p style="font-size:1.2rem; color:var(--text-light); max-width:700px; margin:0 auto;">Built for real‑world logistics — 30+ tables, 6 roles, and a state‑machine that never breaks.</p>
+      <p style="font-size:1.2rem; color:var(--text-light); max-width:700px; margin:0 auto;">Built for real‑world commercial fridge logistics — 30+ tables, 6 roles, and a state‑machine that never breaks.</p>
     </div>
 
-    <div class="feature-grid" style="grid-template-columns: repeat(4,1fr);">
-      <div class="feature-card" style="border-left: 6px solid var(--accent);">
-        <div class="feature-content">
-          <div class="feature-icon"><i class="fas fa-user-check"></i></div>
-          <h3>Customer</h3>
-          <p>business‑document upload · request relaunch · fault reporting</p>
+    <div class="feature-grid" style="grid-template-columns: repeat(6,1fr); gap:1rem;">
+      <!-- Admin Role -->
+      <div class="feature-card" style="border-left: 6px solid #9b59b6; min-width:0;">
+        <div class="feature-content" style="padding:1.5rem 1rem;">
+          <div class="feature-icon" style="width:45px; height:45px; font-size:1.5rem;"><i class="fas fa-crown"></i></div>
+          <h3 style="font-size:1.3rem;">Admin</h3>
+          <p style="font-size:0.85rem;">full system oversight · user management · configuration</p>
         </div>
       </div>
-      <div class="feature-card" style="border-left: 6px solid var(--primary);">
-        <div class="feature-content">
-          <div class="feature-icon"><i class="fas fa-tools"></i></div>
-          <h3>Fault Technician</h3>
-          <p>diagnose · communicate · auto‑create replacement requests</p>
+      <!-- Customer Role -->
+      <div class="feature-card" style="border-left: 6px solid var(--accent); min-width:0;">
+        <div class="feature-content" style="padding:1.5rem 1rem;">
+          <div class="feature-icon" style="width:45px; height:45px; font-size:1.5rem;"><i class="fas fa-user-check"></i></div>
+          <h3 style="font-size:1.3rem;">Customer</h3>
+          <p style="font-size:0.85rem;">business‑document upload · request relaunch · fault reporting</p>
         </div>
       </div>
-      <div class="feature-card" style="border-left: 6px solid #e6b800;">
-        <div class="feature-content">
-          <div class="feature-icon"><i class="fas fa-headset"></i></div>
-          <h3>Customer Support</h3>
-          <p>approve/decline replacements · summary‑only fault view</p>
+      <!-- Fault Technician Role -->
+      <div class="feature-card" style="border-left: 6px solid var(--primary); min-width:0;">
+        <div class="feature-content" style="padding:1.5rem 1rem;">
+          <div class="feature-icon" style="width:45px; height:45px; font-size:1.5rem;"><i class="fas fa-tools"></i></div>
+          <h3 style="font-size:1.3rem;">Fault Tech</h3>
+          <p style="font-size:0.85rem;">diagnose · communicate · auto‑create replacement requests</p>
         </div>
       </div>
-      <div class="feature-card" style="border-left: 6px solid #2e8b57;">
-        <div class="feature-content">
-          <div class="feature-icon"><i class="fas fa-boxes"></i></div>
-          <h3>Stock Controller</h3>
-          <p>physical removal · disposal method · scrapping certificate</p>
+      <!-- Customer Support Role -->
+      <div class="feature-card" style="border-left: 6px solid #e6b800; min-width:0;">
+        <div class="feature-content" style="padding:1.5rem 1rem;">
+          <div class="feature-icon" style="width:45px; height:45px; font-size:1.5rem;"><i class="fas fa-headset"></i></div>
+          <h3 style="font-size:1.3rem;">Support</h3>
+          <p style="font-size:0.85rem;">approve/decline replacements · summary‑only fault view</p>
+        </div>
+      </div>
+      <!-- Stock Controller Role -->
+      <div class="feature-card" style="border-left: 6px solid #2e8b57; min-width:0;">
+        <div class="feature-content" style="padding:1.5rem 1rem;">
+          <div class="feature-icon" style="width:45px; height:45px; font-size:1.5rem;"><i class="fas fa-boxes"></i></div>
+          <h3 style="font-size:1.3rem;">Stock Ctrl</h3>
+          <p style="font-size:0.85rem;">physical removal · disposal method · scrapping certificate</p>
+        </div>
+      </div>
+      <!-- Maintenance Tech Role -->
+      <div class="feature-card" style="border-left: 6px solid #3498db; min-width:0;">
+        <div class="feature-content" style="padding:1.5rem 1rem;">
+          <div class="feature-icon" style="width:45px; height:45px; font-size:1.5rem;"><i class="fas fa-wrench"></i></div>
+          <h3 style="font-size:1.3rem;">Maint Tech</h3>
+          <p style="font-size:0.85rem;">preventive maintenance · service documentation</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- OVERVIEW -->
-<section id="overview">
+<!-- COMPLETE SYSTEM OVERVIEW -->
+<section id="system">
   <div class="container section">
     <div class="section-header">
-      <span class="section-subtitle">100% CODE OWNERSHIP</span>
-      <h2>Fault Management Subsystem</h2>
-      <p style="font-size:1.2rem; color:var(--text-light);">designed, built, and integrated every piece – from database to UI</p>
+      <span class="section-subtitle">COMMERCIAL FRIDGE RENTAL PLATFORM</span>
+      <h2>Complete Rental Lifecycle Management</h2>
+      <p style="font-size:1.2rem; color:var(--text-light);">From customer onboarding to final disposal — every step automated and tracked</p>
     </div>
 
-    <div class="feature-grid">
-      <div class="feature-card">
+    <div class="feature-grid" style="grid-template-columns: repeat(3,1fr); gap:2rem;">
+      
+      <!-- Customer Journey Card -->
+      <div class="feature-card" style="border-left: 6px solid var(--accent);">
         <div class="feature-content">
-          <div class="feature-icon"><i class="fas fa-cubes"></i></div>
-          <h3>7+ database tables</h3>
-          <p>faults, images, schedules, comments, replacements – full relational model with foreign key constraints</p>
+          <div class="feature-icon"><i class="fas fa-user-circle"></i></div>
+          <h3>Customer Journey</h3>
+          <ul style="list-style-type:none; padding:0; margin-top:1rem;">
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Business registration with document upload</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Admin approval workflow</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Browse available commercial fridges</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Submit rental requests (multiple fridges)</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Request relaunch with additional documents</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Fault reporting with image uploads</li>
+          </ul>
         </div>
       </div>
-      <div class="feature-card">
+
+      <!-- Rental Management Card -->
+      <div class="feature-card" style="border-left: 6px solid var(--primary);">
         <div class="feature-content">
-          <div class="feature-icon"><i class="fas fa-user-lock"></i></div>
-          <h3>three‑role security</h3>
-          <p>customer · technician · customer support · separate views + permissions</p>
+          <div class="feature-icon"><i class="fas fa-file-contract"></i></div>
+          <h3>Rental Management</h3>
+          <ul style="list-style-type:none; padding:0; margin-top:1rem;">
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Request processing by Customer Support</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Stock Controller allocation of specific units</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Delivery tracking and scheduling</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Complete rental history and audit trail</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Payment integration ready</li>
+          </ul>
         </div>
       </div>
-      <div class="feature-card">
+
+      <!-- Inventory Management Card -->
+      <div class="feature-card" style="border-left: 6px solid #2e8b57;">
         <div class="feature-content">
-          <div class="feature-icon"><i class="fas fa-code-merge"></i></div>
-          <h3>system integration</h3>
-          <p>auto‑replacement & stock scrapping with transactional integrity</p>
+          <div class="feature-icon"><i class="fas fa-warehouse"></i></div>
+          <h3>Inventory & Stock</h3>
+          <ul style="list-style-type:none; padding:0; margin-top:1rem;">
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Individual fridge unit tracking (FridgeInStock)</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Condition monitoring across locations</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>63 seed units across 6 warehouse locations</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>10 fridge models with detailed specifications</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Real-time availability status</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Fault Management Card -->
+      <div class="feature-card" style="border-left: 6px solid #e6b800;">
+        <div class="feature-content">
+          <div class="feature-icon"><i class="fas fa-exclamation-triangle"></i></div>
+          <h3>Fault Management</h3>
+          <ul style="list-style-type:none; padding:0; margin-top:1rem;">
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Multi-step fault reporting with images</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Priority assignment (High/Medium/Low)</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Technician assignment and scheduling</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Internal/external comment system</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>12-state transition machine with validation</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Auto‑close after 7 days or immediate for scrapped</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Replacement Workflow Card -->
+      <div class="feature-card" style="border-left: 6px solid #9b59b6;">
+        <div class="feature-content">
+          <div class="feature-icon"><i class="fas fa-exchange-alt"></i></div>
+          <h3>Replacement Workflow</h3>
+          <ul style="list-style-type:none; padding:0; margin-top:1rem;">
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Technician marks as scrapped → auto‑creates request</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Customer Support approves/declines (summary only)</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Stock Controller processes physical removal</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Disposal method selection (Recycling, Landfill, etc.)</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Scrapping certificate generation with audit trail</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Business Intelligence Card -->
+      <div class="feature-card" style="border-left: 6px solid #3498db;">
+        <div class="feature-content">
+          <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+          <h3>Business Intelligence</h3>
+          <ul style="list-style-type:none; padding:0; margin-top:1rem;">
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Company branding and logo management</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Customer feedback collection with ratings</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Export reports (Excel, PDF) with professional formatting</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Complete audit trail of all transactions</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Analytics dashboard for each role</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Database Architecture Highlight -->
+    <div style="margin-top:4rem; background: var(--surface); border-radius:42px; padding:3rem; box-shadow:var(--shadow); border:1px solid var(--border);">
+      <div style="display:grid; grid-template-columns:1fr 2fr; gap:3rem; align-items:center;">
+        <div>
+          <h3 style="font-size:2.2rem; font-weight:700; margin-bottom:1rem;">30+ <span style="color:var(--accent);">Database Tables</span></h3>
+          <p style="color:var(--text-light); font-size:1.1rem; line-height:1.6;">
+            Comprehensive relational model with foreign key constraints, soft deletes, and audit trails. 
+            Core entities include AspNetUsers, Fridge, FridgeInStock, FaultReport, FaultComment, FaultAssignment, 
+            FridgeReplacement, RequestHeader, RequestDetails, CustomerFeedback, and BusinessInfo.
+          </p>
+          <div style="margin-top:2rem;">
+            <span class="tech-badge">Identity Framework</span>
+            <span class="tech-badge">Code First Migrations</span>
+            <span class="tech-badge">LINQ</span>
+            <span class="tech-badge">SQL Server</span>
+          </div>
+        </div>
+        <div style="background:var(--accent-soft); border-radius:32px; padding:2rem;">
+          <h4 style="font-weight:600; margin-bottom:1.5rem;">Key Relationships</h4>
+          <pre style="color:var(--text); font-size:0.9rem; overflow-x:auto;"><code>// One-to-Many: Fridge → FridgeInStock
+Fridge (1) -----< FridgeInStock (N)
+
+// One-to-Many: RequestHeader → RequestDetails
+RequestHeader (1) -----< RequestDetails (N)
+
+// Many-to-Many: Customer <-> Fridge (via CustomerFridge)
+Customer (N) -----< CustomerFridge >----- (N) Fridge
+
+// One-to-Many: FaultReport → FaultComment
+FaultReport (1) -----< FaultComment (N)
+
+// One-to-One: FaultReport → FridgeReplacement
+FaultReport (1) ----- (1) FridgeReplacement</code></pre>
         </div>
       </div>
     </div>
@@ -654,8 +782,8 @@
 <section id="features" class="section" style="background: var(--accent-soft);">
   <div class="container">
     <div class="section-header">
-      <span class="section-subtitle">core features</span>
-      <h2>fault subsystem · deep dive</h2>
+      <span class="section-subtitle">CORE FEATURES</span>
+      <h2>Fault Subsystem · Deep Dive</h2>
     </div>
 
     <div class="feature-grid">
@@ -859,7 +987,7 @@
 <footer>
   <div class="container">
     <p style="font-size:2.5rem; font-weight:700; letter-spacing:-1px;">Nokubonga Mpanza</p>
-    <p style="margin:1rem 0 2rem; opacity:0.8;">fault subsystem · smartchills · 2025</p>
+    <p style="margin:1rem 0 2rem; opacity:0.8;">fridge rental management system · smartchills · 2025</p>
     <div style="display:flex; gap:2.5rem; justify-content:center; font-size:1.6rem;">
       <a href="https://www.linkedin.com/in/nokubonga-mpanza-9371831b3" target="_blank" style="color:white;"><i class="fab fa-linkedin-in"></i></a>
       <a href="https://github.com/Nokubonga-07/Fridge-Management-System" target="_blank" style="color:white;"><i class="fab fa-github"></i></a>
