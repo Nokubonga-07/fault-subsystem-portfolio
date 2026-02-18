@@ -741,7 +741,7 @@
 <div style="margin-top:4rem; background: var(--surface); border-radius:42px; padding:3rem; box-shadow:var(--shadow); border:1px solid var(--border);">
   <div style="display:grid; grid-template-columns:1fr 2fr; gap:3rem; align-items:center;">
     <div>
-      <h3 style="font-size:2.2rem; font-weight:700; margin-bottom:1rem;">30+ <span style="color:var(--accent);">Database Tables</span></h3>
+      <h3 style="font-size:2.2rem; font-weight:700; margin-bottom:1rem;">15+ <span style="color:var(--accent);">Database Tables</span></h3>
       <p style="color:var(--text-light); font-size:1.1rem; line-height:1.6;">
         Comprehensive relational model with foreign key constraints, soft deletes, and audit trails. 
         Core entities include AspNetUsers, Fridge, FridgeInStock, FaultReport, FaultComment, FaultAssignment, 
@@ -769,7 +769,7 @@
           
           <!-- GIF 1: Worried Customer -->
           <div class="gif-slide" id="gif1" style="position:absolute; top:0; left:0; width:100%; height:100%; animation:fadeInOut 12s infinite;">
-            <img src="https://media1.tenor.com/m/-AfBTL9P9eIAAAAC/confused-worried.gif" alt="Worried customer with fridge issues" style="width:100%; height:100%; object-fit:cover; display:block;">
+           <img src="https://i.gifer.com/7Yk.gif" alt="Worried customer" style="width:100%; height:100%; object-fit:cover; display:block;">
             <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
               <i class="fas fa-frown" style="margin-right:0.3rem;"></i> "My fridge is broken!"
             </div>
@@ -777,7 +777,7 @@
           
           <!-- GIF 2: Customer Service Call -->
           <div class="gif-slide" id="gif2" style="position:absolute; top:0; left:0; width:100%; height:100%; animation:fadeInOut 12s infinite 3s; opacity:0;">
-            <img src="https://media1.tenor.com/m/WzM23O9u0_QAAAAC/customer-service.gif" alt="Customer service representative helping" style="width:100%; height:100%; object-fit:cover; display:block;">
+         <img src="https://i.gifer.com/1oY.gif" alt="Customer service" style="width:100%; height:100%; object-fit:cover; display:block;">
             <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
               <i class="fas fa-headset"></i> "We'll send a technician right away!"
             </div>
@@ -785,7 +785,7 @@
           
           <!-- GIF 3: Technician at Work -->
           <div class="gif-slide" id="gif3" style="position:absolute; top:0; left:0; width:100%; height:100%; animation:fadeInOut 12s infinite 6s; opacity:0;">
-            <img src="https://media1.tenor.com/m/-P9r0ZG_YWgAAAAC/repairman-work.gif" alt="Technician repairing fridge" style="width:100%; height:100%; object-fit:cover; display:block;">
+          <img src="https://i.gifer.com/7Z9.gif" alt="Technician working" style="width:100%; height:100%; object-fit:cover; display:block;">
             <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
               <i class="fas fa-tools"></i> "Diagnosing the issue..."
             </div>
@@ -793,7 +793,7 @@
           
           <!-- GIF 4: Happy Customer -->
           <div class="gif-slide" id="gif4" style="position:absolute; top:0; left:0; width:100%; height:100%; animation:fadeInOut 12s infinite 9s; opacity:0;">
-            <img src="https://media1.tenor.com/m/CmS5fWqQ2voAAAAC/happy-customers.gif" alt="Happy customer with working fridge" style="width:100%; height:100%; object-fit:cover; display:block;">
+     <img src="https://i.gifer.com/7To.gif" alt="Happy customer" style="width:100%; height:100%; object-fit:cover; display:block;">
             <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
               <i class="fas fa-smile"></i> "It's working perfectly! Thank you!"
             </div>
@@ -823,25 +823,6 @@
           <p style="color:var(--text-light); font-size:0.9rem;">Every customer's story has a happy ending with our system ❤️</p>
         </div>
       </div>
-      
-      <h4 style="font-weight:600; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem;">
-        <i class="fas fa-database" style="color:var(--accent);"></i> Key Relationships
-      </h4>
-      <pre style="color:var(--text); font-size:0.9rem; overflow-x:auto;"><code>// One-to-Many: Fridge → FridgeInStock
-Fridge (1) -----< FridgeInStock (N)
-
-// One-to-Many: RequestHeader → RequestDetails
-RequestHeader (1) -----< RequestDetails (N)
-
-// Many-to-Many: Customer <-> Fridge (via CustomerFridge)
-Customer (N) -----< CustomerFridge >----- (N) Fridge
-
-// One-to-Many: FaultReport → FaultComment
-FaultReport (1) -----< FaultComment (N)
-
-// One-to-One: FaultReport → FridgeReplacement
-FaultReport (1) ----- (1) FridgeReplacement</code></pre>
-      
       <!-- Cute footer note -->
       <div style="margin-top:1.5rem; font-size:0.85rem; color:var(--text-light); display:flex; align-items:center; gap:1rem; justify-content:center; border-top:1px dashed var(--border); padding-top:1rem;">
         <span><i class="fas fa-smile" style="color:var(--accent);"></i> 500+ happy customers</span>
@@ -1090,6 +1071,7 @@ FaultReport (1) ----- (1) FridgeReplacement</code></pre>
 </script>
 </body>
 </html>
+
 
 
 
