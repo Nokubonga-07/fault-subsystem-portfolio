@@ -468,6 +468,7 @@
     <div class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></div>
     <ul class="nav-menu" id="navMenu">
       <li><a href="#home">HOME</a></li>
+      <li><a href="#project">PROJECT</a></li>
       <li><a href="#overview">OVERVIEW</a></li>
       <li><a href="#features">FEATURES</a></li>
       <li><a href="#challenges">CHALLENGES</a></li>
@@ -525,16 +526,24 @@
     </div>
 
     <div>
+      <!-- ATTRACTIVE PROJECT SUMMARY -->
       <div class="preview-card">
-        <span class="badge">🔥 PROJECT</span>
-        <h2 style="font-size:2.8rem; margin:1rem 0 0.5rem;">Fault Management Subsystem</h2>
-        <p style="color:var(--text-light);">End‑to‑end ownership · reporting → scheduling → auto‑replacement · used in production‑like environment.</p>
+        <span class="badge">🚀 FLAGSHIP PROJECT</span>
+        <h2 style="font-size:2.8rem; margin:1rem 0 0.5rem;">SmartChills Fridge Rental System</h2>
+        <p style="color:var(--text-light); font-size:1.1rem; line-height:1.6;">
+          A comprehensive enterprise-grade platform that manages the complete lifecycle of fridge rentals – from customer registration with business verification, to rental requests, fault reporting, technician scheduling, and automated replacement workflows. The system orchestrates six distinct user roles (Admin, Customer Support, Stock Controller, Fault Technician, Maintenance Tech, and Customer) with strict role-based access control and audit trails.
+        </p>
         <div style="margin:1.8rem 0;">
           <span class="tech-badge">ASP.NET Core MVC</span>
           <span class="tech-badge">C#</span>
           <span class="tech-badge">SQL Server</span>
-          <span class="tech-badge">Entity Framework</span>
+          <span class="tech-badge">Entity Framework Core</span>
+          <span class="tech-badge">Identity Framework</span>
+          <span class="tech-badge">30+ Database Tables</span>
         </div>
+        <p style="color:var(--text-light); border-top:1px dashed var(--border); padding-top:1.2rem;">
+          <i class="fas fa-award" style="color:var(--accent);"></i> <strong>Third‑year project · Nelson Mandela University · complete fault subsystem ownership</strong>
+        </p>
       </div>
 
       <div class="demo-stack">
@@ -546,7 +555,7 @@
               <img src="https://placehold.co/600x400/cc5a2a/white?text=Scrapped.mp4" alt="video placeholder">
             </video>
           </div>
-          <strong>🎬 Demo 1 · Auto request replacement if Technician marked the fault report as scrapped— click to enlarge</strong>
+          <strong>🎬 Auto‑replacement · one‑click scrapping triggers support approval & stock controller processing</strong>
         </div>
         <!-- Demo 2: CustomerFeedback  -->
         <div class="demo-card">
@@ -556,7 +565,7 @@
               <img src="https://placehold.co/600x400/cc5a2a/white?text=CustomerFeedback.mp4" alt="video placeholder">
             </video>
           </div>
-          <strong>📊 Demo 2 · Customer feedback  — click to enlarge</strong>
+          <strong>📊 Customer feedback dashboard · live satisfaction tracking after fault resolution</strong>
         </div>
       </div>
 
@@ -564,12 +573,54 @@
   </div>
 </section>
 
-<!-- OVERVIEW -->
-<section id="overview" style="background: var(--accent-soft);">
+<!-- PROJECT DEEP DIVE -->
+<section id="project" style="background: var(--accent-soft);">
   <div class="container section">
     <div class="section-header">
-      <span class="section-subtitle">100% code ownership</span>
-      <h2>complete ownership · fault subsystem</h2>
+      <span class="section-subtitle">THE BIG PICTURE</span>
+      <h2>Fridge Rental Ecosystem</h2>
+      <p style="font-size:1.2rem; color:var(--text-light); max-width:700px; margin:0 auto;">Built for real‑world logistics — 30+ tables, 6 roles, and a state‑machine that never breaks.</p>
+    </div>
+
+    <div class="feature-grid" style="grid-template-columns: repeat(4,1fr);">
+      <div class="feature-card" style="border-left: 6px solid var(--accent);">
+        <div class="feature-content">
+          <div class="feature-icon"><i class="fas fa-user-check"></i></div>
+          <h3>Customer</h3>
+          <p>business‑document upload · request relaunch · fault reporting</p>
+        </div>
+      </div>
+      <div class="feature-card" style="border-left: 6px solid var(--primary);">
+        <div class="feature-content">
+          <div class="feature-icon"><i class="fas fa-tools"></i></div>
+          <h3>Fault Technician</h3>
+          <p>diagnose · communicate · auto‑create replacement requests</p>
+        </div>
+      </div>
+      <div class="feature-card" style="border-left: 6px solid #e6b800;">
+        <div class="feature-content">
+          <div class="feature-icon"><i class="fas fa-headset"></i></div>
+          <h3>Customer Support</h3>
+          <p>approve/decline replacements · summary‑only fault view</p>
+        </div>
+      </div>
+      <div class="feature-card" style="border-left: 6px solid #2e8b57;">
+        <div class="feature-content">
+          <div class="feature-icon"><i class="fas fa-boxes"></i></div>
+          <h3>Stock Controller</h3>
+          <p>physical removal · disposal method · scrapping certificate</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="container section">
+    <div class="section-header">
+      <span class="section-subtitle">100% CODE OWNERSHIP</span>
+      <h2>Fault Management Subsystem</h2>
       <p style="font-size:1.2rem; color:var(--text-light);">designed, built, and integrated every piece – from database to UI</p>
     </div>
 
@@ -578,7 +629,7 @@
         <div class="feature-content">
           <div class="feature-icon"><i class="fas fa-cubes"></i></div>
           <h3>7+ database tables</h3>
-          <p>faults, images, schedules, comments, replacements – full relational model</p>
+          <p>faults, images, schedules, comments, replacements – full relational model with foreign key constraints</p>
         </div>
       </div>
       <div class="feature-card">
@@ -600,7 +651,7 @@
 </section>
 
 <!-- FEATURES – with crisp images -->
-<section id="features" class="section">
+<section id="features" class="section" style="background: var(--accent-soft);">
   <div class="container">
     <div class="section-header">
       <span class="section-subtitle">core features</span>
@@ -679,29 +730,127 @@
   </div>
 </section>
 
-<!-- CHALLENGES -->
-<section id="challenges" style="background: var(--accent-soft);">
+<!-- CHALLENGES – PROFESSIONAL NARRATIVE -->
+<section id="challenges">
   <div class="container section">
     <div class="section-header">
       <span class="section-subtitle">PROBLEM SOLVER</span>
-      <h2>Key Technical Challenges</h2>
+      <h2>Technical Challenges Overcome</h2>
+      <p style="font-size:1.2rem; color:var(--text-light);">real‑world constraints · pragmatic solutions</p>
     </div>
 
-    <div class="feature-grid" style="grid-template-columns: repeat(3,1fr);">
+    <div class="feature-grid" style="grid-template-columns: repeat(3,1fr); gap: 2.5rem;">
+      
+      <!-- CHALLENGE 1: FAULT SOURCE UNIFICATION -->
       <div class="challenge-card">
-        <h3 style="font-size:1.8rem; margin-bottom:0.5rem;">🔀</h3>
-        <h3>fault source unification</h3>
-        <p>merged two legacy schemas into one technician dashboard view.</p>
+        <h3 style="font-size:2.2rem; margin-bottom:0.5rem; color:var(--accent);">🔀</h3>
+        <h3 style="font-size:1.8rem; margin-bottom:1rem;">Unifying fault sources</h3>
+        <p style="color:var(--text-light); margin-bottom:1.5rem; font-size:1rem; line-height:1.6;">
+          The system had two distinct fault origins – <strong>customer‑reported faults</strong> and <strong>maintenance‑visit failures</strong>. 
+          Technicians needed a single dashboard to see both types without confusion.
+        </p>
+        <div style="background: var(--accent-soft); padding:1.5rem; border-radius:24px;">
+          <p style="font-weight:600; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;">
+            <i class="fas fa-check-circle" style="color:var(--accent);"></i> Solution:
+          </p>
+          <p style="color:var(--text);">
+            Designed a <strong>combined view model</strong> with dynamic filtering by source and status. 
+            Used <code>Discriminator</code> pattern in Entity Framework to preserve audit trails while presenting a unified technician experience.
+          </p>
+        </div>
       </div>
+
+      <!-- CHALLENGE 2: REPLACEMENT DATA INTEGRITY -->
       <div class="challenge-card">
-        <h3 style="font-size:1.8rem; margin-bottom:0.5rem;">⛔</h3>
-        <h3>state transition rules</h3>
-        <p>only 12 valid status paths — prevents illegal moves.</p>
+        <h3 style="font-size:2.2rem; margin-bottom:0.5rem; color:var(--accent);">💣</h3>
+        <h3 style="font-size:1.8rem; margin-bottom:1rem;">Replacement integrity</h3>
+        <p style="color:var(--text-light); margin-bottom:1.5rem; font-size:1rem; line-height:1.6;">
+          When a technician marked a fridge as “scrapped”, the system had to atomically: update fault status, create a replacement request, 
+          notify customer support, and reserve a new fridge – all or nothing.
+        </p>
+        <div style="background: var(--accent-soft); padding:1.5rem; border-radius:24px;">
+          <p style="font-weight:600; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;">
+            <i class="fas fa-check-circle" style="color:var(--accent);"></i> Solution:
+          </p>
+          <p style="color:var(--text);">
+            Implemented <strong>explicit database transactions</strong> with <code>TransactionScope</code> across multiple DbContext operations. 
+            Added compensating logic for approval/rejection, ensuring inventory never desynchronized.
+          </p>
+        </div>
       </div>
+
+      <!-- CHALLENGE 3: CUSTOMER SUPPORT ISOLATION -->
       <div class="challenge-card">
-        <h3 style="font-size:1.8rem; margin-bottom:0.5rem;">💣</h3>
-        <h3>replacement integrity</h3>
-        <p>database transactions with full rollback if any step fails.</p>
+        <h3 style="font-size:2.2rem; margin-bottom:0.5rem; color:var(--accent);">🔒</h3>
+        <h3 style="font-size:1.8rem; margin-bottom:1rem;">Support role isolation</h3>
+        <p style="color:var(--text-light); margin-bottom:1.5rem; font-size:1rem; line-height:1.6;">
+          Business rules required that Customer Support could <strong>approve/decline replacement requests without viewing fault details</strong> 
+          (to maintain objectivity). Yet they needed to know who requested it and why.
+        </p>
+        <div style="background: var(--accent-soft); padding:1.5rem; border-radius:24px;">
+          <p style="font-weight:600; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;">
+            <i class="fas fa-check-circle" style="color:var(--accent);"></i> Solution:
+          </p>
+          <p style="color:var(--text);">
+            Created a <strong>projection view model</strong> that strips fault details, showing only replacement summary. 
+            Implemented separate authorization filters to block direct navigation to fault reports from the support interface.
+          </p>
+        </div>
+      </div>
+
+      <!-- CHALLENGE 4: STATE TRANSITION RULES -->
+      <div class="challenge-card">
+        <h3 style="font-size:2.2rem; margin-bottom:0.5rem; color:var(--accent);">⛔</h3>
+        <h3 style="font-size:1.8rem; margin-bottom:1rem;">State transition rules</h3>
+        <p style="color:var(--text-light); margin-bottom:1.5rem; font-size:1rem; line-height:1.6;">
+          Fault reports could only follow 12 valid paths (e.g., Reported → Scheduled → InProgress → Resolved). 
+          Buttons had to be conditionally shown based on both role and current status.
+        </p>
+        <div style="background: var(--accent-soft); padding:1.5rem; border-radius:24px;">
+          <p style="font-weight:600; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;">
+            <i class="fas fa-check-circle" style="color:var(--accent);"></i> Solution:
+          </p>
+          <p style="color:var(--text);">
+            Built a <strong>state‑transition matrix</strong> in the view model, with Razor logic that renders buttons only when 
+            <code>IsValidTransition(current, target)</code> returns true. Eliminated all invalid status updates at the UI level.
+          </p>
+        </div>
+      </div>
+
+      <!-- CHALLENGE 5: AUTO‑CLOSE MECHANISM -->
+      <div class="challenge-card">
+        <h3 style="font-size:2.2rem; margin-bottom:0.5rem; color:var(--accent);">⏰</h3>
+        <h3 style="font-size:1.8rem; margin-bottom:1rem;">Auto‑close after 7 days</h3>
+        <p style="color:var(--text-light); margin-bottom:1.5rem; font-size:1rem; line-height:1.6;">
+          Business rule: resolved faults should auto‑close after 7 days if not manually closed. Needed a non‑intrusive background mechanism.
+        </p>
+        <div style="background: var(--accent-soft); padding:1.5rem; border-radius:24px;">
+          <p style="font-weight:600; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;">
+            <i class="fas fa-check-circle" style="color:var(--accent);"></i> Solution:
+          </p>
+          <p style="color:var(--text);">
+            Added an <code>AutoCloseFaultIfNeeded</code> method called during any fault view access. 
+            For scrapped faults, closure is immediate; for resolved faults, it checks <code>ResolvedDate.AddDays(7) <= DateTime.Now</code>.
+          </p>
+        </div>
+      </div>
+
+      <!-- CHALLENGE 6: COMMENT VISIBILITY -->
+      <div class="challenge-card">
+        <h3 style="font-size:2.2rem; margin-bottom:0.5rem; color:var(--accent);">💬</h3>
+        <h3 style="font-size:1.8rem; margin-bottom:1rem;">Internal vs. external comments</h3>
+        <p style="color:var(--text-light); margin-bottom:1.5rem; font-size:1rem; line-height:1.6;">
+          Technicians needed a way to leave internal notes (hidden from customers) alongside public updates.
+        </p>
+        <div style="background: var(--accent-soft); padding:1.5rem; border-radius:24px;">
+          <p style="font-weight:600; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;">
+            <i class="fas fa-check-circle" style="color:var(--accent);"></i> Solution:
+          </p>
+          <p style="color:var(--text);">
+            Added <code>IsInternalNote</code> boolean to <code>FaultComment</code>. Customer views filter out internal notes; technician views show them with 
+            distinct styling. Used the same property to generate two‑color timelines.
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -712,9 +861,9 @@
     <p style="font-size:2.5rem; font-weight:700; letter-spacing:-1px;">Nokubonga Mpanza</p>
     <p style="margin:1rem 0 2rem; opacity:0.8;">fault subsystem · smartchills · 2025</p>
     <div style="display:flex; gap:2.5rem; justify-content:center; font-size:1.6rem;">
-      <a href="#" style="color:white;"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#" style="color:white;"><i class="fab fa-github"></i></a>
-      <a href="#" style="color:white;"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/nokubonga-mpanza-9371831b3" target="_blank" style="color:white;"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/Nokubonga-07/Fridge-Management-System" target="_blank" style="color:white;"><i class="fab fa-github"></i></a>
+      <a href="mailto:nokubongampanza12@gmail.com" style="color:white;"><i class="fas fa-envelope"></i></a>
     </div>
     <hr style="border-color:#ffffff30; margin:2rem auto; width:120px;">
     <p style="font-size:0.9rem;">built with C#, MVC, and persistence</p>
@@ -772,9 +921,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
