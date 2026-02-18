@@ -737,7 +737,7 @@
       </div>
     </div>
 
-   <!-- Database Architecture Highlight -->
+ <!-- Database Architecture Highlight -->
 <div style="margin-top:4rem; background: var(--surface); border-radius:42px; padding:3rem; box-shadow:var(--shadow); border:1px solid var(--border);">
   <div style="display:grid; grid-template-columns:1fr 2fr; gap:3rem; align-items:center;">
     <div>
@@ -764,36 +764,36 @@
           </span>
         </div>
         
-        <!-- GIF Carousel Container -->
-        <div style="position:relative; width:100%; max-width:300px; margin:0 auto; border-radius:24px; overflow:hidden; box-shadow:0 15px 30px -10px rgba(0,0,0,0.3); background:#000;">
+        <!-- GIF Carousel Container - FIXED HEIGHT ADDED -->
+        <div style="position:relative; width:100%; max-width:300px; height:300px; margin:0 auto; border-radius:24px; overflow:hidden; box-shadow:0 15px 30px -10px rgba(0,0,0,0.3); background:#000;">
           
           <!-- GIF 1: Worried Customer -->
-          <div class="gif-slide" id="gif1" style="animation:fadeInOut 12s infinite;">
-            <img src="https://media.giphy.com/media/3o7abB06u9bNzA8LC8/giphy.gif" alt="Worried customer with fridge issues" style="width:100%; height:auto; display:block;">
+          <div class="gif-slide" id="gif1" style="position:absolute; top:0; left:0; width:100%; height:100%; animation:fadeInOut 12s infinite;">
+            <img src="https://media1.tenor.com/m/-AfBTL9P9eIAAAAC/confused-worried.gif" alt="Worried customer with fridge issues" style="width:100%; height:100%; object-fit:cover; display:block;">
             <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
               <i class="fas fa-frown" style="margin-right:0.3rem;"></i> "My fridge is broken!"
             </div>
           </div>
           
           <!-- GIF 2: Customer Service Call -->
-          <div class="gif-slide" id="gif2" style="animation:fadeInOut 12s infinite 3s; opacity:0;">
-            <img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" alt="Customer service representative helping" style="width:100%; height:auto; display:block;">
+          <div class="gif-slide" id="gif2" style="position:absolute; top:0; left:0; width:100%; height:100%; animation:fadeInOut 12s infinite 3s; opacity:0;">
+            <img src="https://media1.tenor.com/m/WzM23O9u0_QAAAAC/customer-service.gif" alt="Customer service representative helping" style="width:100%; height:100%; object-fit:cover; display:block;">
             <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
               <i class="fas fa-headset"></i> "We'll send a technician right away!"
             </div>
           </div>
           
           <!-- GIF 3: Technician at Work -->
-          <div class="gif-slide" id="gif3" style="animation:fadeInOut 12s infinite 6s; opacity:0;">
-            <img src="https://media.giphy.com/media/l0MYt5jH6gkTWm8qo/giphy.gif" alt="Technician repairing fridge" style="width:100%; height:auto; display:block;">
+          <div class="gif-slide" id="gif3" style="position:absolute; top:0; left:0; width:100%; height:100%; animation:fadeInOut 12s infinite 6s; opacity:0;">
+            <img src="https://media1.tenor.com/m/-P9r0ZG_YWgAAAAC/repairman-work.gif" alt="Technician repairing fridge" style="width:100%; height:100%; object-fit:cover; display:block;">
             <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
               <i class="fas fa-tools"></i> "Diagnosing the issue..."
             </div>
           </div>
           
           <!-- GIF 4: Happy Customer -->
-          <div class="gif-slide" id="gif4" style="animation:fadeInOut 12s infinite 9s; opacity:0;">
-            <img src="https://media.giphy.com/media/l0MYEqE4MWj0oO7D2/giphy.gif" alt="Happy customer with working fridge" style="width:100%; height:auto; display:block;">
+          <div class="gif-slide" id="gif4" style="position:absolute; top:0; left:0; width:100%; height:100%; animation:fadeInOut 12s infinite 9s; opacity:0;">
+            <img src="https://media1.tenor.com/m/CmS5fWqQ2voAAAAC/happy-customers.gif" alt="Happy customer with working fridge" style="width:100%; height:100%; object-fit:cover; display:block;">
             <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
               <i class="fas fa-smile"></i> "It's working perfectly! Thank you!"
             </div>
@@ -801,15 +801,15 @@
           
           <!-- Progress bar -->
           <div style="position:absolute; bottom:60px; left:0; right:0; height:4px; background:rgba(255,255,255,0.3); z-index:10;">
-            <div class="progress-bar" style="width:25%; height:100%; background:var(--accent); animation:progress 12s linear infinite;"></div>
+            <div class="progress-bar" style="width:0%; height:100%; background:var(--accent); animation:progress 12s linear infinite;"></div>
           </div>
           
           <!-- Slide indicators -->
           <div style="position:absolute; bottom:10px; left:0; right:0; display:flex; gap:0.5rem; justify-content:center; z-index:10;">
-            <span class="dot active" id="dot1" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5;"></span>
-            <span class="dot" id="dot2" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5;"></span>
-            <span class="dot" id="dot3" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5;"></span>
-            <span class="dot" id="dot4" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5;"></span>
+            <span class="dot active" id="dot1" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5; transition:opacity 0.3s;"></span>
+            <span class="dot" id="dot2" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5; transition:opacity 0.3s;"></span>
+            <span class="dot" id="dot3" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5; transition:opacity 0.3s;"></span>
+            <span class="dot" id="dot4" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5; transition:opacity 0.3s;"></span>
           </div>
         </div>
         
@@ -870,14 +870,6 @@ FaultReport (1) ----- (1) FridgeReplacement</code></pre>
     100% { width: 100%; }
   }
   
-  .gif-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
   .dot.active {
     opacity: 1 !important;
   }
@@ -907,7 +899,6 @@ FaultReport (1) ----- (1) FridgeReplacement</code></pre>
     setInterval(updateDots, 100);
   });
 </script>
-
 <!-- CHALLENGES – PROFESSIONAL NARRATIVE -->
 <section id="challenges">
   <div class="container section">
@@ -1099,6 +1090,7 @@ FaultReport (1) ----- (1) FridgeReplacement</code></pre>
 </script>
 </body>
 </html>
+
 
 
 
