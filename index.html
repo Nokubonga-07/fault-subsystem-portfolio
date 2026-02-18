@@ -756,80 +756,71 @@
     </div>
     <div style="background:var(--accent-soft); border-radius:32px; padding:2rem; position:relative; overflow:hidden;">
       
-      <!-- Animated GIF Flashback Carousel -->
-      <div style="margin-bottom:2rem; position:relative;">
-        <div style="text-align:center; margin-bottom:0.5rem;">
-          <span style="background:var(--accent); color:white; padding:0.2rem 1rem; border-radius:60px; font-size:0.8rem; font-weight:600;">
-            <i class="fas fa-film"></i> CUSTOMER JOURNEY FLASHBACKS
-          </span>
-        </div>
-        
-        <!-- GIF Carousel Container - FIXED HEIGHT ADDED -->
-        <div style="position:relative; width:100%; max-width:300px; height:300px; margin:0 auto; border-radius:24px; overflow:hidden; box-shadow:0 15px 30px -10px rgba(0,0,0,0.3); background:#000;">
-          
-          <!-- GIF 1: Worried Customer -->
-          <div class="gif-slide" id="gif1" style="position:absolute; top:0; left:0; width:100%; height:100%; animation:fadeInOut 12s infinite;">
-           <img src="https://i.gifer.com/7Yk.gif" alt="Worried customer" style="width:100%; height:100%; object-fit:cover; display:block;">
-            <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
-              <i class="fas fa-frown" style="margin-right:0.3rem;"></i> "My fridge is broken!"
-            </div>
-          </div>
-          
-          <!-- GIF 2: Customer Service Call -->
-          <div class="gif-slide" id="gif2" style="position:absolute; top:0; left:0; width:100%; height:100%; animation:fadeInOut 12s infinite 3s; opacity:0;">
-         <img src="https://i.gifer.com/1oY.gif" alt="Customer service" style="width:100%; height:100%; object-fit:cover; display:block;">
-            <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
-              <i class="fas fa-headset"></i> "We'll send a technician right away!"
-            </div>
-          </div>
-          
-          <!-- GIF 3: Technician at Work -->
-          <div class="gif-slide" id="gif3" style="position:absolute; top:0; left:0; width:100%; height:100%; animation:fadeInOut 12s infinite 6s; opacity:0;">
-          <img src="https://i.gifer.com/7Z9.gif" alt="Technician working" style="width:100%; height:100%; object-fit:cover; display:block;">
-            <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
-              <i class="fas fa-tools"></i> "Diagnosing the issue..."
-            </div>
-          </div>
-          
-          <!-- GIF 4: Happy Customer -->
-          <div class="gif-slide" id="gif4" style="position:absolute; top:0; left:0; width:100%; height:100%; animation:fadeInOut 12s infinite 9s; opacity:0;">
-     <img src="https://i.gifer.com/7To.gif" alt="Happy customer" style="width:100%; height:100%; object-fit:cover; display:block;">
-            <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
-              <i class="fas fa-smile"></i> "It's working perfectly! Thank you!"
-            </div>
-          </div>
-          
-          <!-- Progress bar -->
-          <div style="position:absolute; bottom:60px; left:0; right:0; height:4px; background:rgba(255,255,255,0.3); z-index:10;">
-            <div class="progress-bar" style="width:0%; height:100%; background:var(--accent); animation:progress 12s linear infinite;"></div>
-          </div>
-          
-          <!-- Slide indicators -->
-          <div style="position:absolute; bottom:10px; left:0; right:0; display:flex; gap:0.5rem; justify-content:center; z-index:10;">
-            <span class="dot active" id="dot1" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5; transition:opacity 0.3s;"></span>
-            <span class="dot" id="dot2" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5; transition:opacity 0.3s;"></span>
-            <span class="dot" id="dot3" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5; transition:opacity 0.3s;"></span>
-            <span class="dot" id="dot4" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5; transition:opacity 0.3s;"></span>
-          </div>
-        </div>
-        
-        <!-- Caption -->
-        <div style="margin-top:1rem; text-align:center;">
-          <p style="font-weight:600; color:var(--accent); font-size:1.1rem;">
-            <i class="fas fa-quote-left" style="opacity:0.5; margin-right:0.3rem;"></i>
-            The journey from worried to wow – powered by SmartChills
-            <i class="fas fa-quote-right" style="opacity:0.5; margin-left:0.3rem;"></i>
-          </p>
-          <p style="color:var(--text-light); font-size:0.9rem;">Every customer's story has a happy ending with our system ❤️</p>
-        </div>
-      </div>
-      <!-- Cute footer note -->
-      <div style="margin-top:1.5rem; font-size:0.85rem; color:var(--text-light); display:flex; align-items:center; gap:1rem; justify-content:center; border-top:1px dashed var(--border); padding-top:1rem;">
-        <span><i class="fas fa-smile" style="color:var(--accent);"></i> 500+ happy customers</span>
-        <span><i class="fas fa-snowflake" style="color:var(--accent);"></i> 63 fridges in stock</span>
-        <span><i class="fas fa-check-circle" style="color:var(--accent);"></i> 100% satisfaction</span>
+    <!-- Animated GIF Flashback Carousel -->
+<div style="margin-bottom:2rem; position:relative;">
+  <div style="text-align:center; margin-bottom:0.5rem;">
+    <span style="background:var(--accent); color:white; padding:0.2rem 1rem; border-radius:60px; font-size:0.8rem; font-weight:600;">
+      <i class="fas fa-film"></i> SMARTCHILLS SYSTEM IN ACTION
+    </span>
+  </div>
+  
+  <!-- GIF Carousel Container -->
+  <div style="position:relative; width:100%; max-width:300px; height:300px; margin:0 auto; border-radius:24px; overflow:hidden; box-shadow:0 15px 30px -10px rgba(0,0,0,0.3); background:#000;">
+    
+    <!-- GIF 1: Customer Registration & Approval -->
+    <div class="gif-slide" id="gif1" style="position:absolute; top:0; left:0; width:100%; height:100%; animation:fadeInOut 12s infinite;">
+      <img src="https://i.gifer.com/7Yk.gif" alt="Customer registration and approval workflow" style="width:100%; height:100%; object-fit:cover; display:block;">
+      <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
+        <i class="fas fa-user-check" style="margin-right:0.3rem;"></i> "Business registers → Admin approves"
       </div>
     </div>
+    
+    <!-- GIF 2: Rental Request Processing -->
+    <div class="gif-slide" id="gif2" style="position:absolute; top:0; left:0; width:100%; height:100%; animation:fadeInOut 12s infinite 3s; opacity:0;">
+      <img src="https://i.gifer.com/1oY.gif" alt="Customer support processing rental requests" style="width:100%; height:100%; object-fit:cover; display:block;">
+      <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
+        <i class="fas fa-file-signature"></i> "Customer Support reviews & approves rental"
+      </div>
+    </div>
+    
+    <!-- GIF 3: Stock Allocation -->
+    <div class="gif-slide" id="gif3" style="position:absolute; top:0; left:0; width:100%; height:100%; animation:fadeInOut 12s infinite 6s; opacity:0;">
+      <img src="https://i.gifer.com/7Z9.gif" alt="Stock controller allocating fridges" style="width:100%; height:100%; object-fit:cover; display:block;">
+      <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
+        <i class="fas fa-boxes"></i> "Stock Controller assigns specific units"
+      </div>
+    </div>
+    
+    <!-- GIF 4: Fault Reporting -->
+    <div class="gif-slide" id="gif4" style="position:absolute; top:0; left:0; width:100%; height:100%; animation:fadeInOut 12s infinite 9s; opacity:0;">
+      <img src="https://i.gifer.com/7To.gif" alt="Customer reporting a fault" style="width:100%; height:100%; object-fit:cover; display:block;">
+      <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
+        <i class="fas fa-exclamation-triangle"></i> "Customer reports issue with images"
+      </div>
+    </div>
+    
+    <!-- Progress bar -->
+    <div style="position:absolute; bottom:60px; left:0; right:0; height:4px; background:rgba(255,255,255,0.3); z-index:10;">
+      <div class="progress-bar" style="width:0%; height:100%; background:var(--accent); animation:progress 12s linear infinite;"></div>
+    </div>
+    
+    <!-- Slide indicators -->
+    <div style="position:absolute; bottom:10px; left:0; right:0; display:flex; gap:0.5rem; justify-content:center; z-index:10;">
+      <span class="dot active" id="dot1" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5; transition:opacity 0.3s;"></span>
+      <span class="dot" id="dot2" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5; transition:opacity 0.3s;"></span>
+      <span class="dot" id="dot3" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5; transition:opacity 0.3s;"></span>
+      <span class="dot" id="dot4" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5; transition:opacity 0.3s;"></span>
+    </div>
+  </div>
+  
+  <!-- Caption -->
+  <div style="margin-top:1rem; text-align:center;">
+    <p style="font-weight:600; color:var(--accent); font-size:1.1rem;">
+      <i class="fas fa-quote-left" style="opacity:0.5; margin-right:0.3rem;"></i>
+      Complete rental lifecycle — from registration to resolution
+      <i class="fas fa-quote-right" style="opacity:0.5; margin-left:0.3rem;"></i>
+    </p>
+    <p style="color:var(--text-light); font-size:0.9rem;">Every step powered by SmartChills ❄️</p>
   </div>
 </div>
 
@@ -1071,6 +1062,7 @@
 </script>
 </body>
 </html>
+
 
 
 
