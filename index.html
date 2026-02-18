@@ -577,7 +577,7 @@
     <div class="section-header">
       <span class="section-subtitle">THE BIG PICTURE</span>
       <h2>Fridge Rental Ecosystem</h2>
-      <p style="font-size:1.2rem; color:var(--text-light); max-width:700px; margin:0 auto;">Built for real‑world commercial fridge logistics — 30+ tables, 6 roles, and a state‑machine that never breaks.</p>
+      <p style="font-size:1.2rem; color:var(--text-light); max-width:700px; margin:0 auto;">Built for real‑world commercial fridge logistics — 15+ tables, 6 roles, and a state‑machine that never breaks.</p>
     </div>
 
     <div class="feature-grid" style="grid-template-columns: repeat(6,1fr); gap:1rem;">
@@ -737,26 +737,97 @@
       </div>
     </div>
 
-    <!-- Database Architecture Highlight -->
-    <div style="margin-top:4rem; background: var(--surface); border-radius:42px; padding:3rem; box-shadow:var(--shadow); border:1px solid var(--border);">
-      <div style="display:grid; grid-template-columns:1fr 2fr; gap:3rem; align-items:center;">
-        <div>
-          <h3 style="font-size:2.2rem; font-weight:700; margin-bottom:1rem;">30+ <span style="color:var(--accent);">Database Tables</span></h3>
-          <p style="color:var(--text-light); font-size:1.1rem; line-height:1.6;">
-            Comprehensive relational model with foreign key constraints, soft deletes, and audit trails. 
-            Core entities include AspNetUsers, Fridge, FridgeInStock, FaultReport, FaultComment, FaultAssignment, 
-            FridgeReplacement, RequestHeader, RequestDetails, CustomerFeedback, and BusinessInfo.
-          </p>
-          <div style="margin-top:2rem;">
-            <span class="tech-badge">Identity Framework</span>
-            <span class="tech-badge">Code First Migrations</span>
-            <span class="tech-badge">LINQ</span>
-            <span class="tech-badge">SQL Server</span>
+   <!-- Database Architecture Highlight -->
+<div style="margin-top:4rem; background: var(--surface); border-radius:42px; padding:3rem; box-shadow:var(--shadow); border:1px solid var(--border);">
+  <div style="display:grid; grid-template-columns:1fr 2fr; gap:3rem; align-items:center;">
+    <div>
+      <h3 style="font-size:2.2rem; font-weight:700; margin-bottom:1rem;">30+ <span style="color:var(--accent);">Database Tables</span></h3>
+      <p style="color:var(--text-light); font-size:1.1rem; line-height:1.6;">
+        Comprehensive relational model with foreign key constraints, soft deletes, and audit trails. 
+        Core entities include AspNetUsers, Fridge, FridgeInStock, FaultReport, FaultComment, FaultAssignment, 
+        FridgeReplacement, RequestHeader, RequestDetails, CustomerFeedback, and BusinessInfo.
+      </p>
+      <div style="margin-top:2rem;">
+        <span class="tech-badge">Identity Framework</span>
+        <span class="tech-badge">Code First Migrations</span>
+        <span class="tech-badge">LINQ</span>
+        <span class="tech-badge">SQL Server</span>
+      </div>
+    </div>
+    <div style="background:var(--accent-soft); border-radius:32px; padding:2rem; position:relative; overflow:hidden;">
+      
+      <!-- Animated GIF Flashback Carousel -->
+      <div style="margin-bottom:2rem; position:relative;">
+        <div style="text-align:center; margin-bottom:0.5rem;">
+          <span style="background:var(--accent); color:white; padding:0.2rem 1rem; border-radius:60px; font-size:0.8rem; font-weight:600;">
+            <i class="fas fa-film"></i> CUSTOMER JOURNEY FLASHBACKS
+          </span>
+        </div>
+        
+        <!-- GIF Carousel Container -->
+        <div style="position:relative; width:100%; max-width:300px; margin:0 auto; border-radius:24px; overflow:hidden; box-shadow:0 15px 30px -10px rgba(0,0,0,0.3); background:#000;">
+          
+          <!-- GIF 1: Worried Customer -->
+          <div class="gif-slide" id="gif1" style="animation:fadeInOut 12s infinite;">
+            <img src="https://media.giphy.com/media/3o7abB06u9bNzA8LC8/giphy.gif" alt="Worried customer with fridge issues" style="width:100%; height:auto; display:block;">
+            <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
+              <i class="fas fa-frown" style="margin-right:0.3rem;"></i> "My fridge is broken!"
+            </div>
+          </div>
+          
+          <!-- GIF 2: Customer Service Call -->
+          <div class="gif-slide" id="gif2" style="animation:fadeInOut 12s infinite 3s; opacity:0;">
+            <img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" alt="Customer service representative helping" style="width:100%; height:auto; display:block;">
+            <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
+              <i class="fas fa-headset"></i> "We'll send a technician right away!"
+            </div>
+          </div>
+          
+          <!-- GIF 3: Technician at Work -->
+          <div class="gif-slide" id="gif3" style="animation:fadeInOut 12s infinite 6s; opacity:0;">
+            <img src="https://media.giphy.com/media/l0MYt5jH6gkTWm8qo/giphy.gif" alt="Technician repairing fridge" style="width:100%; height:auto; display:block;">
+            <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
+              <i class="fas fa-tools"></i> "Diagnosing the issue..."
+            </div>
+          </div>
+          
+          <!-- GIF 4: Happy Customer -->
+          <div class="gif-slide" id="gif4" style="animation:fadeInOut 12s infinite 9s; opacity:0;">
+            <img src="https://media.giphy.com/media/l0MYEqE4MWj0oO7D2/giphy.gif" alt="Happy customer with working fridge" style="width:100%; height:auto; display:block;">
+            <div style="position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top, rgba(0,0,0,0.7), transparent); color:white; padding:1rem; text-align:center; font-size:0.9rem;">
+              <i class="fas fa-smile"></i> "It's working perfectly! Thank you!"
+            </div>
+          </div>
+          
+          <!-- Progress bar -->
+          <div style="position:absolute; bottom:60px; left:0; right:0; height:4px; background:rgba(255,255,255,0.3); z-index:10;">
+            <div class="progress-bar" style="width:25%; height:100%; background:var(--accent); animation:progress 12s linear infinite;"></div>
+          </div>
+          
+          <!-- Slide indicators -->
+          <div style="position:absolute; bottom:10px; left:0; right:0; display:flex; gap:0.5rem; justify-content:center; z-index:10;">
+            <span class="dot active" id="dot1" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5;"></span>
+            <span class="dot" id="dot2" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5;"></span>
+            <span class="dot" id="dot3" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5;"></span>
+            <span class="dot" id="dot4" style="width:10px; height:10px; border-radius:50%; background:white; opacity:0.5;"></span>
           </div>
         </div>
-        <div style="background:var(--accent-soft); border-radius:32px; padding:2rem;">
-          <h4 style="font-weight:600; margin-bottom:1.5rem;">Key Relationships</h4>
-          <pre style="color:var(--text); font-size:0.9rem; overflow-x:auto;"><code>// One-to-Many: Fridge → FridgeInStock
+        
+        <!-- Caption -->
+        <div style="margin-top:1rem; text-align:center;">
+          <p style="font-weight:600; color:var(--accent); font-size:1.1rem;">
+            <i class="fas fa-quote-left" style="opacity:0.5; margin-right:0.3rem;"></i>
+            The journey from worried to wow – powered by SmartChills
+            <i class="fas fa-quote-right" style="opacity:0.5; margin-left:0.3rem;"></i>
+          </p>
+          <p style="color:var(--text-light); font-size:0.9rem;">Every customer's story has a happy ending with our system ❤️</p>
+        </div>
+      </div>
+      
+      <h4 style="font-weight:600; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.5rem;">
+        <i class="fas fa-database" style="color:var(--accent);"></i> Key Relationships
+      </h4>
+      <pre style="color:var(--text); font-size:0.9rem; overflow-x:auto;"><code>// One-to-Many: Fridge → FridgeInStock
 Fridge (1) -----< FridgeInStock (N)
 
 // One-to-Many: RequestHeader → RequestDetails
@@ -770,11 +841,72 @@ FaultReport (1) -----< FaultComment (N)
 
 // One-to-One: FaultReport → FridgeReplacement
 FaultReport (1) ----- (1) FridgeReplacement</code></pre>
-        </div>
+      
+      <!-- Cute footer note -->
+      <div style="margin-top:1.5rem; font-size:0.85rem; color:var(--text-light); display:flex; align-items:center; gap:1rem; justify-content:center; border-top:1px dashed var(--border); padding-top:1rem;">
+        <span><i class="fas fa-smile" style="color:var(--accent);"></i> 500+ happy customers</span>
+        <span><i class="fas fa-snowflake" style="color:var(--accent);"></i> 63 fridges in stock</span>
+        <span><i class="fas fa-check-circle" style="color:var(--accent);"></i> 100% satisfaction</span>
       </div>
     </div>
   </div>
-</section>
+</div>
+
+<!-- Add animation styles -->
+<style>
+  @keyframes fadeInOut {
+    0%, 20% { opacity: 1; }
+    25%, 45% { opacity: 0; }
+    50%, 70% { opacity: 0; }
+    75%, 95% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+  
+  @keyframes progress {
+    0% { width: 0%; }
+    25% { width: 25%; }
+    50% { width: 50%; }
+    75% { width: 75%; }
+    100% { width: 100%; }
+  }
+  
+  .gif-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .dot.active {
+    opacity: 1 !important;
+  }
+</style>
+
+<!-- JavaScript to update dots based on current slide -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // This script updates the dot indicators to match the current slide
+    const slides = document.querySelectorAll('.gif-slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    function updateDots() {
+      // Check which slide is currently visible based on its opacity
+      slides.forEach((slide, index) => {
+        const style = window.getComputedStyle(slide);
+        if (style.opacity === '1') {
+          // Remove active class from all dots
+          dots.forEach(dot => dot.classList.remove('active'));
+          // Add active class to current dot
+          if (dots[index]) dots[index].classList.add('active');
+        }
+      });
+    }
+    
+    // Update dots every 100ms to stay in sync with animation
+    setInterval(updateDots, 100);
+  });
+</script>
 
 <!-- CHALLENGES – PROFESSIONAL NARRATIVE -->
 <section id="challenges">
@@ -967,6 +1099,7 @@ FaultReport (1) ----- (1) FridgeReplacement</code></pre>
 </script>
 </body>
 </html>
+
 
 
 
