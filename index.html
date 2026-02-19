@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nokubonga Mpanza · full‑stack portfolio</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
@@ -35,6 +35,965 @@
       --primary: #b1d0f0;
       --accent: #f2855e;
       --accent-soft: #3d3f4a;
+      --text: #edf2f7;
+      --text-light: #b0c0d0;
+      --border: #33495f;
+      --shadow: 0 20px 30px -10px rgba(0,0,0,0.5);
+      --gradient-title: linear-gradient(135deg, #b1d0f0, #f2855e);
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .navbar {
+      position: fixed;
+      width: 100%;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .dark-mode .navbar {
+      background: rgba(20,30,40,0.7);
+      border-bottom-color: #2a3a4a;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+
+    .nav-brand {
+      font-size: 1.9rem;
+      font-weight: 800;
+      background: var(--gradient-title);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--text);
+      font-size: 1rem;
+      transition: 0.2s;
+      padding: 0.3rem 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-menu a:hover, .nav-menu a.active {
+      border-bottom-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .dark-toggle {
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 60px;
+      padding: 0.3rem 1rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-toggle { display: none; font-size: 1.8rem; cursor: pointer; }
+
+    .section {
+      padding: 140px 0 80px;
+    }
+
+    .section-header {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.4rem 1.6rem;
+      border-radius: 60px;
+      display: inline-block;
+    }
+
+    .section h2 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      margin: 1rem 0;
+      background: var(--gradient-title);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .home-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .profile-card {
+      background: var(--surface);
+      border-radius: var(--card-radius);
+      padding: 2.8rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .profile-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent);
+      margin: 0 auto 1.8rem;
+      display: block;
+      box-shadow: 0 15px 25px -10px rgba(194,90,42,0.3);
+    }
+
+    .profile-name {
+      font-size: 2.8rem;
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: -1px;
+      line-height: 1.2;
+    }
+
+    .profile-title {
+      text-align: center;
+      font-size: 1.3rem;
+      color: var(--accent);
+      background: var(--accent-soft);
+      display: inline-block;
+      padding: 0.4rem 2rem;
+      border-radius: 60px;
+      margin: 1rem auto 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.2rem 0;
+    }
+
+    .contact-icon {
+      width: 54px; height: 54px;
+      background: var(--accent-soft);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--accent);
+      transition: 0.2s;
+    }
+
+    .contact-item:hover .contact-icon {
+      background: var(--accent);
+      color: white;
+    }
+
+    .preview-card {
+      background: var(--surface);
+      border-radius: var(--card-radius);
+      padding: 2.2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .badge {
+      background: var(--accent);
+      color: white;
+      padding: 0.3rem 1.5rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-block;
+    }
+
+    .tech-badge {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin: 0.2rem 0.2rem 0 0;
+    }
+
+    .demo-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .demo-card {
+      background: var(--surface);
+      border-radius: 32px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: 0.2s;
+      width: 100%;
+    }
+
+    .demo-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .demo-frame {
+      width: 100%;
+      height: 280px;           
+      background: var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      cursor: pointer;          
+    }
+
+    .demo-frame video, .demo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;     
+    }
+
+    .demo-card strong {
+      margin-top: 1.2rem;
+      display: block;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      width: 90%;
+      max-width: 1000px;        
+      background: transparent;
+      text-align: center;
+      animation: zoom 0.3s;
+    }
+
+    .modal video, .modal img {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 50px;
+      color: white;
+      font-size: 3rem;
+      font-weight: 300;
+      cursor: pointer;
+      transition: 0.2s;
+      z-index: 2001;
+    }
+
+    .close:hover {
+      color: var(--accent);
+    }
+
+    @keyframes zoom {
+      from {transform: scale(0.8); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border-radius: 36px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature-image {
+      height: 220px;
+      overflow: hidden;
+      border-bottom: 3px solid var(--accent-soft);
+    }
+
+    .feature-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+
+    .feature-card:hover .feature-image img {
+      transform: scale(1.05);
+    }
+
+    .feature-content {
+      padding: 2rem 1.8rem;
+    }
+
+    .feature-icon {
+      width: 56px; height: 56px;
+      background: var(--accent-soft);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    .challenge-card {
+      background: var(--surface);
+      border-radius: 32px;
+      padding: 2rem;
+      border-left: 6px solid var(--accent);
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+      border-top: 6px solid var(--accent);
+    }
+    .dark-mode footer {
+      background: #0f1a24;
+    }
+
+    @media (max-width: 950px) {
+      .home-grid { grid-template-columns: 1fr; }
+      .nav-menu { display: none; }
+      .nav-toggle { display: block; }
+      .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: var(--surface);
+        padding: 2rem;
+        box-shadow: 0 30px 30px -10px rgba(0,0,0,0.2);
+      }
+      .demo-frame {
+        height: 220px;
+      }
+    }
+
+    @keyframes fadeInOut {
+      0%, 20% { opacity: 1; }
+      25%, 45% { opacity: 0; }
+      50%, 70% { opacity: 0; }
+      75%, 95% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    
+    @keyframes progress {
+      0% { width: 0%; }
+      25% { width: 25%; }
+      50% { width: 50%; }
+      75% { width: 75%; }
+      100% { width: 100%; }
+    }
+    
+    .dot.active {
+      opacity: 1 !important;
+    }
+  </style>
+</head>
+<body>
+
+<div id="videoModal" class="modal" onclick="closeModal(event)">
+  <span class="close" onclick="closeModal(event)">&times;</span>
+  <div class="modal-content" id="modalContent"></div>
+</div>
+
+<nav class="navbar">
+  <div class="container nav-container">
+    <div class="nav-brand">NOKUBONGA MPANZA</div>
+    <div class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#home">HOME</a></li>
+      <li><a href="#project">PROJECT</a></li>
+      <li><a href="#system">SYSTEM</a></li>
+      <li><a href="#features">FEATURES</a></li>
+      <li><a href="#challenges">CHALLENGES</a></li>
+      <li><button class="dark-toggle" id="themeToggle"><i class="fas fa-moon"></i> <span>dark</span></button></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="section">
+  <div class="container home-grid">
+    <div class="profile-card">
+      <img src="images/Profile photo.jpg" alt="Nokubonga Mpanza" class="profile-photo" onerror="this.src='https://via.placeholder.com/200x200?text=Nokubonga';">
+      <h1 class="profile-name">Nokubonga Mpanza</h1>
+      <div class="profile-title" style="text-align: center; margin-left: auto; margin-right: auto;">Junior Software Developer</div>
+
+      <div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div><strong>Email</strong><br><a href="mailto:nokubongampanza12@gmail.com" style="color:var(--text);">nokubongampanza12@gmail.com</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+          <div><strong>Phone</strong><br><a href="tel:+27763426136" style="color:var(--text);">076 342 6136</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+          <div><strong>LinkedIn</strong><br><a href="https://www.linkedin.com/in/nokubonga-mpanza-9371831b3" target="_blank">nokubonga-mpanza</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fab fa-github"></i></div>
+          <div><strong>GitHub</strong><br><a href="https://github.com/Nokubonga-07/Fridge-Management-System" target="_blank">Nokubonga-07</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fas fa-file-pdf"></i></div>
+        <div><strong>CV</strong><br><span style="color: var(--text); font-weight: 500;">📄 available upon request</span></div>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <h3 style="font-weight:700; margin-bottom:0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+          <i class="fas fa-briefcase" style="color: var(--accent);"></i> Professional Summary
+        </h3>
+        <div style="color:var(--text-light); background: var(--accent-soft); padding: 1.5rem; border-radius: 24px;">
+          <p style="margin-bottom: 1rem; font-size: 1rem; line-height: 1.6;">
+            <strong>Information Technology graduate</strong> with comprehensive full‑stack development experience, specializing in <strong>C#/.NET MVC, SQL Server, and Entity Framework</strong>. Delivered a complete commercial fridge rental management platform for my 3rd year Project at Nelson Mandela University. The system handles the entire rental lifecycle with 15+ database tables and 6 distinct user roles. I am willing to learn and gain more experience in the industry.
+          </p>
+          <p style="font-size: 1rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <span style="background: var(--accent); color: white; padding: 0.3rem 1rem; border-radius: 60px;">🔍 #OpenToWork</span>
+            <span style="background: var(--primary); color: white; padding: 0.3rem 1rem; border-radius: 60px;">📍 Willing to relocate</span>
+            <span style="background: var(--surface); color: var(--text); padding: 0.3rem 1rem; border-radius: 60px; border: 1px solid var(--border);">🌍 Remote / Hybrid</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <!-- ATTRACTIVE PROJECT SUMMARY -->
+      <div class="preview-card">
+        <span class="badge">🚀 FLAGSHIP PROJECT</span>
+        <h2 style="font-size:2.8rem; margin:1rem 0 0.5rem;">SmartChills Fridge Rental System</h2>
+        <p style="color:var(--text-light); font-size:1.1rem; line-height:1.6;">
+          A comprehensive enterprise-grade platform for commercial fridge rental operations. The system manages the complete lifecycle – from customer registration with business verification, rental requests, inventory tracking, fault reporting, technician scheduling, maintenance management, and automated replacement workflows. Built for real-world logistics with 15+ database tables and 6 distinct user roles.
+        </p>
+        <div style="margin:1.8rem 0;">
+          <span class="tech-badge">ASP.NET Core MVC</span>
+          <span class="tech-badge">C#</span>
+          <span class="tech-badge">SQL Server</span>
+          <span class="tech-badge">Entity Framework Core</span>
+          <span class="tech-badge">Identity Framework</span>
+          <span class="tech-badge">15+ Database Tables</span>
+        </div>
+      </div>
+
+      <div class="demo-stack">
+        <!-- Demo 1: Scrapped -->
+        <div class="demo-card">
+          <div class="demo-frame" onclick="openVideoModal('images/Scrapped.mp4', true)">
+            <video autoplay muted loop playsinline>
+              <source src="images/Scrapped.mp4" type="video/mp4">
+              <img src="https://placehold.co/600x400/cc5a2a/white?text=Scrapped.mp4" alt="video placeholder">
+            </video>
+          </div>
+          <strong>🎬 Auto‑replacement · one‑click scrapping triggers support approval & stock controller processing</strong>
+        </div>
+        <!-- Demo 2: CustomerFeedback  -->
+        <div class="demo-card">
+          <div class="demo-frame" onclick="openVideoModal('images/CustomerFeedback.mp4', true)">
+            <video autoplay muted loop playsinline>
+              <source src="images/CustomerFeedback.mp4" type="video/mp4">
+              <img src="https://placehold.co/600x400/cc5a2a/white?text=CustomerFeedback.mp4" alt="video placeholder">
+            </video>
+          </div>
+          <strong>📊 Customer feedback dashboard · live satisfaction tracking after fault resolution</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT DEEP DIVE -->
+<section id="project" style="background: var(--accent-soft);">
+  <div class="container section">
+    <div class="section-header">
+      <span class="section-subtitle">THE BIG PICTURE</span>
+      <h2>Fridge Rental Ecosystem</h2>
+      <p style="font-size:1.2rem; color:var(--text-light); max-width:700px; margin:0 auto;">Built for real‑world commercial fridge logistics — 15+ tables, 6 roles, and a state‑machine that never breaks.</p>
+    </div>
+
+    <div class="feature-grid" style="grid-template-columns: repeat(6,1fr); gap:1rem;">
+      <!-- Admin Role -->
+      <div class="feature-card" style="border-left: 6px solid #9b59b6; min-width:0;">
+        <div class="feature-content" style="padding:1.5rem 1rem;">
+          <div class="feature-icon" style="width:45px; height:45px; font-size:1.5rem;"><i class="fas fa-crown"></i></div>
+          <h3 style="font-size:1.3rem;">Admin</h3>
+          <p style="font-size:0.85rem;">full system oversight · user management · configuration</p>
+        </div>
+      </div>
+      <!-- Customer Role -->
+      <div class="feature-card" style="border-left: 6px solid var(--accent); min-width:0;">
+        <div class="feature-content" style="padding:1.5rem 1rem;">
+          <div class="feature-icon" style="width:45px; height:45px; font-size:1.5rem;"><i class="fas fa-user-check"></i></div>
+          <h3 style="font-size:1.3rem;">Customer</h3>
+          <p style="font-size:0.85rem;">business‑document upload · request relaunch · fault reporting</p>
+        </div>
+      </div>
+      <!-- Fault Technician Role -->
+      <div class="feature-card" style="border-left: 6px solid var(--primary); min-width:0;">
+        <div class="feature-content" style="padding:1.5rem 1rem;">
+          <div class="feature-icon" style="width:45px; height:45px; font-size:1.5rem;"><i class="fas fa-tools"></i></div>
+          <h3 style="font-size:1.3rem;">Fault Tech</h3>
+          <p style="font-size:0.85rem;">diagnose · communicate · auto‑create replacement requests</p>
+        </div>
+      </div>
+      <!-- Customer Support Role -->
+      <div class="feature-card" style="border-left: 6px solid #e6b800; min-width:0;">
+        <div class="feature-content" style="padding:1.5rem 1rem;">
+          <div class="feature-icon" style="width:45px; height:45px; font-size:1.5rem;"><i class="fas fa-headset"></i></div>
+          <h3 style="font-size:1.3rem;">Support</h3>
+          <p style="font-size:0.85rem;">approve/decline replacements · summary‑only fault view</p>
+        </div>
+      </div>
+      <!-- Stock Controller Role -->
+      <div class="feature-card" style="border-left: 6px solid #2e8b57; min-width:0;">
+        <div class="feature-content" style="padding:1.5rem 1rem;">
+          <div class="feature-icon" style="width:45px; height:45px; font-size:1.5rem;"><i class="fas fa-boxes"></i></div>
+          <h3 style="font-size:1.3rem;">Stock Ctrl</h3>
+          <p style="font-size:0.85rem;">physical removal · disposal method · scrapping certificate</p>
+        </div>
+      </div>
+      <!-- Maintenance Tech Role -->
+      <div class="feature-card" style="border-left: 6px solid #3498db; min-width:0;">
+        <div class="feature-content" style="padding:1.5rem 1rem;">
+          <div class="feature-icon" style="width:45px; height:45px; font-size:1.5rem;"><i class="fas fa-wrench"></i></div>
+          <h3 style="font-size:1.3rem;">Maint Tech</h3>
+          <p style="font-size:0.85rem;">preventive maintenance · service documentation</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLETE SYSTEM OVERVIEW -->
+<section id="system">
+  <div class="container section">
+    <div class="section-header">
+      <span class="section-subtitle">COMMERCIAL FRIDGE RENTAL PLATFORM</span>
+      <h2>Complete Rental Lifecycle Management</h2>
+      <p style="font-size:1.2rem; color:var(--text-light);">From customer onboarding to final disposal — every step automated and tracked</p>
+    </div>
+
+    <div class="feature-grid" style="grid-template-columns: repeat(3,1fr); gap:2rem;">
+      <!-- Customer Journey Card -->
+      <div class="feature-card" style="border-left: 6px solid var(--accent);">
+        <div class="feature-content">
+          <div class="feature-icon"><i class="fas fa-user-circle"></i></div>
+          <h3>Customer Journey</h3>
+          <ul style="list-style-type:none; padding:0; margin-top:1rem;">
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Business registration with document upload</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Admin approval workflow</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Browse available commercial fridges</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Submit rental requests (multiple fridges)</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Request relaunch with additional documents</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Fault reporting with image uploads</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Rental Management Card -->
+      <div class="feature-card" style="border-left: 6px solid var(--primary);">
+        <div class="feature-content">
+          <div class="feature-icon"><i class="fas fa-file-contract"></i></div>
+          <h3>Rental Management</h3>
+          <ul style="list-style-type:none; padding:0; margin-top:1rem;">
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Request processing by Customer Support</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Stock Controller allocation of specific units</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Delivery tracking and scheduling</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Complete rental history and audit trail</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Payment integration ready</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Inventory Management Card -->
+      <div class="feature-card" style="border-left: 6px solid #2e8b57;">
+        <div class="feature-content">
+          <div class="feature-icon"><i class="fas fa-warehouse"></i></div>
+          <h3>Inventory & Stock</h3>
+          <ul style="list-style-type:none; padding:0; margin-top:1rem;">
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Individual fridge unit tracking (FridgeInStock)</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Condition monitoring across locations</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>63 seed units across 6 warehouse locations</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>10 fridge models with detailed specifications</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Real-time availability status</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Fault Management Card -->
+      <div class="feature-card" style="border-left: 6px solid #e6b800;">
+        <div class="feature-content">
+          <div class="feature-icon"><i class="fas fa-exclamation-triangle"></i></div>
+          <h3>Fault Management</h3>
+          <ul style="list-style-type:none; padding:0; margin-top:1rem;">
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Multi-step fault reporting with images</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Priority assignment (High/Medium/Low)</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Technician assignment and scheduling</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Internal/external comment system</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>12-state transition machine with validation</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Customer feedback collection with ratings</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Auto‑close after 7 days or immediate for scrapped</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Replacement Workflow Card -->
+      <div class="feature-card" style="border-left: 6px solid #9b59b6;">
+        <div class="feature-content">
+          <div class="feature-icon"><i class="fas fa-exchange-alt"></i></div>
+          <h3>Replacement Workflow</h3>
+          <ul style="list-style-type:none; padding:0; margin-top:1rem;">
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Technician marks as scrapped → auto‑creates request</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Customer Support approves/declines (summary only)</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Stock Controller processes physical removal</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Disposal method selection (Recycling, Landfill, etc.)</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Scrapping certificate generation with audit trail</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Business Intelligence Card -->
+      <div class="feature-card" style="border-left: 6px solid #3498db;">
+        <div class="feature-content">
+          <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+          <h3>Business Intelligence</h3>
+          <ul style="list-style-type:none; padding:0; margin-top:1rem;">
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Company branding and logo management</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Export reports (Excel, PDF) with professional formatting</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Complete audit trail of all transactions</li>
+            <li style="margin-bottom:0.8rem;"><i class="fas fa-check-circle" style="color:var(--accent); margin-right:0.5rem;"></i>Analytics dashboard for each role</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Database Architecture Highlight -->
+    <div style="margin-top:4rem; background: var(--surface); border-radius:42px; padding:3rem; box-shadow:var(--shadow); border:1px solid var(--border);">
+      <div style="display:grid; grid-template-columns:1fr 2fr; gap:3rem; align-items:center;">
+        <div>
+          <h3 style="font-size:2.2rem; font-weight:700; margin-bottom:1rem;">15+ <span style="color:var(--accent);">Database Tables</span></h3>
+          <p style="color:var(--text-light); font-size:1.1rem; line-height:1.6;">
+            Comprehensive relational model with foreign key constraints, soft deletes, and audit trails. 
+            Core entities include AspNetUsers, Fridge, FridgeInStock, FaultReport, FaultComment, FaultAssignment, 
+            FridgeReplacement, RequestHeader, RequestDetails, CustomerFeedback, and BusinessInfo.
+          </p>
+          <div style="margin-top:2rem;">
+            <span class="tech-badge">Identity Framework</span>
+            <span class="tech-badge">Code First Migrations</span>
+            <span class="tech-badge">LINQ</span>
+            <span class="tech-badge">SQL Server</span>
+          </div>
+        </div>
+        <div style="background:var(--accent-soft); border-radius:32px; padding:2rem; position:relative; overflow:hidden;">
+          
+<!-- CHALLENGES – PROFESSIONAL NARRATIVE -->
+<section id="challenges">
+  <div class="container section">
+    <div class="section-header">
+      <span class="section-subtitle">PROBLEM SOLVER</span>
+      <h2>Technical Challenges Overcome</h2>
+      <p style="font-size:1.2rem; color:var(--text-light);">real‑world constraints · pragmatic solutions</p>
+    </div>
+
+    <div class="feature-grid" style="grid-template-columns: repeat(3,1fr); gap: 2.5rem;">
+      
+      <!-- CHALLENGE 1: FAULT SOURCE UNIFICATION -->
+      <div class="challenge-card">
+        <h3 style="font-size:2.2rem; margin-bottom:0.5rem; color:var(--accent);">🔀</h3>
+        <h3 style="font-size:1.8rem; margin-bottom:1rem;">Unifying fault sources</h3>
+        <p style="color:var(--text-light); margin-bottom:1.5rem; font-size:1rem; line-height:1.6;">
+          The system had two distinct fault origins – <strong>customer‑reported faults</strong> and <strong>maintenance‑visit failures</strong>. 
+          Technicians needed a single dashboard to see both types without confusion.
+        </p>
+        <div style="background: var(--accent-soft); padding:1.5rem; border-radius:24px;">
+          <p style="font-weight:600; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;">
+            <i class="fas fa-check-circle" style="color:var(--accent);"></i> Solution:
+          </p>
+          <p style="color:var(--text);">
+            Designed a <strong>combined view model</strong> with dynamic filtering by source and status. 
+            Used <code>Discriminator</code> pattern in Entity Framework to preserve audit trails while presenting a unified technician experience.
+          </p>
+        </div>
+      </div>
+
+      <!-- CHALLENGE 2: REPLACEMENT DATA INTEGRITY -->
+      <div class="challenge-card">
+        <h3 style="font-size:2.2rem; margin-bottom:0.5rem; color:var(--accent);">💣</h3>
+        <h3 style="font-size:1.8rem; margin-bottom:1rem;">Replacement integrity</h3>
+        <p style="color:var(--text-light); margin-bottom:1.5rem; font-size:1rem; line-height:1.6;">
+          When a technician marked a fridge as “scrapped”, the system had to atomically: update fault status, create a replacement request, 
+          notify customer support, and reserve a new fridge – all or nothing.
+        </p>
+        <div style="background: var(--accent-soft); padding:1.5rem; border-radius:24px;">
+          <p style="font-weight:600; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;">
+            <i class="fas fa-check-circle" style="color:var(--accent);"></i> Solution:
+          </p>
+          <p style="color:var(--text);">
+            Implemented <strong>explicit database transactions</strong> with <code>TransactionScope</code> across multiple DbContext operations. 
+            Added compensating logic for approval/rejection, ensuring inventory never desynchronized.
+          </p>
+        </div>
+      </div>
+
+      <!-- CHALLENGE 3: CUSTOMER SUPPORT ISOLATION -->
+      <div class="challenge-card">
+        <h3 style="font-size:2.2rem; margin-bottom:0.5rem; color:var(--accent);">🔒</h3>
+        <h3 style="font-size:1.8rem; margin-bottom:1rem;">Support role isolation</h3>
+        <p style="color:var(--text-light); margin-bottom:1.5rem; font-size:1rem; line-height:1.6;">
+          Business rules required that Customer Support could <strong>approve/decline replacement requests without viewing fault details</strong> 
+          (to maintain objectivity). Yet they needed to know who requested it and why.
+        </p>
+        <div style="background: var(--accent-soft); padding:1.5rem; border-radius:24px;">
+          <p style="font-weight:600; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;">
+            <i class="fas fa-check-circle" style="color:var(--accent);"></i> Solution:
+          </p>
+          <p style="color:var(--text);">
+            Created a <strong>projection view model</strong> that strips fault details, showing only replacement summary. 
+            Implemented separate authorization filters to block direct navigation to fault reports from the support interface.
+          </p>
+        </div>
+      </div>
+
+      <!-- CHALLENGE 4: STATE TRANSITION RULES -->
+      <div class="challenge-card">
+        <h3 style="font-size:2.2rem; margin-bottom:0.5rem; color:var(--accent);">⛔</h3>
+        <h3 style="font-size:1.8rem; margin-bottom:1rem;">State transition rules</h3>
+        <p style="color:var(--text-light); margin-bottom:1.5rem; font-size:1rem; line-height:1.6;">
+          Fault reports could only follow 12 valid paths (e.g., Reported → Scheduled → InProgress → Resolved). 
+          Buttons had to be conditionally shown based on both role and current status.
+        </p>
+        <div style="background: var(--accent-soft); padding:1.5rem; border-radius:24px;">
+          <p style="font-weight:600; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;">
+            <i class="fas fa-check-circle" style="color:var(--accent);"></i> Solution:
+          </p>
+          <p style="color:var(--text);">
+            Built a <strong>state‑transition matrix</strong> in the view model, with Razor logic that renders buttons only when 
+            <code>IsValidTransition(current, target)</code> returns true. Eliminated all invalid status updates at the UI level.
+          </p>
+        </div>
+      </div>
+
+      <!-- CHALLENGE 5: AUTO‑CLOSE MECHANISM -->
+      <div class="challenge-card">
+        <h3 style="font-size:2.2rem; margin-bottom:0.5rem; color:var(--accent);">⏰</h3>
+        <h3 style="font-size:1.8rem; margin-bottom:1rem;">Auto‑close after 7 days</h3>
+        <p style="color:var(--text-light); margin-bottom:1.5rem; font-size:1rem; line-height:1.6;">
+          Business rule: resolved faults should auto‑close after 7 days if not manually closed. Needed a non‑intrusive background mechanism.
+        </p>
+        <div style="background: var(--accent-soft); padding:1.5rem; border-radius:24px;">
+          <p style="font-weight:600; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;">
+            <i class="fas fa-check-circle" style="color:var(--accent);"></i> Solution:
+          </p>
+          <p style="color:var(--text);">
+            Added an <code>AutoCloseFaultIfNeeded</code> method called during any fault view access. 
+            For scrapped faults, closure is immediate; for resolved faults, it checks <code>ResolvedDate.AddDays(7) <= DateTime.Now</code>.
+          </p>
+        </div>
+      </div>
+
+      <!-- CHALLENGE 6: COMMENT VISIBILITY -->
+      <div class="challenge-card">
+        <h3 style="font-size:2.2rem; margin-bottom:0.5rem; color:var(--accent);">💬</h3>
+        <h3 style="font-size:1.8rem; margin-bottom:1rem;">Internal vs. external comments</h3>
+        <p style="color:var(--text-light); margin-bottom:1.5rem; font-size:1rem; line-height:1.6;">
+          Technicians needed a way to leave internal notes (hidden from customers) alongside public updates.
+        </p>
+        <div style="background: var(--accent-soft); padding:1.5rem; border-radius:24px;">
+          <p style="font-weight:600; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;">
+            <i class="fas fa-check-circle" style="color:var(--accent);"></i> Solution:
+          </p>
+          <p style="color:var(--text);">
+            Added <code>IsInternalNote</code> boolean to <code>FaultComment</code>. Customer views filter out internal notes; technician views show them with 
+            distinct styling. Used the same property to generate two‑color timelines.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p style="font-size:2.5rem; font-weight:700; letter-spacing:-1px;">Nokubonga Mpanza</p>
+    <p style="margin:1rem 0 2rem; opacity:0.8;">fridge rental management system · smartchills · 2025</p>
+    <div style="display:flex; gap:2.5rem; justify-content:center; font-size:1.6rem;">
+      <a href="https://www.linkedin.com/in/nokubonga-mpanza-9371831b3" target="_blank" style="color:white;"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/Nokubonga-07/Fridge-Management-System" target="_blank" style="color:white;"><i class="fab fa-github"></i></a>
+      <a href="mailto:nokubongampanza12@gmail.com" style="color:white;"><i class="fas fa-envelope"></i></a>
+    </div>
+    <hr style="border-color:#ffffff30; margin:2rem auto; width:120px;">
+    <p style="font-size:0.9rem;">built with C#, MVC, and persistence</p>
+  </div>
+</footer>
+
+<script>
+  // modal functions for half‑page video view
+  const modal = document.getElementById('videoModal');
+  const modalContent = document.getElementById('modalContent');
+
+  function openVideoModal(src, isVideo) {
+    modal.style.display = 'flex';
+    if (isVideo) {
+      modalContent.innerHTML = `<video controls autoplay><source src="${src}" type="video/mp4">Your browser does not support the video tag.</video>`;
+    } else {
+      modalContent.innerHTML = `<img src="${src}" alt="enlarged view">`;
+    }
+  }
+
+  function closeModal(e) {
+    if (e.target === modal || e.target.classList.contains('close')) {
+      modal.style.display = 'none';
+      modalContent.innerHTML = ''; // clear content
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('navMenu');
+    toggle.addEventListener('click', function() {
+      menu.classList.toggle('active');
+    });
+
+    // dark mode toggle
+    const themeBtn = document.getElementById('themeToggle');
+    themeBtn.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+      themeBtn.innerHTML = document.body.classList.contains('dark-mode') ? '<i class="fas fa-sun"></i> <span>light</span>' : '<i class="fas fa-moon"></i> <span>dark</span>';
+    });
+
+    // active nav
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    
+    function updateActiveNav() {
+      let current = '';
+      sections.forEach(function(s) {
+        const top = s.offsetTop - 90;
+        if (window.pageYOffset >= top && window.pageYOffset < top + s.clientHeight) {
+          current = s.getAttribute('id');
+        }
+      });
+      navLinks.forEach(function(link) {
+        link.classList.remove('active');
+        if (link.getAttribute('href')?.substring(1) === current) {
+          link.classList.add('active');
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav();
+
+    // Update dots based on current slide
+    const slides = document.querySelectorAll('.gif-slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    function updateDots() {
+      slides.forEach(function(slide, index) {
+        const style = window.getComputedStyle(slide);
+        if (style.opacity === '1') {
+          dots.forEach(function(dot) {
+            dot.classList.remove('active');
+          });
+          if (dots[index]) {
+            dots[index].classList.add('active');
+          }
+        }
+      });
+    }
+    
+    setInterval(updateDots, 100);
+  });
+</script>
+
+</body>
+</html>      --accent-soft: #3d3f4a;
       --text: #edf2f7;
       --text-light: #b0c0d0;
       --border: #33495f;
@@ -4062,5 +5021,6 @@ FaultReport (1) ----- (1) FridgeReplacement</code></pre>
 
 </body>
 </html>
+
 
 
